@@ -1,50 +1,18 @@
 package com.modelo.jpa;
 
-import java.util.List;
-
 import com.modelo.dao.TuroriaDAO;
 import com.modelo.entidad.Tutoria;
+import com.modelo.entidad.Usuario;
 
 /**
  * @author Peterca
  * @version 1.0
- * @created 31-ago.-2021 13:21:56
+ * @created 01-sep.-2021 18:03:57
  */
-public class JPATutoriaDAO implements TuroriaDAO {
+public class JPATutoriaDAO extends JPAGenericDAO<Tutoria, Integer> implements TuroriaDAO {
 
-	public JPATutoriaDAO(){
-
+	public JPATutoriaDAO() {
+		super(Tutoria.class);
 	}
 
-	@Override
-	public void actualizar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void crear() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void eliminar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Tutoria> obtenerTutorias() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Tutoria> buscarTutorias() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-}//end JPATutoriaDAO
+}// end JPATutoriaDAO

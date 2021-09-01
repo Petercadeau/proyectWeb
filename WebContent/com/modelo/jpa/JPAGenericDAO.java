@@ -2,24 +2,17 @@ package com.modelo.jpa;
 
 import java.util.List;
 
-import com.modelo.dao.AdministradorDAO;
-import com.modelo.entidad.*;
+import com.modelo.dao.GenericDAO;
 
 /**
  * @author Peterca
  * @version 1.0
- * @created 01-sep.-2021 18:03:53
+ * @created 01-sep.-2021 18:03:57
  */
-public class JPAAdministradorDAO extends JPAUsuarioDAO implements AdministradorDAO {
+public class JPAGenericDAO<T, ID> implements GenericDAO {
 
-	public JPAAdministradorDAO() {
+	public JPAGenericDAO(Class<T> persitentClass) {
 
-	}
-
-	@Override
-	public Usuario autorizar() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -51,4 +44,4 @@ public class JPAAdministradorDAO extends JPAUsuarioDAO implements AdministradorD
 		// TODO Auto-generated method stub
 		return null;
 	}
-}// end JPAAdministradorDAO
+}// end JPAGenericDAO<T,ID>

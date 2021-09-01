@@ -1,62 +1,19 @@
 package com.modelo.jpa;
 
-import java.util.List;
-
-import com.modelo.dao.UsuarioDAO;
 import com.modelo.entidad.Usuario;
 
 /**
  * @author Peterca
  * @version 1.0
- * @created 31-ago.-2021 13:22:25
+ * @created 01-sep.-2021 18:03:04
  */
-public class JPAUsuarioDAO implements UsuarioDAO {
+public class JPAUsuarioDAO extends JPAGenericDAO<Usuario, Integer> {
 
-	public JPAUsuarioDAO(){
-
+	public JPAUsuarioDAO() {
+		super(Usuario.class);
 	}
 
-	@Override
-	public void actualizar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public com.modelo.entidad.Usuario autorizar() {
-		// TODO Auto-generated method stub
+	public Usuario autorizar() {
 		return null;
 	}
-
-	@Override
-	public void crear() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void eliminar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void obtener() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Usuario> obtenerUsuarios() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Usuario buscarUsuario(String cedula) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-}//end JPAUsuarioDAO
+}// end JPAUsuarioDAO

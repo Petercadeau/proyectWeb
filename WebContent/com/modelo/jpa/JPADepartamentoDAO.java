@@ -8,7 +8,7 @@ import com.modelo.entidad.Departamento;
  * @version 1.0
  * @created 01-sep.-2021 18:03:55
  */
-public class JPADepartamentoDAO extends JPAGenericDAO<Departamento, Integer> implements DepartamentoDAO {
+public class JPADepartamentoDAO extends JPAGenericDAO implements DepartamentoDAO {
 
 	public JPADepartamentoDAO() {
 		super(Departamento.class);

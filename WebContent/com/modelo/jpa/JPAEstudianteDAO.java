@@ -18,4 +18,11 @@ public class JPAEstudianteDAO extends JPAUsuarioDAO implements EstudianteDAO {
 	public Usuario autorizar(){
 		return null;
 	}
+
+
+	@Override
+	public Usuario autorizar(Usuario u) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }//end JPAEstudianteDAO

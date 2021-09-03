@@ -8,7 +8,7 @@ import com.modelo.entidad.Horario;
  * @version 1.0
  * @created 01-sep.-2021 18:03:57
  */
-public class JPAHorarioDAO extends JPAGenericDAO<Horario,Integer> implements HorarioDAO {
+public class JPAHorarioDAO extends JPAGenericDAO implements HorarioDAO {
 
 	public JPAHorarioDAO(){
 		super(Horario.class);

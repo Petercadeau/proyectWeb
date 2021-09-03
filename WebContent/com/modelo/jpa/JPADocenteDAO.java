@@ -19,4 +19,11 @@ public class JPADocenteDAO extends JPAUsuarioDAO implements DocenteDAO {
 	public Usuario autorizar(){
 		return null;
 	}
+
+
+	@Override
+	public Usuario autorizar(Usuario u) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }//end JPADocenteDAO

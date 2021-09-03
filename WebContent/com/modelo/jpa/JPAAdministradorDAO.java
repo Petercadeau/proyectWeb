@@ -23,32 +23,10 @@ public class JPAAdministradorDAO extends JPAUsuarioDAO implements AdministradorD
 	}
 
 	@Override
-	public void actualizar(Object entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void crear(Object entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void eliminar(Object id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List obtener(Object entity) {
+	public Usuario autorizar(Usuario u) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public Object obtenerPorId(Object id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }// end JPAAdministradorDAO

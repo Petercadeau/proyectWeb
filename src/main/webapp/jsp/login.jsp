@@ -21,7 +21,7 @@
                             <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
                                 <div class="mb-3">
                                     <label class="mb-2 text-muted" for="email">C�dula</label>
-                                    <input id="email" type="email" class="form-control" name="email" value="" required
+                                    <input id="cedula" type="text" class="form-control" name="email" value="" required
                                         autofocus>
                                     <div class="invalid-feedback">
                                         Credenciales incorrectas
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="form-check">
-                                        <input type="checkbox" name="remember" id="remember" class="form-check-input">
+                                        <input type="checkbox" name="remember" id="recordarme" class="form-check-input">
                                         <label for="remember" class="form-check-label">Recordarme</label>
                                     </div>
                                     <button type="submit" class="btn btn-primary ms-auto">

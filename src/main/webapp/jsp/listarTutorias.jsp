@@ -12,10 +12,11 @@
 	<div class="container-fluid">
 		<div class="row my-5 text-center justify-content-md-center">
 			<div class="col-8 my-2" style="color: #AEAEAE">
-				<h1>Listar tutorías</h1><br>
+				<h1>Listar tutorías</h1>
+				<br>
 				<table class="table table-dark table-striped">
 					<thead>
-						<tr>
+						<tr class="align-middle">
 							<th>Cédula del estudiante</th>
 							<th>Nombre</th>
 							<th>Fecha</th>
@@ -24,7 +25,7 @@
 					</thead>
 
 					<c:forEach var="tutorias" items="${tutoria}">
-						<tr>
+						<tr class="align-middle">
 							<td>${tutoria.cedula}</td>
 							<td>${tutoria.nombre}</td>
 							<td>${tutoria.fecha}</td>

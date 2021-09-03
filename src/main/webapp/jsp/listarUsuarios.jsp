@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Listar Usuarios</title>
 <%@ include file="../templates/meta.jsp"%>
 </head>
 <body " style="background-color: #343A40">
@@ -24,31 +24,32 @@
 							<th>Acciones</th>
 						</tr>
 					</thead>
-					<tr>
+					<tr class="align-middle">
 						<td>0123456789</td>
 						<td>Apellido X</td>
 						<td>Nombre X</td>
 						<td>Administrador</td>
 						<td>
 							<button type="button" class="btn btn-danger">
-								<i class="bi bi-trash-fill white"></i>Eliminar
+								<i class="bi bi-trash-fill white"></i> Eliminar
 							</button>
 							<button type="button" class="btn btn-primary">
-								<i class="bi bi-pencil-fill white"></i>Actualizar
+								<i class="bi bi-pencil-fill white"></i> Actualizar
 							</button>
 						</td>
 					</tr>
 					<c:forEach var="usuarios" items="${usuario}">
-						<tr>
+						<tr class="align-middle">
 							<td>${usuario.cedula}</td>
 							<td>${usuario.apellido}</td>
 							<td>${usuario.nombre}</td>
 							<td>${usuario.tipo}</td>
-							<td><button type="button" class="btn btn-danger" onclick="modalEliminarUsuario()"> 
-									<i class="bi bi-trash-fill white"></i>Eliminar
+							<td><button type="button" class="btn btn-danger"
+									onclick="modalEliminarUsuario()">
+									<i class="bi bi-trash-fill white"></i> Eliminar
 								</button>
 								<button type="button" class="btn btn-primary">
-									<i class="bi bi-pencil-fill white"></i>Actualizar
+									<i class="bi bi-pencil-fill white"></i> Actualizar
 								</button></td>
 						</tr>
 					</c:forEach>
@@ -65,9 +66,8 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
-				<div class="modal-body">
-				¿Estás seguro que deseas eliminar este usuario?
-				</div>
+				<div class="modal-body">¿Estás seguro que deseas eliminar este
+					usuario?</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-danger"
 						data-bs-dismiss="modal">Cancelar</button>

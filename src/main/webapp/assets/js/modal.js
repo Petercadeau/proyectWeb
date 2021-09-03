@@ -13,3 +13,8 @@ function modalEliminarUsuario() {
 			}
 		});
 }
+function modalActualizarUsuario(){
+	swal("Usuario actualizado correctamente", {
+					icon: "success",
+				});
+}

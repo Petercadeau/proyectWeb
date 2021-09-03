@@ -25,8 +25,8 @@
 		</div>
 		<div class="row justify-content-md-center text-center my-3">
 			<div class="col-4" style="color: #AEAEAE">
-				<button class="btn btn-danger mx-5">Cancelar</button>
-				<button class="btn btn-primary mx-5">Continuar</button>
+				<button class="btn btn-danger mx-5" >Cancelar</button>
+				<button class="btn btn-primary mx-5" onclick="modalActualizarUsuario()">Continuar</button>
 			</div>
 		</div>
 	</div>

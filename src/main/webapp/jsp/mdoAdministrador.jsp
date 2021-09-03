@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="ISO-8859-1">
-        <title>Insert title here</title>
+        <title>Menú administrador</title>
         <%@ include file="../templates/meta.jsp" %>
     </head>
 	

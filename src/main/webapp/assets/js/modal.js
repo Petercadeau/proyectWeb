@@ -18,3 +18,28 @@ function modalActualizarUsuario(){
 					icon: "success",
 				});
 }
+function modalCrearDepartamento(){
+	swal("Departamento creado correctamente", {
+					icon: "success",
+				});
+}
+function modalActualizarDepartamento(){
+	swal("Departamento actualizado correctamente", {
+					icon: "success",
+				});
+}
+function modalCambiarClave() {
+	swal({
+		title: "¿Estás seguro que deseas actualizar tu clave?",
+		text: "",
+		icon: "warning",
+		buttons: ["Cancelar","Continuar"],
+	})
+		.then((willDelete) => {
+			if (willDelete) {
+				swal("Clave actualizada correctamente", {
+					icon: "success",
+				});
+			}
+		});
+}

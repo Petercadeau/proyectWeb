@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -23,6 +23,12 @@
 							<th>Hora</th>
 						</tr>
 					</thead>
+						<tr class="align-middle">
+							<th>1723793870</th>
+							<th>Jeipi</th>
+							<th>2021-09-04</th>
+							<th>11:00 - 11:15</th>
+						</tr>
 
 					<c:forEach var="tutorias" items="${tutoria}">
 						<tr class="align-middle">
@@ -35,6 +41,11 @@
 				</table>
 			</div>
 		</div>
+				<div class="row justify-content-md-center text-center my-3">
+			<div class="col-8" style="color: #AEAEAE">
+				<button class="btn btn-light mx-5">
+					<i class="bi bi-arrow-left black"></i> Regresar
+				</button>
 	</div>
 </body>
 <%@ include file="../templates/footer.jsp"%>

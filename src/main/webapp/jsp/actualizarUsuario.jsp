@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Actualizar usuario</title>
+<title>Actualizar Usuario</title>
 <%@ include file="../templates/meta.jsp"%>
 </head>
 <body " style="background-color: #343A40">
@@ -25,7 +25,9 @@
 		</div>
 		<div class="row justify-content-md-center text-center my-3">
 			<div class="col-4" style="color: #AEAEAE">
-				<button class="btn btn-danger mx-5" >Cancelar</button>
+				<button class="btn btn-danger mx-5">
+					<i class="bi bi-x-circle black"></i> Cancelar
+				</button>
 				<button class="btn btn-primary mx-5" onclick="modalActualizarUsuario()">Continuar</button>
 			</div>
 		</div>

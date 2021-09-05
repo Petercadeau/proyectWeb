@@ -2,6 +2,9 @@ package com.controlador;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
+
+import java.io.IOException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
@@ -27,17 +30,19 @@ public class MdoDocenteControlador extends HttpServlet {
 	 * 
 	 * @param request
 	 * @param response
+	 * @throws IOException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response){
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		response.sendRedirect("jsp/mdoDocente.jsp");
 	}
 
 	/**
 	 * 
 	 * @param request
 	 * @param response
+	 * @throws IOException 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response){
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		doGet(request, response);
 	}
 }//end MdoDocenteControlador

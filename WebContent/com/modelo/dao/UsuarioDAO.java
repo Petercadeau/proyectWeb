@@ -7,8 +7,8 @@ import com.modelo.entidad.Usuario;
  * @version 1.0
  * @created 01-sep.-2021 18:03:04
  */
-public interface UsuarioDAO extends GenericDAO<Usuario, Integer> {
+public interface UsuarioDAO<T> extends GenericDAO<T, Integer> {
 
-	public Usuario autorizar(Usuario u);
+	public Usuario autorizar(T u);
 
 }

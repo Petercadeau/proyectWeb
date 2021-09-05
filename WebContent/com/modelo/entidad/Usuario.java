@@ -1,6 +1,5 @@
 package com.modelo.entidad;
 
-
 /**
  * @author Peterca
  * @version 1.0
@@ -12,8 +11,20 @@ public class Usuario {
 	private Persona persona;
 	private String tipoUsuario;
 
-	public Usuario(){
+	public Usuario() {
+		this.clave = "123456";
+		this.persona = new Administrador();
+		this.persona.setCedula("1234567890");
+		this.persona.setNombre("Admin");
+		this.tipoUsuario = "admin";
+	}
 
+	public Usuario(String cedula, String password) {
+		this.clave = password;
+		this.persona = new Administrador();
+		this.persona.setCedula(cedula);
+		this.persona.setNombre("Admin");
+		this.tipoUsuario = "admin";
 	}
 
 	public String getClave() {
@@ -40,7 +51,4 @@ public class Usuario {
 		this.tipoUsuario = tipoUsuario;
 	}
 
-	
-	
-	
-}//end Usuario
+}// end Usuario

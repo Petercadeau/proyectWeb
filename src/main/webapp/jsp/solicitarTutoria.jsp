@@ -14,29 +14,9 @@
 			<div class="col-4 my-2" style="color: #AEAEAE">
 				<h1 class="text-center">Solicitar Tutoría</h1>
 				<br>
-				<h5 class="text-left">Seleccione la fecha en la que desea realizar la tutoría::</h5>
+				<h5 class="text-left">Seleccione la fecha en la que desea realizar la tutoría:</h5>
 				<br>
-				<!--  
-				<div class="container">
-					<div class="row">
-						<div class='col-sm-6'>
-							<div class="form-group">
-								<div class='input-group date' id='datetimepicker1'>
-									<input type='text' class="form-control" /> <span
-										class="input-group-addon"> <span
-										class="glyphicon glyphicon-calendar"></span>
-									</span>
-								</div>
-							</div>
-						</div>
-						<script type="text/javascript">
-							$(function() {
-								$('#datetimepicker1').datetimepicker();
-							});
-						</script>
-					</div>
-				</div>
-				-->
+				<input class="col-9 align-middle" type="date">
 
 				<c:forEach var="tutorias" items="${horario}">
 					<tr class="align-middle">

@@ -50,7 +50,7 @@
 				<div class="text-center" style="border: 1px solid grey; font-size: 20px">
 					<a>Seleccione un día:</a><br>
 					<div class="col-6">
-						<select class="form-select align-center"
+						<select class="form-select"
 							aria-label="Default select example">
 							<option selected>Día</option>
 							<option value="1">Lunes</option>

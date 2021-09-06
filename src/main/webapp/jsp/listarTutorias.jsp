@@ -43,7 +43,7 @@
 		</div>
 				<div class="row justify-content-md-center text-center my-3">
 			<div class="col-8" style="color: #AEAEAE">
-				<button class="btn btn-light mx-5">
+				<button class="btn btn-light mx-5" onclick="location.href='MdoDocenteControlador'">
 					<i class="bi bi-arrow-left black"></i> Regresar
 				</button>
 	</div>

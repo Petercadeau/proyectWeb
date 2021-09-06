@@ -18,13 +18,28 @@ function modalActualizarUsuario(){
 					icon: "success",
 				});
 }
+function modalActualizarDocente(){
+	swal("Docente actualizado correctamente", {
+					icon: "success",
+				});
+}
 function modalCrearDepartamento(){
 	swal("Departamento creado correctamente", {
 					icon: "success",
 				});
 }
+function modalCrearUsuario(){
+	swal("Usuario creado correctamente", {
+					icon: "success",
+				});
+}
 function modalActualizarDepartamento(){
 	swal("Departamento actualizado correctamente", {
+					icon: "success",
+				});
+}
+function modalRegistrarTutoria(){
+	swal("Tutoría registrada correctamente", {
 					icon: "success",
 				});
 }

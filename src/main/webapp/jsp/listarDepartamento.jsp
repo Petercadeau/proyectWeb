@@ -12,7 +12,7 @@
 	<div class="container-fluid">
 		<div class="row my-5 justify-content-md-center">
 			<div class="col-8 my-2" style="color: #AEAEAE">
-				<h1 class="text-center">Seleccionar Departamentos</h1>
+				<h1 class="text-center">Listar Departamentos</h1>
 				<br>
 				<table class="table table-dark table-striped text-center">
 					<thead>
@@ -37,10 +37,10 @@
 						<tr class="align-middle">
 							<td>${departamento.nombre}</td>
 						<td>
-							<button type="button" class="btn btn-danger">
+							<button type="button" class="btn btn-danger" onclick="location.href='EliminarDepartamentoControlador'">
 								<i class="bi bi-trash-fill white"></i> Eliminar
 							</button>
-							<button type="button" class="btn btn-primary">
+							<button type="button" class="btn btn-primary" onclick="location.href='ActualizarDepartamentoControlador'">
 								<i class="bi bi-pencil-fill white"></i> Actualizar
 							</button>
 						</td>
@@ -51,8 +51,7 @@
 		</div>
 		<div class="row justify-content-md-center text-center my-3">
 			<div class="col-4" style="color: #AEAEAE">
-				<button class="btn btn-danger mx-5"><i class="bi bi-x-circle black"></i> Cancelar</button>
-				<button class="btn btn-light mx-5"> <i class="bi bi-arrow-left black"></i> Regresar</button>
+				<button class="btn btn-light mx-5" onclick="location.href='MdoAdministradorControlador'"> <i class="bi bi-arrow-left black"></i> Regresar</button>
 			</div>
 		</div>
 	</div>

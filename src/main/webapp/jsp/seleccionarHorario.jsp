@@ -12,7 +12,7 @@
 	<div class="container-fluid">
 		<div class="row my-5 justify-content-md-center">
 			<div class="col-4 my-2" style="color: #AEAEAE">
-				<h1 class="text-center">Seleccionar Horario</h1>
+				<h1 class="text-center">Solicitar tutoría:</h1>
 				<br>
 				<h5 class="text-left">Seleccione un horario para la tutoría:</h5>
 				<br>
@@ -46,7 +46,7 @@
 				<button class="btn btn-light mx-5">
 					<i class="bi bi-arrow-left black"></i> Regresar
 				</button>
-				<button class="btn btn-primary mx-5"> Registrar Tutoría
+				<button class="btn btn-primary mx-5" onclick="modalRegistrarTutoria()"> Registrar Tutoría
 				</button>
 			</div>
 		</div>

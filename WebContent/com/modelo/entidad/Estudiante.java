@@ -1,14 +1,22 @@
 package com.modelo.entidad;
 
+<<<<<<< Updated upstream
 import java.io.Serializable;
+=======
+>>>>>>> Stashed changes
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+<<<<<<< Updated upstream
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+=======
+import javax.persistence.Table;
+
+>>>>>>> Stashed changes
 
 /**
  * @author Peterca
@@ -16,10 +24,18 @@ import javax.persistence.Table;
  * @created 31-ago.-2021 13:22:19
  */
 
+<<<<<<< Updated upstream
+=======
+@Entity
+@Table (name="ESTUDIANTE")
+>>>>>>> Stashed changes
 public class Estudiante extends Persona {
 	
 	
 
+	
+
+	
 	public Estudiante(){
 
 	}

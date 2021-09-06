@@ -10,7 +10,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import com.modelo.entidades.Persona;
+
 
 
 /**
@@ -19,7 +19,7 @@ import com.modelo.entidades.Persona;
  * @created 31-ago.-2021 13:22:19
  */
 @Entity
-@Table (name="DEPARTAMENTO2")
+@Table (name="Departamento")
 public class Departamento implements Serialiazable{
 	
 	private static final long serialVersionUID = 1L;
@@ -27,7 +27,7 @@ public class Departamento implements Serialiazable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idDepartamento")
-    private int idDepartamento;
+    private Integer id;
     @Column(name = "edificio")
 	private String edificio;
 	@Column(name = "nombre")
@@ -64,10 +64,10 @@ public class Departamento implements Serialiazable{
 	public boolean equals(Object object) {
 		// TODO: Warning - this method won't work in the case the id fields are
 		// not set
-		if (!(object instanceof Persona)) {
+		if (!(object instanceof Departamento)) {
 			return false;
 		}
-		Persona other = (Persona) object;
+		Departamento other = (Departamento) object;
 		if ((this.id == null && other.id != null)
 				|| (this.id != null && !this.id.equals(other.id))) {
 			return false;

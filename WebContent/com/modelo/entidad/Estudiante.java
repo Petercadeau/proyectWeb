@@ -1,12 +1,24 @@
 package com.modelo.entidad;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * @author Peterca
  * @version 1.0
  * @created 31-ago.-2021 13:22:19
  */
+
 public class Estudiante extends Persona {
+	
+	
 
 	public Estudiante(){
 

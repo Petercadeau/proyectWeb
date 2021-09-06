@@ -21,14 +21,14 @@
 					<ul class="dropdown-menu dropdown-menu-dark bg-dark"
 						aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item text-center nav-link"
-							href="RegistrarCompra.html">Actualizar Información</a></li>
+							href="ActualizarInformacionDocenteControlador">Actualizar Información</a></li>
 					</ul></li>
 				<li id="tabEgresos" class="nav-item dropdown"><a
-					class="nav-link text-center px-5" href="#" id="navbarDropdown"
+					class="nav-link text-center px-5" href="ListarHorariosControlador" id="navbarDropdown"
 					role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Horarios </a></li>
 				<li id="tabEgresos" class="nav-item dropdown"><a
-					class="nav-link text-center px-5" href="#" id="navbarDropdown"
+					class="nav-link text-center px-5" href="ListarTutoriaControlador" id="navbarDropdown"
 					role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Tutorias </a></li>
 
@@ -41,13 +41,13 @@
 					class="nav-link dropdown-toggle my-auto me-3 text-center" href="#"
 					id="navbarDropdown" role="button" data-bs-toggle="dropdown"
 					aria-expanded="false"> <i class="bi bi-person-circle color"></i>
-						<span id="Usuario">Nombre</span>
+						<span id="Usuario">${sessionScope.usuarioLogueado.getNombre()}</span>
 				</a>
 					<ul
 						class="dropdown-menu dropdown-menu-end dropdown-menu-dark bg-dark "
 						aria-labelledby="navbarDropdown">
 						<li><a id="cerrarsesion"
-							class="dropdown-item text-center nav-link" href="index.html">Cerrar
+							class="dropdown-item text-center nav-link" href="LogoutControlador">Cerrar
 								sesión</a></li>
 					</ul></li>
 			</ul>

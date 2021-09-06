@@ -7,7 +7,7 @@
 <title>Listar Horarios</title>
 <%@ include file="../templates/meta.jsp"%>
 </head>
-<body " style="background-color: #343A40">
+<body style="background-color: #343A40">
 	<%@ include file="../templates/navbarDocente.jsp"%>
 	<div class="container-fluid">
 		<div class="row my-5 justify-content-md-center">
@@ -34,55 +34,51 @@
 							</button>
 						</td>
 					</tr>
-
 					<c:forEach var="tutorias" items="${tutoria}">
 						<tr class="align-middle">
-							<td>${tutoria.tutoria_dia}</td>
-							<td>${tutoria.tutoria_hora}</td>
+							<td>${tutoria.dia}</td>
+							<td>${tutoria.hora}</td>
 							<td>
-								<button type="button" class="btn btn-danger">
+								<button type="button" class="btn btn-danger" onclick="location.href='EliminarHorarioControlador'">
 									<i class="bi bi-trash-fill white"></i> Retirar
 								</button>
 							</td>
 						</tr>
 					</c:forEach>
 				</table>
-				<div class="text-center" style="border: 1px solid grey; font-size: 20px">
-					<a>Seleccione un día:</a><br>
-					<div class="col-6">
-						<select class="form-select"
-							aria-label="Default select example">
+				<div class="card border border-white justify-content-end"
+					style="background-color: #343A40">
+					<div class="card-body">
+						<form action="AgregarHorarioControlador" method="POST">
+						<label class="form-label">Seleccione un día:</label> <br> <select
+							class="form-select" aria-label="Default select example" id="txtDia">
 							<option selected>Día</option>
 							<option value="1">Lunes</option>
 							<option value="2">Martes</option>
 							<option value="3">Miércoles</option>
 							<option value="4">Jueves</option>
 							<option value="5">Viernes</option>
-						</select>
-					</div>
-					<a>Seleccione una franja horaria:</a><br>
-					<div class="col-6">
-						<select class="form-select align-center"
-							aria-label="Default select example">
+						</select><br> <label class="form-label">Seleccione una franja
+							horaria:</label><br> <select class="form-select align-center"
+							aria-label="Default select example" id="txtFranjaHoraria">
 							<option selected>Horario</option>
 							<option value="1">11:00 - 11:15</option>
 							<option value="2">12:00 - 12:15</option>
 							<option value="3">13:00 - 13:15</option>
-						</select>
+						</select><br>
+						<div class="text-end">
+							<button type=submit" class="btn btn-primary text-end">
+								<i class="bi bi-plus white"></i> Añadir
+							</button>
+						</div>
+						</form>
 					</div>
-					<div>
-						<button type="button" class="btn btn-primary">
-							<i class="bi bi-plus white"></i> Añadir
-						</button>
-					</div>
-
 				</div>
 			</div>
-
 		</div>
 		<div class="row justify-content-md-center text-center my-3">
 			<div class="col-8" style="color: #AEAEAE">
-				<button class="btn btn-light mx-5">
+				<button class="btn btn-light mx-5" onclick="location.href='MdoDocenteControlador'">
 					<i class="bi bi-arrow-left black"></i> Regresar
 				</button>
 			</div>

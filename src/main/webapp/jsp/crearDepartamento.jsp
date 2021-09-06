@@ -10,6 +10,7 @@
 <body " style="background-color: #343A40">
 	<%@ include file="../templates/navbarAdministrador.jsp"%>
 	<div class="container-fluid">
+		<form method="POST">
 		<div class="row mt-4 mb-3 text-center justify-content-md-center">
 			<div class="col-8 my-2" style="color: #AEAEAE">
 				<h1>Crear departamento</h1>
@@ -17,10 +18,11 @@
 		</div>
 		<div class="row justify-content-md-center">
 			<div class="col-4" style="color: #AEAEAE">
-				<label class="form-label">Nombre:</label><br> <input type="text" class="form-control" id="Nombre"><br> 
-				<label class="form-label">Edificio:</label><br><input type="text" class="form-control" id="Departamento"><br> 
+				<label class="form-label">Nombre:</label><br> <input type="text" class="form-control" id="txtNombre"><br> 
+				<label class="form-label">Edificio:</label><br><input type="text" class="form-control" id="txtDepartamento"><br> 
 			</div>
 		</div>
+		</form>
 		<div class="row justify-content-md-center text-center my-3">
 			<div class="col-4" style="color: #AEAEAE">
 				<button class="btn btn-danger mx-5">

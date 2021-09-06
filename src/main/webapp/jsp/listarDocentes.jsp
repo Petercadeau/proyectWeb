@@ -12,7 +12,7 @@
 	<div class="container-fluid">
 		<div class="row my-5 justify-content-md-center">
 			<div class="col-8 my-2" style="color: #AEAEAE">
-				<h1 class="text-center">Seleccionar Docente</h1>
+				<h1 class="text-center">Solicitar tutoría:</h1>
 				<br>
 				<h5 class="text-left">Seleccione un Docente:</h5>
 				<br>
@@ -42,7 +42,7 @@
 							<td>${docente.apellido}</td>
 							<td>${dcoente.nombre}</td>
 							<td>
-								<button type="button" class="btn btn-primary">
+								<button type="button" class="btn btn-primary" onclick="location.href='SeleccionarHorarioControlador'">
 									<i class="bi bi-cursor-fill white"></i> Seleccionar
 								</button>
 							</td>

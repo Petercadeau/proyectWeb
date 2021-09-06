@@ -21,7 +21,7 @@
                             <form method="POST" action="../LoginControlador" class="needs-validation" novalidate="" autocomplete="off">
                                 <div class="mb-3">
                                     <label class="mb-2 text-muted" for="email">Cédula</label>
-                                    <input id="cedula" type="text" class="form-control" name="email" value="1234567890" required
+                                    <input id="txtCedula" type="text" class="form-control" name="email" value="1234567890" required
                                         autofocus>
                                     <div class="invalid-feedback">
                                         Credenciales incorrectas
@@ -31,7 +31,7 @@
                                     <div class="mb-2 w-100">
                                         <label class="text-muted" for="password">Contraseña</label>
                                     </div>
-                                    <input id="password" type="password" class="form-control bg.dark" value="123456" name="password"
+                                    <input id="txtPassword" type="password" class="form-control bg.dark" value="123456" name="password"
                                         required>
                                     <div class="invalid-feedback">
                                         Contraseña requerida

@@ -1,6 +1,6 @@
 package com.modelo.dao;
 
-
+import com.modelo.jpa.JPADAOFactory;
 
 /**
  * @author Peterca
@@ -9,45 +9,27 @@ package com.modelo.dao;
  */
 public abstract class DAOFactory {
 
-	public DAOFactory m_DAOFactory;
+	public static DAOFactory m_DAOFactory = new JPADAOFactory();
+
+	public static DAOFactory getFactory() {
+		return m_DAOFactory;
+	}
 
 	public DAOFactory() {
 
 	}
 
-	public void finalize() throws Throwable {
+	public abstract AdministradorDAO getAdministradorDAO();
 
-	}
+	public abstract DepartamentoDAO getDepartamentoDAO();
 
-	public AdministradorDAO getAdministradorDAO() {
-		return null;
-	}
+	public abstract DocenteDAO getDocenteDAO();
 
-	public DepartamentoDAO getDepartamentoDAO() {
-		return null;
-	}
+	public abstract EstudianteDAO getEstudianteDAO();
 
-	public DocenteDAO getDocenteDAO() {
-		return null;
-	}
+	public abstract HorarioDAO getHorarioDAO();
 
-	public EstudianteDAO getEstudianteDAO() {
-		return null;
-	}
+	public abstract TuroriaDAO getTutoriaDAO();
 
-	public static DAOFactory getFactory() {
-		return null;
-	}
-
-	public HorarioDAO getHorarioDAO() {
-		return null;
-	}
-
-	public TuroriaDAO getTutoriaDAO() {
-		return null;
-	}
-
-	public UsuarioDAO getUsuarioDAO() {
-		return null;
-	}
+	public abstract UsuarioDAO getUsuarioDAO();
 }// end DAOFactory

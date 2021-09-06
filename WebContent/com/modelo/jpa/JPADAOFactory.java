@@ -21,30 +21,30 @@ public class JPADAOFactory extends DAOFactory {
 	}
 
 	public AdministradorDAO getAdministradorDAO(){
-		return null;
+		return new JPAAdministradorDAO();
 	}
 
 	public DepartamentoDAO getDepartamentoDAO(){
-		return null;
+		return new JPADepartamentoDAO();
 	}
 
 	public DocenteDAO getDocenteDAO(){
-		return null;
+		return new JPADocenteDAO();
 	}
 
 	public EstudianteDAO getEstudianteDAO(){
-		return null;
+		return new JPAEstudianteDAO();
 	}
 
 	public HorarioDAO getHorarioDAO(){
-		return null;
+		return new JPAHorarioDAO();
 	}
 
 	public TuroriaDAO getTutoriaDAO(){
-		return null;
+		return new JPATutoriaDAO();
 	}
 
-	public UsuarioDAO getUsuarioDAO(){
-		return null;
+	public UsuarioDAO<Object> getUsuarioDAO(){
+		return new JPAUsuarioDAO<Object>(null);
 	}
 }//end JPADAOFactory

@@ -33,6 +33,17 @@ public class Horario implements Serializable {
 	public Horario() {
 
 	}
+	
+	
+
+	public Horario(String dia, String horaDeFin, String horaDeInicio) {
+		super();
+		this.dia = dia;
+		this.horaDeFin = horaDeFin;
+		this.horaDeInicio = horaDeInicio;
+	}
+
+
 
 	public String getDia() {
 		return dia;

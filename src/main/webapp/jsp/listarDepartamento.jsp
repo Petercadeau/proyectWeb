@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>Listar Departamentos</title>
 <%@ include file="../templates/meta.jsp"%>
 </head>
-<body " style="background-color: #343A40">
+<body  style="background-color: #343A40">
 	<%@ include file="../templates/navbarAdministrador.jsp"%>
 	<div class="container-fluid">
 		<div class="row my-5 justify-content-md-center">
@@ -33,7 +34,7 @@
 						</td>
 					</tr>
 
-					<c:forEach var="tutorias" items="${departamento}">
+					<c:forEach var="departamento" items="${departamentos}">
 						<tr class="align-middle">
 							<td>${departamento.nombre}</td>
 						<td>

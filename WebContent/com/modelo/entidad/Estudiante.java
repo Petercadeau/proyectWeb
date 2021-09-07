@@ -25,6 +25,11 @@ public class Estudiante extends Persona implements Serializable {
 		super();
 	}
 
+	public Estudiante(String cedula, String nombre, String apellido, String clave) {
+		super(cedula,nombre,apellido,clave);
+		
+	}
+
 	@Override
 	public String getCedula() {
 		// TODO Auto-generated method stub

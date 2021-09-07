@@ -22,20 +22,12 @@ public class ListarTutoriaControlador extends HttpServlet {
 
 	}
 
-	/**
-	 * 
-	 * @param request
-	 * @param response
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
 	}
 
-	/**
-	 * 
-	 * @param request
-	 * @param response
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
 	}

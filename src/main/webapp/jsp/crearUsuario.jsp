@@ -26,9 +26,9 @@
 					<input type="text" class="form-control" id="txtApellido"><br>
 					<label class="form-label">Tipo de usuario:</label><br> <select
 						id="txtTipoUsuario" name="txtTipoUsuario" class="form-select">
-						<option value="Administrador">Administrador</option>
-						<option value="Docente">Docente</option>
-						<option value="Estudiante">Estudiante</option>
+						<option value="administrador">Administrador</option>
+						<option value="docente">Docente</option>
+						<option value="estudiante">Estudiante</option>
 					</select> <br>
 				</div>
 			</div>

@@ -46,6 +46,9 @@ public abstract class Persona implements Serializable {
 
 	@Column(name = "nombrePersona")
 	protected String nombre;
+	
+	@Column(name = "apellidoPersona")
+	protected String apellido;
 
 	@Column(name = "clavePersona")
 	protected String clave;
@@ -65,6 +68,26 @@ public abstract class Persona implements Serializable {
 	}
 	
 	
+	
+
+
+	public Persona(String cedula, String nombre, String apellido, String clave) {
+		super();
+		this.cedula = cedula;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.clave = clave;
+	}
+
+
+	public String getApellido() {
+		return apellido;
+	}
+
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 
 
 	public String getTipoDeUsuario() {

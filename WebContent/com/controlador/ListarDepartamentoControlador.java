@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
@@ -36,14 +37,16 @@ public class ListarDepartamentoControlador extends HttpServlet {
 	 * @param request
 	 * @param response
 	 * @throws IOException
+	 * @throws ServletException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		System.out.println("Get en ListDepas");
 		DepartamentoDAO departamentoDao = DAOFactory.getFactory().getDepartamentoDAO();
 		List<Departamento> departamentos = departamentoDao.obtener();
-		for(Departamento d: departamentos) {
-			System.out.println(d.getNombre());
-		}
-		response.sendRedirect("jsp/listarDepartamento.jsp");
+		request.setAttribute("departamentos", departamentos);
+		String path = "/jsp/listarDepartamento.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
+		//response.sendRedirect("jsp/listarDepartamento.jsp");
 	}
 
 	/**
@@ -51,8 +54,9 @@ public class ListarDepartamentoControlador extends HttpServlet {
 	 * @param request
 	 * @param response
 	 * @throws IOException
+	 * @throws ServletException 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		doGet(request, response);
 	}
 }// end ListarDepartamentoControlador

@@ -31,7 +31,9 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 
 	@Override
 	public void crear(T entity) {
-		// TODO Auto-generated method stub
+		em.getTransaction().begin();
+        em.persist(entity);
+        em.getTransaction().commit();
 
 	}
 

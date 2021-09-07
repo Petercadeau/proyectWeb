@@ -43,6 +43,7 @@ public class LoginControlador extends HttpServlet {
 	 * @throws IOException
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("Get en Login");
 		response.sendRedirect("jsp/login.jsp");
 	}
 
@@ -55,9 +56,9 @@ public class LoginControlador extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("Post en Login");
 		String cedula = request.getParameter("txtCedula");
 		String password = request.getParameter("txtPassword");
-		String tipoSegunUsuario = request.getParameter("txtTipo");
 
 		PersonaDAO<Persona> personaModelo = DAOFactory.getFactory().getPersonaDAO();
 
@@ -65,33 +66,33 @@ public class LoginControlador extends HttpServlet {
 		Persona personaAutorizada = personaModelo.autorizar(cedula, password);
 
 		switch (personaAutorizada.getTipoDeUsuario()) {
-		case "Administrador": {
-			System.out.println("Soy el admin brah");
-
-			Administrador admin = (Administrador) personaAutorizada;
-			sesion.setAttribute("usuarioLogueado", admin);
-			request.getRequestDispatcher("/MdoAdministradorControlador").forward(request, response);
-			break;
-		}
-		case "Docente": {
-			System.out.println("Soy el docent brah");
-
-			Docente docente = (Docente) personaAutorizada;
-			sesion.setAttribute("usuarioLogueado", docente);
-			request.getRequestDispatcher("/MdoDocenteControlador").forward(request, response);
-			break;
-		}
-		case "Estudiante": {
-			System.out.println("Soy el estudiante brah");
-
-			Estudiante estudiante = (Estudiante) personaAutorizada;
-			sesion.setAttribute("usuarioLogueado", estudiante);
-			request.getRequestDispatcher("/MdoEstudianteControlador").forward(request, response);
-			break;
-		}
-		default:
-			doGet(request, response);
-			break;
+			case "Administrador": {
+				System.out.println("Soy el admin brah");
+	
+				Administrador admin = (Administrador) personaAutorizada;
+				sesion.setAttribute("usuarioLogueado", admin);
+				request.getRequestDispatcher("/MdoAdministradorControlador").forward(request, response);
+				break;
+			}
+			case "Docente": {
+				System.out.println("Soy el docent brah");
+	
+				Docente docente = (Docente) personaAutorizada;
+				sesion.setAttribute("usuarioLogueado", docente);
+				request.getRequestDispatcher("/MdoDocenteControlador").forward(request, response);
+				break;
+			}
+			case "Estudiante": {
+				System.out.println("Soy el estudiante brah");
+	
+				Estudiante estudiante = (Estudiante) personaAutorizada;
+				sesion.setAttribute("usuarioLogueado", estudiante);
+				request.getRequestDispatcher("/MdoEstudianteControlador").forward(request, response);
+				break;
+			}
+			default:
+				doGet(request, response);
+				break;
 		}
 	}
 }// end LoginControlador

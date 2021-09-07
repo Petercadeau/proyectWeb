@@ -27,6 +27,11 @@ public class Administrador extends Persona implements Serializable {
 
 	}
 
+	public Administrador(String cedula, String nombre, String apellido, String clave) {
+		super(cedula,nombre,apellido,clave);
+		
+	}
+
 	@Override
 	public String getCedula() {
 		// TODO Auto-generated method stub

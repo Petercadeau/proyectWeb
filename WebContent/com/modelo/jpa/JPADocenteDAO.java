@@ -2,14 +2,14 @@ package com.modelo.jpa;
 
 import com.modelo.dao.DocenteDAO;
 import com.modelo.entidad.Docente;
-import com.modelo.entidad.Usuario;
+import com.modelo.entidad.Persona;
 
 /**
  * @author Peterca
  * @version 1.0
  * @created 01-sep.-2021 18:03:55
  */
-public class JPADocenteDAO extends JPAUsuarioDAO<Docente> implements DocenteDAO {
+public class JPADocenteDAO extends JPAPersonaDAO<Docente> implements DocenteDAO {
 
 	public JPADocenteDAO() {
 		super(Docente.class);
@@ -17,7 +17,7 @@ public class JPADocenteDAO extends JPAUsuarioDAO<Docente> implements DocenteDAO 
 
 
 	@Override
-	public Usuario autorizar(Docente u) {
+	public Persona autorizar(Docente u) {
 		// TODO Auto-generated method stub
 		return null;
 	}

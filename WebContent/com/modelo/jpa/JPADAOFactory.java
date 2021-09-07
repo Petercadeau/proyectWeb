@@ -44,7 +44,7 @@ public class JPADAOFactory extends DAOFactory {
 		return new JPATutoriaDAO();
 	}
 
-	public PersonaDAO<Object> getUsuarioDAO(){
-		return new JPAUsuarioDAO<Object>(null);
+	public PersonaDAO<Object> getPersonaDAO(){
+		return new JPAPersonaDAO<Object>(null);
 	}
 }//end JPADAOFactory

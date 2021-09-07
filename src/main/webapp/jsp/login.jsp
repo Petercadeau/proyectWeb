@@ -19,9 +19,21 @@
                         <div class="card-body p-5">
                             <h1 class="fs-4 card-title fw-bold mb-4">Inicio de sesión</h1>
                             <form method="POST" action="../LoginControlador" class="needs-validation" novalidate="" autocomplete="off">
+                                
                                 <div class="mb-3">
-                                    <label class="mb-2 text-muted" for="email">Cédula</label>
-                                    <input id="txtCedula" type="text" class="form-control" name="txtCedula" value="1234567890" required
+                                    <label class="mb-2 text-muted" for="txtTipo">Tipo Usuario</label>
+                                        <select name="txtTipo" id="txtTipo" class="form-control">
+										    <option value="administrador" selected>Administrador</option>
+										    <option value="docente">Docente</option>
+										    <option value="estudiante">Estudiante</option>
+										 </select>
+                                    <div class="invalid-feedback">
+                                        Credenciales incorrectas
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="txtCedula">Cédula</label>
+                                    <input id="txtCedula" type="text" class="form-control" name="txtCedula" value="17598642450" required
                                         autofocus>
                                     <div class="invalid-feedback">
                                         Credenciales incorrectas
@@ -31,7 +43,7 @@
                                     <div class="mb-2 w-100">
                                         <label class="text-muted" for="password">Contraseña</label>
                                     </div>
-                                    <input id="txtPassword" type="password" class="form-control bg.dark" value="123456" name="txtPassword"
+                                    <input id="txtPassword" type="password" class="form-control bg.dark" value="3" name="txtPassword"
                                         required>
                                     <div class="invalid-feedback">
                                         Contraseña requerida

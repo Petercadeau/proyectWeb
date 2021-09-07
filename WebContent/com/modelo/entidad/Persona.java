@@ -25,9 +25,9 @@ import javax.persistence.OneToOne;
 @Table(name = "persona")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(
-	    discriminatorType = DiscriminatorType.INTEGER,
+	    discriminatorType = DiscriminatorType.STRING,
 	    name = "tipoDeUsuario",
-	    columnDefinition = "TINYINT(1)"
+	    columnDefinition = "Varchar(15)"
 	)
 public abstract class Persona implements Serializable {
 
@@ -51,8 +51,8 @@ public abstract class Persona implements Serializable {
 	protected String clave;
 
 	//0,1,2 Admin, Docente, Estudiante
-	@Column(name = "tipoDeUsuario")
-	protected Integer tipoDeUsuario;
+	@Column(name="tipoDeUsuario", insertable = false, updatable = false)
+	protected String tipoDeUsuario;
 
 	public Persona() {
 
@@ -67,12 +67,12 @@ public abstract class Persona implements Serializable {
 	
 
 
-	public Integer getTipoDeUsuario() {
+	public String getTipoDeUsuario() {
 		return tipoDeUsuario;
 	}
 
 
-	public void setTipoDeUsuario(Integer tipoDeUsuario) {
+	public void setTipoDeUsuario(String tipoDeUsuario) {
 		this.tipoDeUsuario = tipoDeUsuario;
 	}
 

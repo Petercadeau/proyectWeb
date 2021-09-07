@@ -2,7 +2,6 @@ package com.modelo.jpa;
 
 import com.modelo.dao.TuroriaDAO;
 import com.modelo.entidad.Tutoria;
-import com.modelo.entidad.Usuario;
 
 /**
  * @author Peterca

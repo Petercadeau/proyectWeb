@@ -8,14 +8,14 @@ import com.modelo.entidad.*;
  * @version 1.0
  * @created 01-sep.-2021 18:03:53
  */
-public class JPAAdministradorDAO extends JPAUsuarioDAO<Administrador> implements AdministradorDAO {
+public class JPAAdministradorDAO extends JPAPersonaDAO<Administrador> implements AdministradorDAO {
 
 	public JPAAdministradorDAO() {
 		super(Administrador.class);
 	}
 
 	@Override
-	public Usuario autorizar(Administrador u) {
+	public Persona autorizar(Administrador u) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,5 +1,6 @@
 package com.modelo.dao;
 
+import com.modelo.entidad.Persona;
 import com.modelo.jpa.JPADAOFactory;
 
 /**
@@ -31,5 +32,5 @@ public abstract class DAOFactory {
 
 	public abstract TuroriaDAO getTutoriaDAO();
 
-	public abstract PersonaDAO getUsuarioDAO();
+	public abstract PersonaDAO<Persona> getPersonaDAO();
 }// end DAOFactory

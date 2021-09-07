@@ -15,7 +15,7 @@ public class JPAAdministradorDAO extends JPAPersonaDAO<Administrador> implements
 	}
 
 	@Override
-	public Persona autorizar(Administrador u) {
+	public Persona autorizar(String usuario, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}

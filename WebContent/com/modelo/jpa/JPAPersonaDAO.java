@@ -1,5 +1,7 @@
 package com.modelo.jpa;
 
+import javax.persistence.Query;
+
 import com.modelo.dao.PersonaDAO;
 import com.modelo.entidad.Persona;
 
@@ -17,7 +19,13 @@ public class JPAPersonaDAO<T> extends JPAGenericDAO<T, Integer> implements Perso
 
 
 	@Override
-	public Persona autorizar(T u) {
-		return (Persona) u;
+	public Persona autorizar(String cedula, String password) {
+		String sentenciaJPQL = "SELECT e FROM Persona e WHERE e.cedula= :cedula AND e.clave= :password";
+		Query query = em.createQuery(sentenciaJPQL);
+		query.setParameter("cedula", cedula);
+		query.setParameter("password", password);
+
+		Persona personaEncontrada = (Persona) query.getSingleResult();
+		return personaEncontrada;
 	}
 }// end JPAUsuarioDAO

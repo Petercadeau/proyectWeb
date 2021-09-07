@@ -17,7 +17,7 @@ public class JPAEstudianteDAO extends JPAPersonaDAO<Estudiante> implements Estud
 
 
 	@Override
-	public Persona autorizar(Estudiante u) {
+	public Persona autorizar(String usuario, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}

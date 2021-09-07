@@ -9,6 +9,6 @@ import com.modelo.entidad.Persona;
  */
 public interface PersonaDAO<T> extends GenericDAO<T, Integer> {
 
-	public Persona autorizar(T u);
+	public Persona autorizar(String usuario, String password);
 
 }

@@ -22,7 +22,7 @@
 					<ul class="dropdown-menu dropdown-menu-dark bg-dark"
 						aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item text-center nav-link"
-							href="ListarDepartamentoControlador">Listar departamento</a></li>
+							href="../ListarDepartamentoControlador">Listar departamento</a></li>
 						<li><a class="dropdown-item text-center nav-link"
 							href="CrearDepartamentoControlador">Crear departamento</a></li>
 					</ul></li>

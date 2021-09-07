@@ -31,7 +31,7 @@ public interface GenericDAO<T,ID> {
 	 * 
 	 * @param entity
 	 */
-	public List<T> obtener(T entity);
+	public List<T> obtener();
 
 	/**
 	 * 

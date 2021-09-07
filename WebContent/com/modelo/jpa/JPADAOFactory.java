@@ -7,6 +7,7 @@ import com.modelo.dao.DocenteDAO;
 import com.modelo.dao.EstudianteDAO;
 import com.modelo.dao.HorarioDAO;
 import com.modelo.dao.TuroriaDAO;
+import com.modelo.entidad.Persona;
 import com.modelo.dao.PersonaDAO;
 
 /**
@@ -16,35 +17,35 @@ import com.modelo.dao.PersonaDAO;
  */
 public class JPADAOFactory extends DAOFactory {
 
-	public JPADAOFactory(){
+	public JPADAOFactory() {
 
 	}
 
-	public AdministradorDAO getAdministradorDAO(){
+	public AdministradorDAO getAdministradorDAO() {
 		return new JPAAdministradorDAO();
 	}
 
-	public DepartamentoDAO getDepartamentoDAO(){
+	public DepartamentoDAO getDepartamentoDAO() {
 		return new JPADepartamentoDAO();
 	}
 
-	public DocenteDAO getDocenteDAO(){
+	public DocenteDAO getDocenteDAO() {
 		return new JPADocenteDAO();
 	}
 
-	public EstudianteDAO getEstudianteDAO(){
+	public EstudianteDAO getEstudianteDAO() {
 		return new JPAEstudianteDAO();
 	}
 
-	public HorarioDAO getHorarioDAO(){
+	public HorarioDAO getHorarioDAO() {
 		return new JPAHorarioDAO();
 	}
 
-	public TuroriaDAO getTutoriaDAO(){
+	public TuroriaDAO getTutoriaDAO() {
 		return new JPATutoriaDAO();
 	}
 
-	public PersonaDAO<Object> getPersonaDAO(){
-		return new JPAPersonaDAO<Object>(null);
+	public PersonaDAO<Persona> getPersonaDAO() {
+		return new JPAPersonaDAO<Persona>(Persona.class);
 	}
-}//end JPADAOFactory
+}// end JPADAOFactory

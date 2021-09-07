@@ -7,7 +7,7 @@ import com.modelo.dao.DocenteDAO;
 import com.modelo.dao.EstudianteDAO;
 import com.modelo.dao.HorarioDAO;
 import com.modelo.dao.TuroriaDAO;
-import com.modelo.dao.UsuarioDAO;
+import com.modelo.dao.PersonaDAO;
 
 /**
  * @author Peterca
@@ -44,7 +44,7 @@ public class JPADAOFactory extends DAOFactory {
 		return new JPATutoriaDAO();
 	}
 
-	public UsuarioDAO<Object> getUsuarioDAO(){
+	public PersonaDAO<Object> getUsuarioDAO(){
 		return new JPAUsuarioDAO<Object>(null);
 	}
 }//end JPADAOFactory

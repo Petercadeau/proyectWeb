@@ -7,6 +7,6 @@ import com.modelo.entidad.Docente;
  * @version 1.0
  * @created 01-sep.-2021 18:03:03
  */
-public interface DocenteDAO extends UsuarioDAO<Docente> {
+public interface DocenteDAO extends PersonaDAO<Docente> {
 
 }

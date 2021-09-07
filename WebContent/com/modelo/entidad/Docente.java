@@ -32,6 +32,7 @@ public class Docente extends Persona implements Serializable {
 	@JoinColumn(name = "departamento")
 	private Departamento departamento;
 
+	
 	private List<Horario> horario;
 
 	public Docente() {

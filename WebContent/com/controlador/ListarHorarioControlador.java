@@ -14,6 +14,7 @@ import com.modelo.dao.DepartamentoDAO;
 import com.modelo.dao.HorarioDAO;
 import com.modelo.entidad.Departamento;
 import com.modelo.entidad.Horario;
+import com.modelo.entidad.Persona;
 
 @WebServlet("/ListarHorarioControlador")
 public class ListarHorarioControlador extends HttpServlet {
@@ -28,7 +29,8 @@ public class ListarHorarioControlador extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println("Get en ListHorarios");
 		HorarioDAO horarioDAO = DAOFactory.getFactory().getHorarioDAO();
-		List<Horario> horarios = horarioDAO.obtener();
+		Persona d = (Persona) request.getSession().getAttribute("usuarioLogueado");
+		List<Horario> horarios = horarioDAO.obtenerPorId(d.getId());
 		request.setAttribute("departamentos", horarios);
 		String path = "/jsp/configurarDisponibilidad.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);

@@ -1,5 +1,7 @@
 package com.modelo.jpa;
 
+import java.util.List;
+
 import javax.persistence.Query;
 
 import com.modelo.dao.PersonaDAO;
@@ -24,8 +26,14 @@ public class JPAPersonaDAO<T> extends JPAGenericDAO<T, Integer> implements Perso
 		Query query = em.createQuery(sentenciaJPQL);
 		query.setParameter("cedula", cedula);
 		query.setParameter("password", password);
-
-		Persona personaEncontrada = (Persona) query.getSingleResult();
+		
+		List w=query.getResultList();
+		if(w.isEmpty()) {
+			System.out.println(w+" "+w.toString());
+			return null;
+		}
+		
+		Persona personaEncontrada = (Persona) w.get(0);
 		return personaEncontrada;
 	}
 }// end JPAUsuarioDAO

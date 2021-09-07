@@ -64,35 +64,39 @@ public class LoginControlador extends HttpServlet {
 
 		HttpSession sesion = request.getSession();
 		Persona personaAutorizada = personaModelo.autorizar(cedula, password);
-
-		switch (personaAutorizada.getTipoDeUsuario()) {
-			case "Administrador": {
-				System.out.println("Soy el admin brah");
-	
-				Administrador admin = (Administrador) personaAutorizada;
-				sesion.setAttribute("usuarioLogueado", admin);
-				request.getRequestDispatcher("/MdoAdministradorControlador").forward(request, response);
-				break;
+		if(personaAutorizada==null) {
+			System.out.println("No existe el usuario");
+			doGet(request, response);
+		}else {
+			switch (personaAutorizada.getTipoDeUsuario()) {
+				case "Administrador": {
+					System.out.println("Soy el admin brah");
+		
+					Administrador admin = (Administrador) personaAutorizada;
+					sesion.setAttribute("usuarioLogueado", admin);
+					request.getRequestDispatcher("/MdoAdministradorControlador").forward(request, response);
+					break;
+				}
+				case "Docente": {
+					System.out.println("Soy el docent brah");
+		
+					Docente docente = (Docente) personaAutorizada;
+					sesion.setAttribute("usuarioLogueado", docente);
+					request.getRequestDispatcher("/MdoDocenteControlador").forward(request, response);
+					break;
+				}
+				case "Estudiante": {
+					System.out.println("Soy el estudiante brah");
+		
+					Estudiante estudiante = (Estudiante) personaAutorizada;
+					sesion.setAttribute("usuarioLogueado", estudiante);
+					request.getRequestDispatcher("/MdoEstudianteControlador").forward(request, response);
+					break;
+				}
+				default:
+					doGet(request, response);
+					break;
 			}
-			case "Docente": {
-				System.out.println("Soy el docent brah");
-	
-				Docente docente = (Docente) personaAutorizada;
-				sesion.setAttribute("usuarioLogueado", docente);
-				request.getRequestDispatcher("/MdoDocenteControlador").forward(request, response);
-				break;
-			}
-			case "Estudiante": {
-				System.out.println("Soy el estudiante brah");
-	
-				Estudiante estudiante = (Estudiante) personaAutorizada;
-				sesion.setAttribute("usuarioLogueado", estudiante);
-				request.getRequestDispatcher("/MdoEstudianteControlador").forward(request, response);
-				break;
-			}
-			default:
-				doGet(request, response);
-				break;
 		}
 	}
 }// end LoginControlador

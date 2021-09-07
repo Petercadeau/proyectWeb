@@ -52,8 +52,8 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 	}
 
 	@Override
-	public T obtenerPorId(ID id) {
-		// TODO Auto-generated method stub
+	public List<T> obtenerPorId(ID id) {
+		
 		return null;
 	}
 }// end JPAGenericDAO<T,ID>

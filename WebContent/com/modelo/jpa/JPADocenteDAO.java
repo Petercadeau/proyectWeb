@@ -21,4 +21,6 @@ public class JPADocenteDAO extends JPAPersonaDAO<Docente> implements DocenteDAO 
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 }// end JPADocenteDAO

@@ -1,5 +1,6 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.persistence.Persistence;
 
 import com.modelo.dao.DAOFactory;
 import com.modelo.dao.DepartamentoDAO;
+import com.modelo.dao.DocenteDAO;
 import com.modelo.dao.HorarioDAO;
 import com.modelo.dao.PersonaDAO;
 import com.modelo.entidad.Administrador;
@@ -23,10 +25,21 @@ public class main {
 		EntityManager em = emf.createEntityManager();
 
 
-		/*
-		Horario horario = new Horario("Lunes","7:00","7:15");
-		HorarioDAO horariodao = DAOFactory.getFactory().getHorarioDAO();
-		horariodao.crear(horario);
-		 */
+		
+		Horario horario = new Horario("Martes","7:00","7:15");
+		/*HorarioDAO horariodao = DAOFactory.getFactory().getHorarioDAO();
+		horariodao.crear(horario);*/
+		
+		Docente d = new Docente("1717171717","J","P","123");
+		
+		ArrayList<Horario> t=new ArrayList<Horario>();
+		t.add(horario);
+		
+		d.setHorario(t);
+		d.setDepartamento(new Departamento("ccss", "101"));
+		
+		DocenteDAO dc = DAOFactory.getFactory().getDocenteDAO();
+		dc.crear(d);
+		 
 	}
 }

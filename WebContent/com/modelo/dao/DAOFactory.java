@@ -31,5 +31,5 @@ public abstract class DAOFactory {
 
 	public abstract TuroriaDAO getTutoriaDAO();
 
-	public abstract UsuarioDAO getUsuarioDAO();
+	public abstract PersonaDAO getUsuarioDAO();
 }// end DAOFactory

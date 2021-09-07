@@ -1,6 +1,6 @@
 package com.modelo.jpa;
 
-import com.modelo.dao.UsuarioDAO;
+import com.modelo.dao.PersonaDAO;
 import com.modelo.entidad.Usuario;
 
 /**
@@ -8,7 +8,7 @@ import com.modelo.entidad.Usuario;
  * @version 1.0
  * @created 01-sep.-2021 18:03:04
  */
-public class JPAUsuarioDAO<T> extends JPAGenericDAO<T, Integer> implements UsuarioDAO<T> {
+public class JPAUsuarioDAO<T> extends JPAGenericDAO<T, Integer> implements PersonaDAO<T> {
 
 	public JPAUsuarioDAO(Class<T> persitentClass) {
 		super(persitentClass);

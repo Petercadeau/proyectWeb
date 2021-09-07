@@ -9,7 +9,7 @@ import com.modelo.entidad.Persona;
 
 public class main {
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("9_herencia_JPA");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
 		EntityManager em = emf.createEntityManager();
 
 		Persona p = new Docente();

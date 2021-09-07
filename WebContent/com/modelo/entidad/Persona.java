@@ -3,6 +3,8 @@ package com.modelo.entidad;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +24,11 @@ import javax.persistence.OneToOne;
 @Entity
 @Table(name = "persona")
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(
+	    discriminatorType = DiscriminatorType.INTEGER,
+	    name = "tipoDeUsuario",
+	    columnDefinition = "TINYINT(1)"
+	)
 public abstract class Persona implements Serializable {
 
 	/**
@@ -38,14 +45,47 @@ public abstract class Persona implements Serializable {
 	protected String cedula;
 
 	@Column(name = "nombrePersona")
-
 	protected String nombre;
 
+	@Column(name = "clavePersona")
+	protected String clave;
 
+	//0,1,2 Admin, Docente, Estudiante
+	@Column(name = "tipoDeUsuario")
+	protected Integer tipoDeUsuario;
 
 	public Persona() {
 
 	}
+	
+
+	public Persona(String cedula, String clave) {
+		this.cedula = cedula;
+		this.clave = clave;
+	}
+	
+	
+
+
+	public Integer getTipoDeUsuario() {
+		return tipoDeUsuario;
+	}
+
+
+	public void setTipoDeUsuario(Integer tipoDeUsuario) {
+		this.tipoDeUsuario = tipoDeUsuario;
+	}
+
+
+	public String getClave() {
+		return clave;
+	}
+
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+
 
 	public String getCedula() {
 		return cedula;

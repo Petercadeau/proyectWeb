@@ -59,7 +59,7 @@ public class LoginControlador extends HttpServlet {
 		String password = request.getParameter("password");
 
 		UsuarioDAO<Usuario> personaModelo = DAOFactory.getFactory().getUsuarioDAO();
-		Usuario personaAutorizada = personaModelo.autorizar(new Usuario(cedula, password));
+		Usuario personaAutorizada = personaModelo.autorizar(new Usuario());
 		System.out.println(personaAutorizada.getTipoUsuario());
 		HttpSession sesion = request.getSession();
 		// sesion.setAttribute("usuarioLogueado", personaAutorizada);

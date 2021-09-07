@@ -6,12 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
-import com.modelo.entidades.Persona;
-
 
 /**
  * @author Peterca
@@ -19,21 +14,21 @@ import com.modelo.entidades.Persona;
  * @created 31-ago.-2021 13:22:19
  */
 @Entity
-@Table (name="DEPARTAMENTO2")
-public class Departamento implements Serialiazable{
-	
+@Table(name = "departamento")
+public class Departamento implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idDepartamento")
-    private int idDepartamento;
-    @Column(name = "edificio")
+	private Integer idDepartamento;
+	@Column(name = "edificio")
 	private String edificio;
 	@Column(name = "nombre")
 	private String nombre;
 
-	public Departamento(){
+	public Departamento() {
 
 	}
 
@@ -56,24 +51,24 @@ public class Departamento implements Serialiazable{
 	@Override
 	public int hashCode() {
 		int hash = 0;
-		hash += (id != null ? id.hashCode() : 0);
+		hash += (idDepartamento != null ? idDepartamento.hashCode() : 0);
 		return hash;
 	}
 
 	@Override
 	public boolean equals(Object object) {
-		// TODO: Warning - this method won't work in the case the id fields are
+		// TODO: Warning - this method won't work in the case the idDepartamentofields
+		// are
 		// not set
 		if (!(object instanceof Persona)) {
 			return false;
 		}
-		Persona other = (Persona) object;
-		if ((this.id == null && other.id != null)
-				|| (this.id != null && !this.id.equals(other.id))) {
+		Departamento other = (Departamento) object;
+		if ((this.idDepartamento == null && other.idDepartamento != null)
+				|| (this.idDepartamento != null && !this.idDepartamento.equals(other.idDepartamento))) {
 			return false;
 		}
 		return true;
 	}
-	
 
-}//end Departamento
+}// end Departamento

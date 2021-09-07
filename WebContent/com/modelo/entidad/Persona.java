@@ -1,57 +1,47 @@
 package com.modelo.entidad;
 
-<<<<<<< Updated upstream
 import java.io.Serializable;
-=======
->>>>>>> Stashed changes
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< Updated upstream
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import com.modelo.entidades.Persona;
-
-
-=======
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
->>>>>>> Stashed changes
 /**
  * @author Peterca
  * @version 1.0
  * @created 31-ago.-2021 13:22:20
  */
-<<<<<<< Updated upstream
 
-public abstract class Persona{
-	
-	protected String cedula;
-	
-=======
 @Entity
-@Table(name="PERSONA")
-public abstract class Persona {
-	
+@Table(name = "persona")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Persona implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="idPersona")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idPersona")
 	private Integer id;
-	
-	@Column(name="cedulaPersona")
+
+	@Column(name = "cedulaPersona")
 	protected String cedula;
-	
-	@Column(name="nombrePersona")
->>>>>>> Stashed changes
+
+	@Column(name = "nombrePersona")
+
 	protected String nombre;
-	
-	@OneToOne(mappedBy="Persona")
-	protected Usuario usuario;
+
+
 
 	public Persona() {
 
@@ -72,9 +62,6 @@ public abstract class Persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
-	
-	
 
-}// end Persona
+}
+// end Persona

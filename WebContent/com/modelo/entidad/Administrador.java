@@ -1,5 +1,7 @@
 package com.modelo.entidad;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,13 +15,14 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table (name="ADMINISTRADOR")
-public class Administrador extends Persona {
 
-	
-	
-	
-	
+public class Administrador extends Persona implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Administrador() {
 
 	}

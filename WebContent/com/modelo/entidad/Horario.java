@@ -6,34 +6,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import com.modelo.entidades.Persona ;
 /**
  * @author Peterca
  * @version 1.0
  * @created 31-ago.-2021 13:22:19
  */
 @Entity
-@Table (name="HORARIO2")
-public class Horario implements Serializable{
-	
+@Table(name = "horario")
+public class Horario implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "IDHORARIO2")
-    private String idHorario;
-    @Column(name = "dia")
+	@Column(name = "idHorario")
+	private Integer idHorario;
+	@Column(name = "dia")
 	private String dia;
-	@Column(name = "HORADISPONIBLEFIN")
+	@Column(name = "horaDisponibleFin")
 	private String horaDeFin;
-	@Column(name = "HORADISPONIBLEINICIO")
+	@Column(name = "horaDisponibleInicio")
 	private String horaDeInicio;
 
-	public Horario(){
+	public Horario() {
 
 	}
 
@@ -61,11 +58,10 @@ public class Horario implements Serializable{
 		this.horaDeInicio = horaDeInicio;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		int hash = 0;
-		hash += (id != null ? id.hashCode() : 0);
+		hash += (idHorario != null ? idHorario.hashCode() : 0);
 		return hash;
 	}
 
@@ -76,13 +72,12 @@ public class Horario implements Serializable{
 		if (!(object instanceof Persona)) {
 			return false;
 		}
-		Persona other = (Persona) object;
-		if ((this.id == null && other.id != null)
-				|| (this.id != null && !this.id.equals(other.id))) {
+		Horario other = (Horario) object;
+		if ((this.idHorario == null && other.idHorario != null)
+				|| (this.idHorario != null && !this.idHorario.equals(other.idHorario))) {
 			return false;
 		}
 		return true;
 	}
-	
-	
-}//end Horario
+
+}// end Horario

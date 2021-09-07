@@ -1,64 +1,47 @@
 package com.modelo.entidad;
 
-<<<<<<< Updated upstream
 import java.io.Serializable;
-=======
->>>>>>> Stashed changes
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< Updated upstream
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import com.modelo.entidades.Persona;
-
-
-=======
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
->>>>>>> Stashed changes
 
 /**
  * @author Peterca
  * @version 1.0
  * @created 31-ago.-2021 13:22:20
  */
-<<<<<<< Updated upstream
-@Entity
-@Table (name="USUARIOS")
-public class Usuario implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
-	
-	@Column(name = "clave")
-	private String clave;
-	private Persona persona;
-	@Column(name = "rol")
-=======
 
 @Entity
-@Table (name="USUARIO")
-public class Usuario {
-	
+@Table(name = "USUARIO")
+public class Usuario implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="idUsuario")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idUsuario")
 	private Integer id;
-	
-	@Column(name="claveUsuario")
+
+	@Column(name = "claveUsuario")
 	private String clave;
-	
-	@Column(name="tipoUsuarioUsuario")
->>>>>>> Stashed changes
+
+	@Column(name = "tipoUsuarioUsuario")
+
 	private String tipoUsuario;
 
-	@OneToOne(mappedBy="Usuario")
+	@OneToOne(mappedBy = "Usuario")
 	private Persona persona;
-	public Usuario(){
+
+	public Usuario() {
 
 	}
 
@@ -100,14 +83,12 @@ public class Usuario {
 		if (!(object instanceof Persona)) {
 			return false;
 		}
-		Persona other = (Persona) object;
-		if ((this.id == null && other.id != null)
-				|| (this.id != null && !this.id.equals(other.id))) {
+		Usuario other = (Usuario) object;
+		if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
 			return false;
 		}
 		return true;
 	}
-	
-	
-	
-}//end Usuario
+
+}
+// end Usuario

@@ -6,7 +6,7 @@ import com.modelo.dao.DepartamentoDAO;
 import com.modelo.dao.DocenteDAO;
 import com.modelo.dao.EstudianteDAO;
 import com.modelo.dao.HorarioDAO;
-import com.modelo.dao.TuroriaDAO;
+import com.modelo.dao.TutoriaDAO;
 import com.modelo.entidad.Persona;
 import com.modelo.dao.PersonaDAO;
 
@@ -41,7 +41,7 @@ public class JPADAOFactory extends DAOFactory {
 		return new JPAHorarioDAO();
 	}
 
-	public TuroriaDAO getTutoriaDAO() {
+	public TutoriaDAO getTutoriaDAO() {
 		return new JPATutoriaDAO();
 	}
 

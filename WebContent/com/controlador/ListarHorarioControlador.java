@@ -31,7 +31,7 @@ public class ListarHorarioControlador extends HttpServlet {
 		HorarioDAO horarioDAO = DAOFactory.getFactory().getHorarioDAO();
 		Persona d = (Persona) request.getSession().getAttribute("usuarioLogueado");
 		List<Horario> horarios = horarioDAO.obtenerPorId(d.getId());
-		request.setAttribute("departamentos", horarios);
+		request.setAttribute("horarios", horarios);
 		String path = "/jsp/configurarDisponibilidad.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}

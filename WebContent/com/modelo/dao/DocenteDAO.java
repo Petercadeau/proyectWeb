@@ -1,5 +1,7 @@
 package com.modelo.dao;
 
+import java.util.List;
+
 import com.modelo.entidad.Docente;
 
 /**
@@ -9,4 +11,5 @@ import com.modelo.entidad.Docente;
  */
 public interface DocenteDAO extends PersonaDAO<Docente> {
 
+	public abstract List<Docente> obtenerPorFecha(String fecha);
 }

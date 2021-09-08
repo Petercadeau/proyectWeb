@@ -30,7 +30,7 @@ public abstract class DAOFactory {
 
 	public abstract HorarioDAO getHorarioDAO();
 
-	public abstract TuroriaDAO getTutoriaDAO();
+	public abstract TutoriaDAO getTutoriaDAO();
 
 	public abstract PersonaDAO<Persona> getPersonaDAO();
 }// end DAOFactory

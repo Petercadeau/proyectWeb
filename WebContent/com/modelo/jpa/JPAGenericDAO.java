@@ -17,7 +17,7 @@ import com.modelo.dao.GenericDAO;
 public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
 	protected EntityManager em = emf.createEntityManager();
-	private Class<T> persistentClass;
+	protected Class<T> persistentClass;
 
 	public JPAGenericDAO(Class<T> persitentClass) {
 		this.persistentClass = persitentClass;
@@ -25,8 +25,9 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 
 	@Override
 	public void actualizar(T entity) {
-		// TODO Auto-generated method stub
-
+		em.getTransaction().begin();
+        em.merge(entity);
+        em.getTransaction().commit();
 	}
 
 	@Override

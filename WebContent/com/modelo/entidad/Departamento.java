@@ -33,8 +33,17 @@ public class Departamento implements Serializable {
 	}
 
 	public Departamento(String nombre, String edificio) {
-		this.nombre=nombre;
-		this.edificio=edificio;
+		nombre=nombre;
+		edificio=edificio;
+	}
+
+	
+	public Integer getIdDepartamento() {
+		return idDepartamento;
+	}
+
+	public void setIdDepartamento(Integer idDepartamento) {
+		this.idDepartamento = idDepartamento;
 	}
 
 	public String getEdificio() {
@@ -76,4 +85,4 @@ public class Departamento implements Serializable {
 		return true;
 	}
 
-}// end Departamento
+}

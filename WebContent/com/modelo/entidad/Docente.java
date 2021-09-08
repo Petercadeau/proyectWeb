@@ -44,6 +44,11 @@ public class Docente extends Persona implements Serializable {
 		
 	}
 
+	public Docente(String nombre, String apellido, Departamento departamento2) {
+		super(nombre,apellido);
+		this.setDepartamento(departamento2);
+	}
+
 	public Departamento getDepartamento() {
 		return departamento;
 	}

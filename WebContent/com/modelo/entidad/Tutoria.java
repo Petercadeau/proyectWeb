@@ -1,17 +1,12 @@
 package com.modelo.entidad;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
-
 
 /**
  * @author Peterca
@@ -20,24 +15,25 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table (name="Tutoria")
+@Table(name = "tutoria")
 public class Tutoria implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_Tutoria")
-	private Integer id;
-	@ManyToOne
-	@JoinColumn(name = "docente")
+	@Column(name = "idTutoria")
+	private Integer idTutoria;
+	
+	
 	private Docente docente;
-	@ManyToOne
-	@JoinColumn(name = "estudiante")
 	private Estudiante estudiante;
-	@ManyToOne
-	@JoinColumn(name = "horario")
 	private Horario horario;
 
-	private static final long serialVersionUID = 1L;
-	
 	public Tutoria(){
 
 	}
@@ -65,30 +61,6 @@ public class Tutoria implements Serializable {
 	public void setHorario(Horario horario) {
 		this.horario = horario;
 	}
-	
-	@Override
-	public int hashCode() {
-		int hash = 0;
-		hash += (id != null ? id.hashCode() : 0);
-		return hash;
-	}
-
-	@Override
-	public boolean equals(Object object) {
-		// TODO: Warning - this method won't work in the case the id fields are
-		// not set
-		if (!(object instanceof Tutoria)) {
-			return false;
-		}
-		Tutoria other = (Tutoria) object;
-		if ((this.id == null && other.id != null)
-				|| (this.id != null && !this.id.equals(other.id))) {
-			return false;
-		}
-		return true;
-	}
-	
-	
 
 	
 	

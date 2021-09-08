@@ -2,6 +2,11 @@ package com.controlador;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 /**
@@ -9,6 +14,7 @@ import javax.servlet.http.HttpServlet;
  * @version 1.0
  * @created 01-sep.-2021 18:02:25
  */
+@WebServlet("/LogoutControlador")
 public class LogoutControlador extends HttpServlet {
 
 	/**
@@ -17,7 +23,7 @@ public class LogoutControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public LogoutControlador(){
-
+		super();
 	}
 
 
@@ -25,9 +31,12 @@ public class LogoutControlador extends HttpServlet {
 	 * 
 	 * @param request
 	 * @param response
+	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response){
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		request.getSession().invalidate();
+		request.getRequestDispatcher("/LoginControlador").forward(request, response);
 	}
 
 	/**

@@ -31,12 +31,12 @@ public interface GenericDAO<T,ID> {
 	 * 
 	 * @param entity
 	 */
-	public List<T> obtener(T entity);
+	public List<T> obtener();
 
 	/**
 	 * 
 	 * @param id
 	 */
-	public T obtenerPorId(ID id);
+	public List<T> obtenerPorId(ID id);
 
 }

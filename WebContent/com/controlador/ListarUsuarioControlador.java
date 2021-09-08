@@ -1,7 +1,19 @@
 package com.controlador;
 
 import javax.servlet.http.HttpServletResponse;
+
+import com.modelo.dao.DAOFactory;
+import com.modelo.dao.DepartamentoDAO;
+import com.modelo.dao.PersonaDAO;
+import com.modelo.entidad.Departamento;
+import com.modelo.entidad.Persona;
+
 import javax.servlet.http.HttpServletRequest;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
@@ -26,17 +38,26 @@ public class ListarUsuarioControlador extends HttpServlet {
 	 * 
 	 * @param request
 	 * @param response
+	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Get en ListUsuarios");
+		PersonaDAO personaDAO = DAOFactory.getFactory().getPersonaDAO();
+		List<Persona> usuarios = personaDAO.obtener();
+		request.setAttribute("usuarios", usuarios);
+		String path = "/jsp/listarUsuarios.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
 	 * 
 	 * @param request
 	 * @param response
+	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 }// end ListarUsuarioControlador

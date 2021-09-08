@@ -15,11 +15,11 @@
 				height="auto"> <a class="navbar-brand">Universidad X</a>
 			<ul class="navbar-nav mb-2 mb-lg-0 ">
 				<li id="tabCompras" class="nav-item dropdown"><a
-					class="nav-link text-center px-5" href="#" id="navbarDropdown"
+					class="nav-link text-center px-5" href="SolicitarTutoriaControlador" id="navbarDropdown"
 					role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Solicitar Tutoría </a></li>
 				<li id="tabEgresos" class="nav-item dropdown"><a
-					class="nav-link text-center px-5" href="#" id="navbarDropdown"
+					class="nav-link text-center px-5" href="CambiarClaveControlador" id="navbarDropdown"
 					role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Cambio de Clave </a></li>
 
@@ -32,13 +32,13 @@
 					class="nav-link dropdown-toggle my-auto me-3 text-center" href="#"
 					id="navbarDropdown" role="button" data-bs-toggle="dropdown"
 					aria-expanded="false"> <i class="bi bi-person-circle color"></i>
-						<span id="Usuario">Nombre</span>
+						<span id="Usuario">${sessionScope.usuarioLogueado.getNombre()}</span>
 				</a>
 					<ul
 						class="dropdown-menu dropdown-menu-end dropdown-menu-dark bg-dark "
 						aria-labelledby="navbarDropdown">
 						<li><a id="cerrarsesion"
-							class="dropdown-item text-center nav-link" href="index.html">Cerrar
+							class="dropdown-item text-center nav-link" href="LogoutControlador">Cerrar
 								sesión</a></li>
 					</ul></li>
 			</ul>

@@ -1,5 +1,6 @@
 package com.modelo.entidad;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -19,20 +20,33 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table (name="DOCENTE")
-public class Docente extends Persona {
-	
+
+public class Docente extends Persona implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@ManyToOne()
+	@JoinColumn(name = "departamento")
+	private Departamento departamento;
 
 	
-	@ManyToOne()
-	@JoinColumn(name="departamento")
-	private Departamento departamento;
-	
-	@OneToMany(mappedBy="Persona")
 	private List<Horario> horario;
 
-	public Docente(){
+	public Docente() {
 
+	}
+
+	public Docente(String cedula, String nombre, String apellido, String clave) {
+		super(cedula,nombre,apellido,clave);
+		
+	}
+
+	public Docente(String nombre, String apellido, Departamento departamento2) {
+		super(nombre,apellido);
+		this.setDepartamento(departamento2);
 	}
 
 	public Departamento getDepartamento() {
@@ -75,6 +89,4 @@ public class Docente extends Persona {
 		super.setNombre(nombre);
 	}
 
-	
-	
-}//end Docente
+}// end Docente

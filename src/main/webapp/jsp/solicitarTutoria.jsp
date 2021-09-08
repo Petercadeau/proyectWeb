@@ -16,7 +16,7 @@
 				<br>
 				<h5 class="text-left">Seleccione la fecha en la que desea realizar la tutoría:</h5>
 				<br>
-				<input class="col-9 align-middle" type="date">
+				<input class="align-middle form-control" type="date">
 
 				<c:forEach var="tutorias" items="${horario}">
 					<tr class="align-middle">
@@ -30,10 +30,10 @@
 		</div>
 		<div class="row justify-content-md-center text-center my-3">
 			<div class="col-8" style="color: #AEAEAE">
-				<button class="btn btn-danger mx-5">
+				<button class="btn btn-danger mx-5" onclick="location.href='MdoEstudianteControlador'">
 					<i class="bi bi-x-circle black"></i> Cancelar
 				</button>
-				<button class="btn btn-primary mx-5">Continuar</button>
+				<button class="btn btn-primary mx-5" onclick="location.href='ListarDocentesControlador'">Continuar</button>
 			</div>
 		</div>
 	</div>

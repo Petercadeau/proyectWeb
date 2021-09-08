@@ -6,34 +6,44 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
 /**
  * @author Peterca
  * @version 1.0
  * @created 31-ago.-2021 13:22:19
  */
 @Entity
-@Table (name="Horario")
-public class Horario implements Serializable{
-	
+@Table(name = "horario")
+public class Horario implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idHorario")
-    private Integer id;
-    @Column(name = "dia")
+	private Integer idHorario;
+	@Column(name = "dia")
 	private String dia;
-	@Column(name = "horaDefin")
+	@Column(name = "horaDisponibleFin")
 	private String horaDeFin;
-	@Column(name = "horaDeInicio")
+	@Column(name = "horaDisponibleInicio")
 	private String horaDeInicio;
 
-	public Horario(){
+	public Horario() {
 
 	}
+	
+	
+
+	public Horario(String dia, String horaDeFin, String horaDeInicio) {
+		super();
+		this.dia = dia;
+		this.horaDeFin = horaDeFin;
+		this.horaDeInicio = horaDeInicio;
+	}
+
+
 
 	public String getDia() {
 		return dia;
@@ -59,11 +69,10 @@ public class Horario implements Serializable{
 		this.horaDeInicio = horaDeInicio;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		int hash = 0;
-		hash += (id != null ? id.hashCode() : 0);
+		hash += (idHorario != null ? idHorario.hashCode() : 0);
 		return hash;
 	}
 
@@ -71,16 +80,15 @@ public class Horario implements Serializable{
 	public boolean equals(Object object) {
 		// TODO: Warning - this method won't work in the case the id fields are
 		// not set
-		if (!(object instanceof Horario)) {
+		if (!(object instanceof Persona)) {
 			return false;
 		}
 		Horario other = (Horario) object;
-		if ((this.id == null && other.id != null)
-				|| (this.id != null && !this.id.equals(other.id))) {
+		if ((this.idHorario == null && other.idHorario != null)
+				|| (this.idHorario != null && !this.idHorario.equals(other.idHorario))) {
 			return false;
 		}
 		return true;
 	}
-	
-	
-}//end Horario
+
+}// end Horario

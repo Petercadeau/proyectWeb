@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,41 +40,22 @@
 							</button>
 						</td>
 					</tr>
-					<c:forEach var="usuarios" items="${usuario}">
+					<c:forEach var="usuario" items="${usuarios}">
 						<tr class="align-middle">
 							<td>${usuario.cedula}</td>
 							<td>${usuario.apellido}</td>
 							<td>${usuario.nombre}</td>
-							<td>${usuario.tipo}</td>
+							<td>${usuario.tipoDeUsuario}</td>
 							<td><button type="button" class="btn btn-danger"
 									onclick="modalEliminarUsuario()">
 									<i class="bi bi-trash-fill white"></i> Eliminar
 								</button>
-								<button type="button" class="btn btn-primary">
+								<button type="button" class="btn btn-primary" onclick="location.href='ActualizarUsuarioControlador'">
 									<i class="bi bi-pencil-fill white"></i> Actualizar
 								</button></td>
 						</tr>
 					</c:forEach>
 				</table>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-		data-bs-keyboard="false" tabindex="-1"
-		aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">¿Estás seguro que deseas eliminar este
-					usuario?</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger"
-						data-bs-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary">Continuar</button>
-				</div>
 			</div>
 		</div>
 	</div>

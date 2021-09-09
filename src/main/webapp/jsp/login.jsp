@@ -22,7 +22,7 @@
                                 
                                 <div class="mb-3">
                                     <label class="mb-2 text-muted" for="txtCedula">Cédula</label>
-                                    <input id="txtCedula" type="text" class="form-control" name="txtCedula" value="17598642452" required
+                                    <input id="txtCedula" type="text" class="form-control" name="txtCedula" required
                                         autofocus>
                                     <div class="invalid-feedback">
                                         Credenciales incorrectas
@@ -32,16 +32,16 @@
                                     <div class="mb-2 w-100">
                                         <label class="text-muted" for="password">Contraseña</label>
                                     </div>
-                                    <input id="txtPassword" type="password" class="form-control bg.dark" value="2" name="txtPassword"
-                                        required>
+                                    <input id="txtPassword" type="password" class="form-control bg.dark" name="txtPassword"
+                                         required>
                                     <div class="invalid-feedback">
                                         Contraseña requerida
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="form-check">
-                                        <input type="checkbox" name="remember" id="recordarme" class="form-check-input">
-                                        <label for="remember" class="form-check-label">Recordarme</label>
+                                        <input type="checkbox" name="remember" id="recordarme" value="true" class="form-check-input">
+                                        <label for="remember" class="form-check-label" >	Recordarme</label>
                                     </div>
                                     <button type="submit" class="btn btn-primary ms-auto">
                                         Iniciar sesión
@@ -56,4 +56,25 @@
     </body>
     <%@ include file="../templates/footer.jsp" %>
 
+	<script>
+		function getCookie(nombreCookie){
+			switch(nombreCookie) {
+			  case "cookieCedula":
+				document.getElementById("txtCedula").value=request.getParameter("cookieCedula");
+			    break;
+			  case "cookiePass":
+				  document.getElementById("txtPassword").value=request.getParameter("cookiePass");
+			    break;
+			  default:
+				  if(request.getParameter("cookieRecordarme"))
+				  	document.getElementById("recordarme").checked = true;
+				  else
+					  document.getElementById("recordarme").checked = false;
+			  	break;
+			}
+		}
+		getCookie("cookiePass");
+		getCookie("cookieCedula");
+		getCookie("cookieRecordarme");
+	</script>
     </html>

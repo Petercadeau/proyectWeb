@@ -17,6 +17,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 
 /**
@@ -61,6 +62,7 @@ public class LoginControlador extends HttpServlet {
 		System.out.println("Post en Login");
 		String cedula = request.getParameter("txtCedula");
 		String password = request.getParameter("txtPassword");
+		boolean recordarme = "true".equals(request.getParameter("remember"));
 
 		PersonaDAO<Persona> personaModelo = DAOFactory.getFactory().getPersonaDAO();
 
@@ -70,6 +72,37 @@ public class LoginControlador extends HttpServlet {
 			System.out.println("No existe el usuario");
 			doGet(request, response);
 		}else {
+			if (recordarme) {
+				System.out.println("COOKIE IF 1:"+recordarme);
+				Cookie cookieCedula = new Cookie("cedula", cedula);
+				cookieCedula.setMaxAge(604800);
+				 
+				Cookie cookiePass = new Cookie("password", password);
+				cookiePass.setMaxAge(604800);
+				
+				Cookie cookieRecordarme = new Cookie("recordarme", String.valueOf(recordarme));
+				cookieRecordarme.setMaxAge(604800);
+				 
+				response.addCookie(cookieCedula);
+				response.addCookie(cookieRecordarme);
+				response.addCookie(cookiePass);
+	        }
+			else {
+				System.out.println("COOKIE ELSE:"+recordarme);
+				Cookie cookieCedula = new Cookie("cedula", "");
+				cookieCedula.setMaxAge(604800);
+				 
+				Cookie cookiePass = new Cookie("password", "");
+				cookiePass.setMaxAge(604800);
+				
+				Cookie cookieRecordarme = new Cookie("recordarme", "false");
+				cookieRecordarme.setMaxAge(604800);
+				 
+				response.addCookie(cookieCedula);
+				response.addCookie(cookieRecordarme);
+				response.addCookie(cookiePass);				
+			}
+				
 			switch (personaAutorizada.getTipoDeUsuario()) {
 				case "Administrador": {
 					System.out.println("Soy el admin brah");

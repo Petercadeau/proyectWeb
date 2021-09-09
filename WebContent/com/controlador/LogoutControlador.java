@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 
 /**
@@ -36,6 +37,10 @@ public class LogoutControlador extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.getSession().invalidate();
+		Cookie ck[]=request.getCookies();  
+		for(int i=0;i<ck.length;i++){  
+		 System.out.print("<br>"+ck[i].getName()+" "+ck[i].getValue());//printing name and value of cookie  
+		}  
 		request.getRequestDispatcher("/LoginControlador").forward(request, response);
 	}
 

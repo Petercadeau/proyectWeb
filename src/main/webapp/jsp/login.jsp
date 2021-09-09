@@ -22,7 +22,7 @@
                                 
                                 <div class="mb-3">
                                     <label class="mb-2 text-muted" for="txtCedula">Cédula</label>
-                                    <input id="txtCedula" type="text" class="form-control" name="txtCedula" required
+                                    <input id="txtCedula" type="text" class="form-control" name="txtCedula" value="${request.getCookies()[2].getValue()}" required
                                         autofocus>
                                     <div class="invalid-feedback">
                                         Credenciales incorrectas
@@ -56,7 +56,7 @@
     </body>
     <%@ include file="../templates/footer.jsp" %>
 
-	<script>
+	 <!--script>
 		function getCookie(nombreCookie){
 			switch(nombreCookie) {
 			  case "cookieCedula":
@@ -76,5 +76,5 @@
 		getCookie("cookiePass");
 		getCookie("cookieCedula");
 		getCookie("cookieRecordarme");
-	</script>
+	</script-->
     </html>

@@ -5,10 +5,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Actualizar Usuario</title>
-<%@ include file="../templates/meta.jsp"%>
+<%@ include file="/templates/meta.jsp"%>
 </head>
 <body " style="background-color: #343A40">
-	<%@ include file="../templates/navbarAdministrador.jsp"%>
+	<%@ include file="/templates/navbarAdministrador.jsp"%>
 	<div class="container-fluid">
 		<form method="POST">
 			<div class="row mt-4 mb-3 text-center justify-content-md-center">
@@ -44,5 +44,5 @@
 		</div>
 	</div>
 </body>
-<%@ include file="../templates/footer.jsp"%>
+<%@ include file="/templates/footer.jsp"%>
 </html>

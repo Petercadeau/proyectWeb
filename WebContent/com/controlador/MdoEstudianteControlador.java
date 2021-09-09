@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
@@ -31,9 +32,11 @@ public class MdoEstudianteControlador extends HttpServlet {
 	 * @param request
 	 * @param response
 	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.sendRedirect("jsp/mdoEstudiante.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String path = "/jsp/mdoEstudiante.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
@@ -41,8 +44,9 @@ public class MdoEstudianteControlador extends HttpServlet {
 	 * @param request
 	 * @param response
 	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		doGet(request, response);
 	}
 }// end MdoEstudianteControlador

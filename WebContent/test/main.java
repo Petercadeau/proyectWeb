@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import com.modelo.dao.AdministradorDAO;
 import com.modelo.dao.DAOFactory;
 import com.modelo.dao.DepartamentoDAO;
 import com.modelo.dao.DocenteDAO;
@@ -30,16 +31,16 @@ public class main {
 		/*HorarioDAO horariodao = DAOFactory.getFactory().getHorarioDAO();
 		horariodao.crear(horario);*/
 		
-		Docente d = new Docente("1717171717","J","P","123");
+		Administrador d = new Administrador("1717171717","J","P","123");
 		
 		ArrayList<Horario> t=new ArrayList<Horario>();
 		t.add(horario);
-		
+		/*
 		d.setHorario(t);
 		d.setDepartamento(new Departamento("ccss", "101"));
-		
-		DocenteDAO dc = DAOFactory.getFactory().getDocenteDAO();
+		*/
+		AdministradorDAO dc = DAOFactory.getFactory().getAdministradorDAO();
 		dc.crear(d);
-		 
+		
 	}
 }

@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
@@ -31,10 +32,12 @@ public class MdoAdministradorControlador extends HttpServlet {
 	 * @param request
 	 * @param response
 	 * @throws IOException
+	 * @throws ServletException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		System.out.println("Soy el jefe get");
-		response.sendRedirect("jsp/mdoAdministrador.jsp");
+		String path = "/jsp/mdoAdministrador.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
@@ -42,8 +45,9 @@ public class MdoAdministradorControlador extends HttpServlet {
 	 * @param request
 	 * @param response
 	 * @throws IOException
+	 * @throws ServletException 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		System.out.println("Soy el jefe post");
 		doGet(request, response);
 	}

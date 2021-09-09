@@ -11,7 +11,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<img src="../assets/img/logo.png" class="mx-2" alt="" width="3%"
+			<img src="assets/img/logo.png" class="mx-2" alt="" width="3%"
 				height="auto"> <a class="navbar-brand">Universidad X</a>
 			<ul class="navbar-nav mb-2 mb-lg-0 ">
 				<li id="tabCompras" class="nav-item dropdown"><a
@@ -21,13 +21,13 @@
 					<ul class="dropdown-menu dropdown-menu-dark bg-dark"
 						aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item text-center nav-link"
-							href="../ActualizarInformacionDocenteControlador">Actualizar Información</a></li>
+							href="ActualizarInformacionDocenteControlador">Actualizar Información</a></li>
 					</ul></li>
 				<li id="tabEgresos" class="nav-item"><a
-					class="nav-link text-center px-5" href="../ListarHorarioControlador" role="button" aria-expanded="false">
+					class="nav-link text-center px-5" href="ListarHorarioControlador" role="button" aria-expanded="false">
 						Horarios </a></li>
 				<li id="tabEgresos" class="nav-item"><a
-					class="nav-link text-center px-5" href="../ListarTutoriaControlador" role="button" aria-expanded="false">
+					class="nav-link text-center px-5" href="ListarTutoriaControlador" role="button" aria-expanded="false">
 						Tutorias </a></li>
 
 			</ul>

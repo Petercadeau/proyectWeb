@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
@@ -26,8 +27,9 @@ public class SolicitarTutoriaControlador extends HttpServlet {
 	}
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.sendRedirect("jsp/solicitarTutoria.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String path = "/jsp/solicitarTutoria.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

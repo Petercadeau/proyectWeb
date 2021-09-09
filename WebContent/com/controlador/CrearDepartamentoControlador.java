@@ -38,9 +38,11 @@ public class CrearDepartamentoControlador extends HttpServlet {
 	 * @param request
 	 * @param response
 	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.sendRedirect("jsp/crearDepartamento.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String path = "/jsp/crearDepartamento.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

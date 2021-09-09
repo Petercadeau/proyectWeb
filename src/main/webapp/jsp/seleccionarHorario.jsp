@@ -7,10 +7,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Listar Horarios</title>
-<%@ include file="../templates/meta.jsp"%>
+<%@ include file="/templates/meta.jsp"%>
 </head>
 <body " style="background-color: #343A40">
-	<%@ include file="../templates/navbarEstudiante.jsp"%>
+	<%@ include file="/templates/navbarEstudiante.jsp"%>
 	<div class="container-fluid">
 		<div class="row my-5 justify-content-md-center">
 			<div class="col-4 my-2" style="color: #AEAEAE">
@@ -54,5 +54,5 @@
 		</div>
 	</div>
 </body>
-<%@ include file="../templates/footer.jsp"%>
+<%@ include file="/templates/footer.jsp"%>
 </html>

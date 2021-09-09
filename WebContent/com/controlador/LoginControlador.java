@@ -41,10 +41,12 @@ public class LoginControlador extends HttpServlet {
 	 * @param request
 	 * @param response
 	 * @throws IOException
+	 * @throws ServletException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		System.out.println("Get en Login");
-		response.sendRedirect("jsp/login.jsp");
+		String path = "/jsp/login.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

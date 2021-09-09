@@ -46,7 +46,8 @@ public class CrearUsuarioControlador extends HttpServlet {
 	 * @throws ServletException 
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.sendRedirect("jsp/crearUsuario.jsp");
+		String path = "/jsp/crearUsuario.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

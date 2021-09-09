@@ -12,7 +12,7 @@
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<img src="../assets/img/logo.png" class="mx-2" alt="" width="3%" height="auto">
+			<img src="assets/img/logo.png" class="mx-2" alt="" width="3%" height="auto">
 			<a class="navbar-brand">Universidad X</a>
 			<ul class="navbar-nav mb-2 mb-lg-0 ">
 				<li id="tabCompras" class="nav-item dropdown"><a
@@ -22,9 +22,9 @@
 					<ul class="dropdown-menu dropdown-menu-dark bg-dark"
 						aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item text-center nav-link"
-							href="../ListarDepartamentoControlador">Listar departamento</a></li>
+							href="ListarDepartamentoControlador">Listar departamento</a></li>
 						<li><a class="dropdown-item text-center nav-link"
-							href="../CrearDepartamentoControlador">Crear departamento</a></li>
+							href="CrearDepartamentoControlador">Crear departamento</a></li>
 					</ul></li>
 				<li id="tabEgresos" class="nav-item dropdown"><a
 					class="nav-link text-center px-4" href="#" id="navbarDropdown"
@@ -33,9 +33,9 @@
 					<ul class="dropdown-menu dropdown-menu-dark bg-dark"
 						aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item text-center nav-link"
-							href="../ListarUsuarioControlador">Listar Usuario</a></li>
+							href="ListarUsuarioControlador">Listar Usuario</a></li>
 						<li><a class="dropdown-item text-center nav-link"
-							href="../CrearUsuarioControlador">Crear Usuario</a></li>
+							href="CrearUsuarioControlador">Crear Usuario</a></li>
 					</ul></li>
 
 			</ul>
@@ -54,7 +54,7 @@
 							class="dropdown-menu dropdown-menu-end dropdown-menu-dark bg-dark "
 							aria-labelledby="navbarDropdown">
 							<li><a id="cerrarsesion"
-								class="dropdown-item text-center nav-link" href="../LogoutControlador">Cerrar
+								class="dropdown-item text-center nav-link" href="LogoutControlador">Cerrar
 									sesión</a></li>
 						</ul></li>
 				</ul>

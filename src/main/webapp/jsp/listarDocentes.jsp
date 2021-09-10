@@ -35,7 +35,7 @@
 							<td>${docente.apellido}</td>
 							<td>${docente.nombre}</td>
 							<td>
-								<button type="button" class="btn btn-primary" onclick="location.href='SeleccionarHorarioControlador?txtId=${docente.id}'">
+								<button type="button" class="btn btn-primary" onclick="location.href='SeleccionarHorarioControlador?listaHorario=${docente.horario}'">
 									<i class="bi bi-cursor-fill white"></i> Seleccionar
 								</button>
 							</td>

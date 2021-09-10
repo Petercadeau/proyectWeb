@@ -34,10 +34,15 @@ public class JPADocenteDAO extends JPAPersonaDAO<Docente> implements DocenteDAO 
 		List<Docente> listaRetorno = new ArrayList<Docente>();
 		
 		for (Docente docente : lista) {
+			ArrayList<Horario> horarioDelDocente=new ArrayList<Horario>();
 			for (Horario horarioFraccion : docente.getHorario()) {
 				if(horarioFraccion.getDia().equals(fecha)) {
-					listaRetorno.add(docente);
+					horarioDelDocente.add(horarioFraccion);
 				}
+			}
+			if(!horarioDelDocente.isEmpty()) {
+				docente.setHorario(horarioDelDocente);
+				listaRetorno.add(docente);
 			}
 		}
 

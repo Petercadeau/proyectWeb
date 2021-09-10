@@ -31,9 +31,9 @@ public class SeleccionarHorarioControlador extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Integer id = Integer.parseInt(request.getParameter("txtId"));
-		HorarioDAO horarioDAO = DAOFactory.getFactory().getHorarioDAO();
-		List<Horario> horarios = horarioDAO.obtenerPorId(id);
+		List<Horario> horarios = (List<Horario>)request.getAttribute("listaHorario");
+		/*HorarioDAO horarioDAO = DAOFactory.getFactory().getHorarioDAO();
+		List<Horario> horarios = horarioDAO.obtenerPorId(id);*/
 		request.setAttribute("horarios", horarios);
 		String path = "/jsp/seleccionarHorario.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);

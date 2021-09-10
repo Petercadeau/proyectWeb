@@ -16,21 +16,21 @@ import com.modelo.entidad.Docente;
 import com.modelo.entidad.Persona;
 
 /**
- * Servlet implementation class ListarDocenteControlador
+ * Servlet implementation class ListarDocentesControlador
  */
-@WebServlet("/ListarDocenteControlador")
-public class ListarDocenteControlador extends HttpServlet {
+@WebServlet("/ListarDocentesControlador")
+public class ListarDocentesControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListarDocenteControlador() {
+    public ListarDocentesControlador() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String fecha = request.getParameter("txtFechaDia");
+		String fecha = request.getParameter("txtDiaFecha");
 		System.out.println("Get en ListDocente");
 		DocenteDAO docenteDAO = DAOFactory.getFactory().getDocenteDAO();
 		List<Docente> docentes = docenteDAO.obtenerPorFecha(fecha);

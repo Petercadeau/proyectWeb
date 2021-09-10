@@ -31,7 +31,7 @@ public class JPADocenteDAO extends JPAPersonaDAO<Docente> implements DocenteDAO 
 		String consulta = "Select * from horario h "
 				+ "join docente_horario d on h.idHorario=d.horario_idHorario "
 				+ "join persona p on p.idPersona=d.docente_idPersona "
-				+ "where h.dia = "+fecha;
+				+ "where h.dia = '"+fecha+"'";
 		Query query = em.createNativeQuery(consulta);
 		List<Docente> list = (List<Docente>) query.getResultList();
 		return list;

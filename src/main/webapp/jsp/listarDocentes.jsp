@@ -36,7 +36,7 @@
 						</td>
 					</tr>
 
-					<c:forEach var="tutorias" items="${docente}">
+					<c:forEach var="docente" items="${docentes}">
 						<tr class="align-middle">
 							<td>${docente.departamento}</td>
 							<td>${docente.apellido}</td>

@@ -9,7 +9,7 @@ function modalEliminarUsuario() {
 			if (willDelete) {
 				$.ajax({
 					url: "EliminarUsuarioControlador",
-					data: ,
+					data: {},
 					method: "POST",
 
 				}).done(function() {
@@ -24,7 +24,7 @@ function modalEliminarUsuario() {
 function modalActualizarUsuario() {
 	$.ajax({
 		url: "ActualizarUsuarioControlador",
-		data: ,
+		data: {},
 		method: "POST",
 
 	}).done(function() {
@@ -37,7 +37,7 @@ function modalActualizarUsuario() {
 function modalActualizarDocente() {
 	$.ajax({
 		url: "ActualizarInformaciónDocenteControlador",
-		data: ,
+		data: {},
 		method: "POST",
 
 	}).done(function() {
@@ -50,7 +50,7 @@ function modalActualizarDocente() {
 function modalCrearDepartamento() {
 	$.ajax({
 		url: "CrearDepartamentoControlador",
-		data: ,
+		data: {},
 		method: "POST",
 
 	}).done(function() {
@@ -63,7 +63,7 @@ function modalCrearDepartamento() {
 function modalCrearUsuario() {
 	$.ajax({
 		url: "CrearUsuarioControlador",
-		data: ,
+		data: {},
 		method: "POST",
 
 	}).done(function() {
@@ -76,7 +76,7 @@ function modalCrearUsuario() {
 function modalActualizarDepartamento() {
 	$.ajax({
 		url: "ActualizarDepartamentoControlador",
-		data: ,
+		data: {},
 		method: "POST",
 
 	}).done(function() {
@@ -89,7 +89,7 @@ function modalActualizarDepartamento() {
 function modalRegistrarTutoria() {
 	$.ajax({
 		url: "SolicitarTutoriaControlador",
-		data: ,
+		data: {},
 		method: "POST",
 
 	}).done(function() {
@@ -98,27 +98,4 @@ function modalRegistrarTutoria() {
 	swal("Tutoría registrada correctamente", {
 		icon: "success",
 	});
-}
-function modalCambiarClave() {
-	swal({
-		title: "¿Estás seguro que deseas actualizar tu clave?",
-		text: "",
-		icon: "warning",
-		buttons: ["Cancelar", "Continuar"],
-	})
-		.then((willDelete) => {
-			if (willDelete) {
-				$.ajax({
-					url: "CambiarClaveControlador",
-					data: ,
-					method: "POST",
-
-				}).done(function() {
-					$(this).addClass("done");
-				});
-				swal("Clave actualizada correctamente", {
-					icon: "success",
-				});
-			}
-		});
 }

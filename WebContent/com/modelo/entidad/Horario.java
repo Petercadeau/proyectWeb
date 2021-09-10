@@ -43,6 +43,20 @@ public class Horario implements Serializable {
 		this.horaDeInicio = horaDeInicio;
 	}
 
+	
+	
+
+
+	public Integer getIdHorario() {
+		return idHorario;
+	}
+
+
+
+	public void setIdHorario(Integer idHorario) {
+		this.idHorario = idHorario;
+	}
+
 
 
 	public String getDia() {

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.modelo.dao.DAOFactory;
 import com.modelo.dao.DocenteDAO;
 import com.modelo.dao.PersonaDAO;
+import com.modelo.dao.TutoriaDAO;
 import com.modelo.entidad.Docente;
 import com.modelo.entidad.Persona;
 
@@ -34,6 +35,9 @@ public class ListarDocentesControlador extends HttpServlet {
 		System.out.println("Get en ListDocente "+fecha);
 		DocenteDAO docenteDAO = DAOFactory.getFactory().getDocenteDAO();
 		List<Docente> docentes = docenteDAO.obtenerPorFecha(fecha);
+		
+		
+		
 		request.setAttribute("docentes", docentes);
 		request.setAttribute("txtDia", fecha);
 		String path = "/jsp/listarDocentes.jsp";

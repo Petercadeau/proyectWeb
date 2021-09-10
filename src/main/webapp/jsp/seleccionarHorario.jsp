@@ -30,10 +30,10 @@
 						<td>11:15</td>
 					</tr>
 
-					<c:forEach var="tutorias" items="${horario}">
+					<c:forEach var="horario" items="${horarios}">
 						<tr class="align-middle">
-							<td>${horario.hora_inicio}</td>
-							<td>${horario.hora_fin}</td>
+							<td>${horario.horaDeInicio}</td>
+							<td>${horario.horaDeFin}</td>
 
 						</tr>
 					</c:forEach>

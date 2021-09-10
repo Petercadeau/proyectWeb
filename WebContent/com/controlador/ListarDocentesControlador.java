@@ -31,7 +31,7 @@ public class ListarDocentesControlador extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String fecha = request.getParameter("txtDiaFecha");
-		System.out.println("Get en ListDocente");
+		System.out.println("Get en ListDocente "+fecha);
 		DocenteDAO docenteDAO = DAOFactory.getFactory().getDocenteDAO();
 		List<Docente> docentes = docenteDAO.obtenerPorFecha(fecha);
 		request.setAttribute("docentes", docentes);

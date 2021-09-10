@@ -1,11 +1,13 @@
 package com.modelo.jpa;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Query;
 
 import com.modelo.dao.DocenteDAO;
 import com.modelo.entidad.Docente;
+import com.modelo.entidad.Horario;
 import com.modelo.entidad.Persona;
 
 /**
@@ -28,13 +30,18 @@ public class JPADocenteDAO extends JPAPersonaDAO<Docente> implements DocenteDAO 
 	
 	@Override
 	public List<Docente> obtenerPorFecha(String fecha){
-		String consulta = "Select * from horario h "
-				+ "join docente_horario d on h.idHorario=d.horario_idHorario "
-				+ "join persona p on p.idPersona=d.docente_idPersona "
-				+ "where h.dia = '"+fecha+"'";
-		Query query = em.createNativeQuery(consulta);
-		List<Docente> list = (List<Docente>) query.getResultList();
-		return list;
+		List<Docente> lista=obtener();
+		List<Docente> listaRetorno = new ArrayList<Docente>();
+		
+		for (Docente docente : lista) {
+			for (Horario horarioFraccion : docente.getHorario()) {
+				if(horarioFraccion.getDia().equals(fecha)) {
+					listaRetorno.add(docente);
+				}
+			}
+		}
+
+		return listaRetorno;
 	}
 	
 }// end JPADocenteDAO

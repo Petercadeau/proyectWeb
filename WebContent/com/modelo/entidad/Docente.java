@@ -1,6 +1,7 @@
 package com.modelo.entidad;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -33,7 +34,7 @@ public class Docente extends Persona implements Serializable {
 	private Departamento departamento;
 
 	
-	private List<Horario> horario;
+	private List<Horario> horario=new ArrayList<Horario>();
 
 	public Docente() {
 
@@ -42,6 +43,11 @@ public class Docente extends Persona implements Serializable {
 	public Docente(String cedula, String nombre, String apellido, String clave) {
 		super(cedula,nombre,apellido,clave);
 		
+	}
+
+	@Override
+	public String toString() {
+		return "Docente [departamento=" + departamento + ", horario=" + horario + "]";
 	}
 
 	public Docente(String nombre, String apellido, Departamento departamento2) {

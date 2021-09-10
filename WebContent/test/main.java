@@ -33,6 +33,10 @@ public class main {
 		
 		Administrador d = new Administrador("1717171717","J","P","123");
 		
+		Docente docente = new Docente("1818181818","Pi ere","D","456");
+		
+		Estudiante estudiante = new Estudiante("1919191919", "Davi" , "M", "789");
+		
 		ArrayList<Horario> t=new ArrayList<Horario>();
 		t.add(horario);
 		/*

@@ -14,6 +14,7 @@ import com.modelo.entidad.Persona;
 import javax.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,12 +43,16 @@ public class ActualizarInformacionDocenteControlador extends HttpServlet {
 	 * @param request
 	 * @param response
 	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		Integer id = Integer.parseInt(request.getParameter("txtId"));
-		Persona persona = DAOFactory.getFactory().getPersonaDAO().obtenerPorId(id).get(0);
-		request.setAttribute("persona", persona);
-		response.sendRedirect("jsp/actualizarDepartamento.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		Persona personaAutorizada = (Persona) request.getSession().getAttribute("usuarioLogueado");
+		Integer id = personaAutorizada.getId(); 
+		//Persona persona = DAOFactory.getFactory().getPersonaDAO().obtenerPorId(id).get(0);
+		List<Departamento> departamentos = DAOFactory.getFactory().getDepartamentoDAO().obtener();
+		request.setAttribute("departamentos", departamentos);
+		String path = "/jsp/actualizarInformacionDocente.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

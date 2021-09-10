@@ -14,9 +14,9 @@
 			<img src="assets/img/logo.png" class="mx-2" alt="" width="3%"
 				height="auto"> <a class="navbar-brand">Universidad X</a>
 			<ul class="navbar-nav mb-2 mb-lg-0 ">
-				<li><a class="dropdown-item text-center nav-link"
+				<li><a class="text-center nav-link"
 							href="SolicitarTutoriaControlador">Solicitar tutoría</a></li>
-				<li><a class="dropdown-item text-center nav-link"
+				<li><a class="text-center nav-link"
 							href="CambiarClaveControlador">Cambio de clave</a></li>
 
 			</ul>

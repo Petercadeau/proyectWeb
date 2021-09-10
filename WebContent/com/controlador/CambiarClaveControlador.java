@@ -42,12 +42,11 @@ public class CambiarClaveControlador extends HttpServlet {
 	 * @param request
 	 * @param response
 	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		Integer id = Integer.parseInt(request.getParameter("txtId"));
-		Persona persona = DAOFactory.getFactory().getPersonaDAO().obtenerPorId(id).get(0);
-		request.setAttribute("persona", persona);
-		response.sendRedirect("jsp/cambiarClave.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String path = "/jsp/cambiarClave.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

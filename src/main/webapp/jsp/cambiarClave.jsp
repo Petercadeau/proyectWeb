@@ -19,11 +19,11 @@
 		<div class="row justify-content-md-center">
 			<div class="col-4" style="color: #AEAEAE">
 				<label class="form-label">Ingrese su contraseña actual:</label><br> 
-				<input type="text" class="form-control" id="txtClave"><br> 
+				<input type="password" class="form-control" id="txtClave"><br> 
 				<label class="form-label">Ingrese su nueva contraseña:</label><br>
-				<input type="text" class="form-control" id="txtNuevaClave"><br> 
+				<input type="password" class="form-control" id="txtNuevaClave"><br> 
 				<label class="form-label">Vuelva a ingresar su nueva contraseña:</label><br>
-				<input type="text" class="form-control" id="txtConfirmarClave"><br> 
+				<input type="password" class="form-control" id="txtConfirmarClave"><br> 
 			</div>
 		</div>
 		</form>

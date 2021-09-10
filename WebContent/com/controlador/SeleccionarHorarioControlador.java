@@ -1,6 +1,7 @@
 package com.controlador;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -20,21 +21,28 @@ import com.modelo.entidad.Persona;
 @WebServlet("/SeleccionarHorarioControlador")
 public class SeleccionarHorarioControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SeleccionarHorarioControlador() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SeleccionarHorarioControlador() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<Horario> horarios = (List<Horario>)request.getAttribute("listaHorario");
-		/*HorarioDAO horarioDAO = DAOFactory.getFactory().getHorarioDAO();
-		List<Horario> horarios = horarioDAO.obtenerPorId(id);*/
-		request.setAttribute("horarios", horarios);
+		Integer txtId = Integer.parseInt(request.getParameter("txtId"));
+		String txtDia = request.getParameter("txtDia");
+		HorarioDAO horariodDao = DAOFactory.getFactory().getHorarioDAO();
+		List<Horario> horarios = horariodDao.obtenerPorId(txtId);
+		List<Horario> horarioFinal = new ArrayList<Horario>();
+		for (Horario h : horarios) {
+			if (h.getDia().equals(txtDia)) {
+				horarioFinal.add(h);
+			}
+		}
+		request.setAttribute("horarios", horarioFinal);
 		String path = "/jsp/seleccionarHorario.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}

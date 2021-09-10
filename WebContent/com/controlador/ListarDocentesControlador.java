@@ -35,6 +35,7 @@ public class ListarDocentesControlador extends HttpServlet {
 		DocenteDAO docenteDAO = DAOFactory.getFactory().getDocenteDAO();
 		List<Docente> docentes = docenteDAO.obtenerPorFecha(fecha);
 		request.setAttribute("docentes", docentes);
+		request.setAttribute("txtDia", fecha);
 		String path = "/jsp/listarDocentes.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}

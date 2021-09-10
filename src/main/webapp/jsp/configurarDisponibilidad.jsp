@@ -27,19 +27,11 @@
 							<th>Acciones</th>
 						</tr>
 					</thead>
-					<tr class="align-middle">
-						<td>Lunes</td>
-						<td>11:00 - 11:15</td>
-						<td>
-							<button type="button" class="btn btn-danger">
-								<i class="bi bi-trash-fill white"></i> Retirar
-							</button>
-						</td>
-					</tr>
-					<c:forEach var="tutorias" items="${tutoria}">
+				
+					<c:forEach var="horario" items="${horarios}">
 						<tr class="align-middle">
-							<td>${tutoria.dia}</td>
-							<td>${tutoria.hora}</td>
+							<td>${horario.dia}</td>
+							<td>${horario.horaDeInicio} - ${horario.horaDeFin}</td>
 							<td>
 								<button type="button" class="btn btn-danger" onclick="location.href='EliminarHorarioControlador'">
 									<i class="bi bi-trash-fill white"></i> Retirar

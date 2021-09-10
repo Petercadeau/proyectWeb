@@ -24,12 +24,7 @@
 							<th>Inicia</th>
 							<th>Finaliza</th>
 						</tr>
-					</thead>
-					<tr class="align-middle">
-						<td>11:00</td>
-						<td>11:15</td>
-					</tr>
-
+					</thead>			
 					<c:forEach var="horario" items="${horarios}">
 						<tr class="align-middle">
 							<td>${horario.horaDeInicio}</td>

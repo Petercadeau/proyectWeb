@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -33,7 +34,8 @@ public class Docente extends Persona implements Serializable {
 	@JoinColumn(name = "departamento")
 	private Departamento departamento;
 
-	
+	@ManyToMany()
+	@JoinColumn(name = "horario")
 	private List<Horario> horario=new ArrayList<Horario>();
 
 	public Docente() {

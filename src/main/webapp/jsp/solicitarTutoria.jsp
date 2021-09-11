@@ -28,12 +28,12 @@
 			</div>
 			<div class="row justify-content-md-center text-center my-3">
 				<div class="col-8" style="color: #AEAEAE">
-					<button class="btn btn-danger mx-5"
+					<button type="button" class="btn btn-danger mx-5"
 						onclick="location.href='MdoEstudianteControlador'">
 						<i class="bi bi-x-circle black"></i> Cancelar
 					</button>
 					<button class="btn btn-primary mx-5"
-						type="submit">Continuar</button>
+						type="submit"><i class="bi bi-arrow-right black"></i> Continuar</button>
 				</div>
 			</div>
 		</form>

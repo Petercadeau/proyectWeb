@@ -40,7 +40,7 @@
 				<button class="btn btn-danger mx-5">
 					<i class="bi bi-x-circle black"></i> Cancelar
 				</button>
-				<button class="btn btn-primary mx-5" onclick="modalCrearUsuario()">Continuar</button>
+				<button class="btn btn-primary mx-5" onclick="modalCrearUsuario()"><i class="bi bi-arrow-right white"></i> Continuar</button>
 			</div>
 		</div>
 	</div>

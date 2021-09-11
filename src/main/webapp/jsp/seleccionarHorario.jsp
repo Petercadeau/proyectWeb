@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -23,13 +23,15 @@
 						<tr>
 							<th>Inicia</th>
 							<th>Finaliza</th>
+							<th>Acciones</th>
 						</tr>
-					</thead>			
+					</thead>
 					<c:forEach var="horario" items="${horarios}">
 						<tr class="align-middle">
 							<td>${horario.horaDeInicio}</td>
 							<td>${horario.horaDeFin}</td>
-
+							<td><button class="btn btn-primary mx-5"
+									onclick="modalRegistrarTutoria(${horario.idHorario})">Registrar Tutoría</button></td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -37,17 +39,33 @@
 		</div>
 		<div class="row justify-content-md-center text-center my-3">
 			<div class="col-8" style="color: #AEAEAE">
-				<button class="btn btn-danger mx-5">
+				<button class="btn btn-danger mx-5"  onclick="location.href='MdoEstudianteControlador'">
 					<i class="bi bi-x-circle black"></i> Cancelar
 				</button>
-				<button class="btn btn-light mx-5">
+				<button class="btn btn-light mx-5"  onclick="location.href='ListarDocentesControlador?txtDiaFecha=${txtDia}'">
 					<i class="bi bi-arrow-left black"></i> Regresar
 				</button>
-				<button class="btn btn-primary mx-5" onclick="modalRegistrarTutoria()"> Registrar Tutoría
-				</button>
+
 			</div>
 		</div>
 	</div>
 </body>
+<script>
+function modalRegistrarTutoria(id) {
+	$.ajax({
+		url: "SolicitarTutoriaControlador",
+		data: { "idEstudiante": id, "idDocente": "${idDocente}", "idHorario": "${sessionScope.usuarioLogueado.getId()}"},
+		method: "POST",
+		success: function() {
+			swal("Tutoría registrada correctamente", {
+				icon: "success",
+			});
+			setTimeout(() => {
+				location.href = "MdoEstudianteControlador";
+			}, 2000);
+		}
+	})
+}
+</script>
 <%@ include file="/templates/footer.jsp"%>
 </html>

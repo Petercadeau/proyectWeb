@@ -19,29 +19,19 @@
 					<thead>
 						<tr>
 							<th>Departamento</th>
+							<th>Edificio</th>
 							<th>Acciones</th>
 						</tr>
 					</thead>
-					<tr class="align-middle">
-						<td>Sistemas</td>
-						<td>
-							<button type="button" class="btn btn-danger">
-								<i class="bi bi-trash-fill white"></i> Eliminar
-							</button>
-							<button type="button" class="btn btn-primary">
-								<i class="bi bi-pencil-fill white"></i> Actualizar
-							</button>
-						</td>
-					</tr>
-
 					<c:forEach var="departamento" items="${departamentos}">
 						<tr class="align-middle">
 							<td>${departamento.nombre}</td>
+							<td>${departamento.edificio}</td>
 						<td>
-							<button type="button" class="btn btn-danger" onclick="location.href='EliminarDepartamentoControlador'">
+							<button type="button" class="btn btn-danger" onclick="location.href='EliminarDepartamentoControlador?txtId=${departamento.idDepartamento}'">
 								<i class="bi bi-trash-fill white"></i> Eliminar
 							</button>
-							<button type="button" class="btn btn-primary" onclick="location.href='ActualizarDepartamentoControlador'">
+							<button type="button" class="btn btn-primary" onclick="location.href='ActualizarDepartamentoControlador?txtId=${departamento.idDepartamento}'">
 								<i class="bi bi-pencil-fill white"></i> Actualizar
 							</button>
 						</td>

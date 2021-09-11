@@ -19,21 +19,42 @@
 			<div class="row justify-content-md-center">
 				<div class="col-4" style="color: #AEAEAE">
 					<label class="form-label">Nombre:</label><br> <input
-						type="text" class="form-control" id="txtNombre"><br> <label
+						type="text" class="form-control" id="txtNombre" value="${departamento.nombre}"><br> <label
 						class="form-label">Edificio:</label><br>
-					<input type="text" class="form-control" id="txtEdificio"><br>
+					<input type="text" class="form-control" id="txtEdificio" value="${departamento.edificio}"><br>
 				</div>
 			</div>
 			</form>
 			<div class="row justify-content-md-center text-center my-3">
 				<div class="col-4" style="color: #AEAEAE">
-					<button class="btn btn-danger mx-5">
+					<button class="btn btn-danger mx-5" onclick="location.href='ListarDepartamentoControlador'">
 						<i class="bi bi-x-circle black"></i> Cancelar
 					</button>
-					<button type="submit" class="btn btn-primary mx-5" onclick="modalActualizarDepartamento()">Continuar</button>
+					<button type="submit" class="btn btn-primary mx-5" onclick="modalActualizarDepartamento()"><i class="bi bi-arrow-repeat"></i> Actualizar</button>
 				</div>
 			</div>
 	</div>
 </body>
 <%@ include file="/templates/footer.jsp"%>
+<script type="text/javascript">
+function modalActualizarDepartamento() {
+	nombre=$("#txtNombre").val();
+	edificio=$("#txtEdificio").val();
+	$.ajax({
+		url: "ActualizarDepartamentoControlador",
+		data: { "txtEdificio":edificio, "txtNombre": nombre,"id": ${departamento.idDepartamento} },
+		method: "POST",
+		success: function() {
+			swal("Departamento actualizado correctamente", {
+				icon: "success",
+			});
+			setTimeout(() => {
+				location.href = "MdoAdministradorControlador";
+			}, 2000);
+		}
+	})
+}
+
+</script>
+
 </html>

@@ -26,20 +26,6 @@
 							<th>Acciones</th>
 						</tr>
 					</thead>
-					<tr class="align-middle">
-						<td>0123456789</td>
-						<td>Apellido X</td>
-						<td>Nombre X</td>
-						<td>Administrador</td>
-						<td>
-							<button type="button" class="btn btn-danger">
-								<i class="bi bi-trash-fill white"></i> Eliminar
-							</button>
-							<button type="button" class="btn btn-primary">
-								<i class="bi bi-pencil-fill white"></i> Actualizar
-							</button>
-						</td>
-					</tr>
 					<c:forEach var="usuario" items="${usuarios}">
 						<tr class="align-middle">
 							<td>${usuario.cedula}</td>
@@ -57,6 +43,11 @@
 					</c:forEach>
 				</table>
 			</div>
+			<div class="row justify-content-md-center text-center my-3">
+			<div class="col-4" style="color: #AEAEAE">
+				<button class="btn btn-light mx-5" onclick="location.href='MdoAdministradorControlador'"> <i class="bi bi-arrow-left black"></i> Regresar</button>
+			</div>
+		</div>
 		</div>
 	</div>
 

@@ -43,13 +43,14 @@ public class SeleccionarHorarioControlador extends HttpServlet {
 			}
 		}
 		request.setAttribute("horarios", horarioFinal);
+		request.setAttribute("idDocente", txtId);
+		request.setAttribute("txtDia", txtDia);
 		String path = "/jsp/seleccionarHorario.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		doGet(request, response);
 	}
 

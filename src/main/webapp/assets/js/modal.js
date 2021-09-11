@@ -73,29 +73,4 @@ function modalCrearUsuario() {
 		icon: "success",
 	});
 }
-function modalActualizarDepartamento() {
-	$.ajax({
-		url: "ActualizarDepartamentoControlador",
-		data: {},
-		method: "POST",
 
-	}).done(function() {
-		$(this).addClass("done");
-	});
-	swal("Departamento actualizado correctamente", {
-		icon: "success",
-	});
-}
-function modalRegistrarTutoria() {
-	$.ajax({
-		url: "SolicitarTutoriaControlador",
-		data: {},
-		method: "POST",
-
-	}).done(function() {
-		$(this).addClass("done");
-	});
-	swal("Tutoría registrada correctamente", {
-		icon: "success",
-	});
-}

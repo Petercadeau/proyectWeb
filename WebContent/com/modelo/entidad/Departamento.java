@@ -33,8 +33,8 @@ public class Departamento implements Serializable {
 	}
 
 	public Departamento(String nombre, String edificio) {
-		nombre=nombre;
-		edificio=edificio;
+		this.nombre=nombre;
+		this.edificio=edificio;
 	}
 
 	

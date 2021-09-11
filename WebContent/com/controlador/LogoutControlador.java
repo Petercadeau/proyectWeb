@@ -38,8 +38,16 @@ public class LogoutControlador extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.getSession().invalidate();
 		Cookie ck[]=request.getCookies();  
-		for(int i=0;i<ck.length;i++){  
-		 System.out.print("<br>"+ck[i].getName()+" "+ck[i].getValue());//printing name and value of cookie  
+		for(int i=0;i<ck.length;i++){
+			if(ck[i].getName().equalsIgnoreCase("cedula")) {
+				request.setAttribute("cedula", ck[i].getValue());
+			}
+			if(ck[i].getName().equalsIgnoreCase("password")) {
+				request.setAttribute("password", ck[i].getValue());
+			}
+			if(ck[i].getName().equalsIgnoreCase("recordarme")) {
+				request.setAttribute("recordarme", ck[i].getValue());
+			}
 		}  
 		request.getRequestDispatcher("/LoginControlador").forward(request, response);
 	}

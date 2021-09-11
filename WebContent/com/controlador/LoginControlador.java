@@ -80,27 +80,27 @@ public class LoginControlador extends HttpServlet {
 				Cookie cookiePass = new Cookie("password", password);
 				cookiePass.setMaxAge(604800);
 				
-				Cookie cookieRecordarme = new Cookie("recordarme", String.valueOf(recordarme));
-				cookieRecordarme.setMaxAge(604800);
+				Cookie cookieRecordarme = new Cookie("recordarme", "checked");
+				cookiePass.setMaxAge(604800);
 				 
 				response.addCookie(cookieCedula);
-				response.addCookie(cookieRecordarme);
 				response.addCookie(cookiePass);
+				response.addCookie(cookieRecordarme);
 	        }
 			else {
 				System.out.println("COOKIE ELSE:"+recordarme);
 				Cookie cookieCedula = new Cookie("cedula", "");
-				cookieCedula.setMaxAge(604800);
+				cookieCedula.setMaxAge(0);
 				 
 				Cookie cookiePass = new Cookie("password", "");
-				cookiePass.setMaxAge(604800);
+				cookiePass.setMaxAge(0);
 				
-				Cookie cookieRecordarme = new Cookie("recordarme", "false");
-				cookieRecordarme.setMaxAge(604800);
+				Cookie cookieRecordarme = new Cookie("recordarme", "");
+				cookieRecordarme.setMaxAge(0);
 				 
 				response.addCookie(cookieCedula);
-				response.addCookie(cookieRecordarme);
-				response.addCookie(cookiePass);				
+				response.addCookie(cookiePass);		
+				response.addCookie(cookieRecordarme);	
 			}
 				
 			switch (personaAutorizada.getTipoDeUsuario()) {

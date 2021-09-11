@@ -46,8 +46,8 @@
 		</div>
 		<div class="row justify-content-md-center text-center my-3">
 			<div class="col-4" style="color: #AEAEAE">
-				<button class="btn btn-danger mx-5"><i class="bi bi-x-circle black"></i> Cancelar</button>
-				<button class="btn btn-light mx-5"> <i class="bi bi-arrow-left black"></i> Regresar</button>
+				<button type="button" class="btn btn-danger mx-5" onclick="location.href='MdoEstudianteControlador'"><i class="bi bi-x-circle black" ></i> Cancelar</button>
+				<button class="btn btn-light mx-5" onclick="location.href='SolicitarTutoriaControlador'"> <i class="bi bi-arrow-left black" ></i> Regresar</button>
 			</div>
 		</div>
 	</div>

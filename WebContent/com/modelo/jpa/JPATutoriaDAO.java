@@ -33,15 +33,10 @@ public class JPATutoriaDAO extends JPAGenericDAO<Tutoria, Integer> implements Tu
 		List<Tutoria> tutorias = new ArrayList<>();
 
 		for(int i=0;i<todas.size();i++) {
-			/*System.out.println("Tutorias "+todas.get(i).getDocente().getApellido());
-			System.out.println("ID profesor"+todas.get(i).getDocente().getId());
-			System.out.println("ID ingresado"+id);*/
 			if(todas.get(i).getDocente().getId()==id) {
 				tutorias.add(todas.get(i));
 				//System.out.println("Entro en el if"+i);
-			}
-			//System.out.println("en el for"+i);
-			
+			}	
 		}
 		
 		tutorias=(List<Tutoria>) tutorias;

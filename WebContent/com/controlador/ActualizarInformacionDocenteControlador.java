@@ -71,17 +71,19 @@ public class ActualizarInformacionDocenteControlador extends HttpServlet {
 		
 		Persona personaAutorizada = (Persona) request.getSession().getAttribute("usuarioLogueado");
 		Integer id = personaAutorizada.getId();
-		String nombre = request.getParameter("txtNombre");
-		String apellido = request.getParameter("txtApellido");	
+		String nombre = "Juan";
+		String apellido = "Iñiguez";
 		System.out.println(id);
-		Integer idDepartamento = Integer.parseInt(request.getParameter("txtIdDepartamento"));
+		Integer idDepartamento = Integer.parseInt("2");
 		DepartamentoDAO departamentoDAO = DAOFactory.getFactory().getDepartamentoDAO();
 		Departamento departamento = departamentoDAO.obtenerPorId(idDepartamento);
 		Docente docente=(Docente) DAOFactory.getFactory().getDocenteDAO().obtenerPorId(id);
 		
-		docente.setNombre(nombre);
+		docente.setId(id);
 		docente.setApellido(apellido);
-		docente.setDepartamento(departamento);		
+		docente.setNombre(nombre);
+		docente.setDepartamento(departamento);
+
 		DAOFactory.getFactory().getDocenteDAO().actualizar(docente);
 
 		String path = "/jsp/mdoDocente.jsp";

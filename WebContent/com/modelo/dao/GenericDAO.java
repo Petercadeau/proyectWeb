@@ -38,5 +38,7 @@ public interface GenericDAO<T,ID> {
 	 * @param id
 	 */
 	public List<T> obtenerPorId(ID id);
+	
+	public T getById(ID id);
 
 }

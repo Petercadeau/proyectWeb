@@ -40,7 +40,8 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 
 	@Override
 	public void eliminar(ID id) {
-		T entity = obtenerPorId(id);
+		//T entity = obtenerPorId(id);
+		T entity = getById(id);
 		em.getTransaction().begin();
         em.remove(entity);
         em.getTransaction().commit();
@@ -58,5 +59,10 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 	public List<T> obtenerPorId(ID id) {
 		
 		return null;
+	}
+	
+	
+	public T getById(ID id) {
+		return  em.find(persistentClass, id);
 	}
 }// end JPAGenericDAO<T,ID>

@@ -14,6 +14,7 @@ import com.modelo.dao.DAOFactory;
 import com.modelo.dao.HorarioDAO;
 import com.modelo.entidad.Horario;
 import com.modelo.entidad.Persona;
+import com.modelo.entidad.Tutoria;
 
 /**
  * Servlet implementation class SeleccionarHorarioControlador
@@ -51,7 +52,15 @@ public class SeleccionarHorarioControlador extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+		
+		Tutoria t = new Tutoria();
+		Integer id = Integer.parseInt((String) request.getAttribute("idDocente"));
+		//System.out.println("LLEgó: "+idDocente);
+		//t.setDocente(DAOFactory.getFactory().getDocenteDAO().getById(Integer.parseInt(idDocente)) );
+		System.out.println("Hola como estás, aquí está la webada que necesitas:  "+t.getDocente().getNombre());
+		//t.setEstudiante(DAOFactory.getFactory().getEstudianteDAO().obtenerPorId((Integer)request.getAttribute("idEstudiante")));
+		//t.setHorario(DAOFactory.getFactory().getHorarioDAO().obtenerPorId((Integer)request.getAttribute("idHorario")));
+		//DAOFactory.getFactory().getTutoriaDAO().crear(t);
 	}
 
 }

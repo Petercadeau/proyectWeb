@@ -40,12 +40,10 @@ public class SolicitarTutoriaControlador extends HttpServlet {
 	 * 
 	 * @param request
 	 * @param response
+	 * @throws ServletException 
+	 * @throws IOException 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-		Tutoria t = new Tutoria();
-		t.setDocente(DAOFactory.getFactory().getDocenteDAO().obtenerPorId((Integer)request.getAttribute("idDocente")));
-		t.setEstudiante(DAOFactory.getFactory().getEstudianteDAO().obtenerPorId((Integer)request.getAttribute("idEstudiante")));
-		t.setHorario(DAOFactory.getFactory().getHorarioDAO().obtenerPorId((Integer)request.getAttribute("idHorario")));
-		DAOFactory.getFactory().getTutoriaDAO().crear(t);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		doGet(request, response);
 	}
 }

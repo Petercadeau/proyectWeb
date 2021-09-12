@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.modelo.dao.GenericDAO;
+import com.modelo.entidad.Tutoria;
 
 /**
  * @author Peterca
@@ -57,6 +58,8 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 	@Override
 	public List<T> obtenerPorId(ID id) {
 		
+		
 		return null;
+
 	}
 }// end JPAGenericDAO<T,ID>

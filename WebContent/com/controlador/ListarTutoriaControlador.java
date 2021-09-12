@@ -42,8 +42,18 @@ public class ListarTutoriaControlador extends HttpServlet {
 		System.out.println("Get en LisTutos");
 		TutoriaDAO tutoriaDAO = DAOFactory.getFactory().getTutoriaDAO();
 		Persona d = (Persona) request.getSession().getAttribute("usuarioLogueado");
-		List<Tutoria> horarios = tutoriaDAO.obtenerPorId(d.getId());
-		request.setAttribute("horarios", horarios);
+
+		System.out.println("Persona"+ d.getId());
+		List<Tutoria> tutorias = (List<Tutoria>) tutoriaDAO.obtenerPorId(d.getId());
+		
+		for(int i=0;i<tutorias.size();i++) {
+			System.out.println("Tutorias "+tutorias.get(i).getDocente().getApellido());
+			System.out.println("ID profesor"+tutorias.get(i).getDocente().getId());
+			System.out.println("en el for"+i);
+			
+		}
+		
+		request.setAttribute("tutorias", tutorias);
 		String path = "/jsp/listarTutorias.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}

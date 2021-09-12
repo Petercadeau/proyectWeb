@@ -1,5 +1,13 @@
 package test;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import com.modelo.dao.GenericDAO;
+import com.modelo.entidad.Tutoria;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -26,7 +34,7 @@ import com.modelo.entidad.Persona;
 
 public class main {
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
+		/*EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
 		EntityManager em = emf.createEntityManager();
 
 		Horario horario = new Horario("Martes", "7:00", "7:15");
@@ -42,9 +50,7 @@ public class main {
 
 		ArrayList<Horario> t = new ArrayList<Horario>();
 		t.add(horario);
-		/*
-		 * d.setHorario(t);
-		 */
+	
 
 		Departamento depa = new Departamento("ccss", "101");
 		DepartamentoDAO depDao = DAOFactory.getFactory().getDepartamentoDAO();
@@ -56,7 +62,22 @@ public class main {
 		docente.setHorario(h);
 
 		DocenteDAO dc = DAOFactory.getFactory().getDocenteDAO();
-		dc.crear(docente);
+		dc.crear(docente);*/
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
+		EntityManager em = emf.createEntityManager();
+		String sentenciaJPQL = "SELECT t FROM Tutoria t";
+		Query query = em.createQuery(sentenciaJPQL);
+		
+		List<Tutoria> personaEncontrada = (List<Tutoria>) query.getResultList();
+		System.out.println(personaEncontrada.get(0).getDocente().getNombre());
+		System.out.println(personaEncontrada.get(0).getDocente().getApellido());
+		
+		System.out.println(personaEncontrada.get(0).getEstudiante().getNombre());
+		System.out.println(personaEncontrada.get(0).getEstudiante().getApellido());
+		
+		System.out.println(personaEncontrada.get(0).getHorario().getDia());
+		System.out.println(personaEncontrada.get(0).getHorario().getHoraDeInicio());
+		System.out.println(personaEncontrada.get(0).getHorario().getHoraDeFin());
 
 	}
 }

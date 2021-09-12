@@ -41,7 +41,7 @@ public class EliminarDepartamentoControlador extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("txtId"));
 		DAOFactory.getFactory().getDepartamentoDAO().eliminar(id);
-		String path = "/jsp/listarDepartamento.jsp";
+		String path = "/ListarDepartamentoControlador";
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 

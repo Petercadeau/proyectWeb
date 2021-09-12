@@ -26,6 +26,8 @@
 					<input type="text" class="form-control" id="txtNombre"><br>
 					<label class="form-label">Apellido:</label><br>
 					<input type="text" class="form-control" id="txtApellido"><br>
+					<label class="form-label">Contraseña:</label><br>
+					<input type="password" class="form-control" id="txtClave"><br>
 					<label class="form-label">Tipo de usuario:</label><br> <select
 						id="txtTipoUsuario" name="txtTipoUsuario" class="form-select">
 						<option value="administrador">Administrador</option>
@@ -45,5 +47,28 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+function modalCrearUsuario() {
+	cedula=$("#txtCedula").val();
+	nombre=$("#txtNombre").val();
+	apellido=$("#txtApellido").val();
+	clave=$("#txtClave").val();
+	tipo=$("#txtTipoUsuario").val();
+	$.ajax({
+		url: "CrearUsuarioControlador",
+		data: {"txtCedula":cedula,"txtNombre":nombre,"txtApellido":apellido,"txtClave":clave,"txtTipoUsuario":tipo},
+		method: "POST",
+		success:function(){
+			swal("Usuario creado correctamente", {
+				icon: "success",
+			});
+			setTimeout(() => {
+				location.href = "MdoAdministradorControlador";
+			}, 2000);
+		}	
+})
+}
+	
+</script>
 <%@ include file="/templates/footer.jsp"%>
 </html>

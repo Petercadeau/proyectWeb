@@ -1,7 +1,14 @@
 package com.controlador;
 
 import javax.servlet.http.HttpServletResponse;
+
+import com.modelo.dao.DAOFactory;
+
 import javax.servlet.http.HttpServletRequest;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
@@ -28,17 +35,35 @@ public class EliminarUsuarioControlador extends HttpServlet {
 	 * 
 	 * @param request
 	 * @param response
+	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response){
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		Integer id = Integer.parseInt(request.getParameter("txtId"));
+		String tipoUsuario = request.getParameter("txtTipoUsuario");
+		switch(tipoUsuario) {
+			case "Administrador":
+				DAOFactory.getFactory().getAdministradorDAO().eliminar(id);
+				break;
+			case "Estudiante":
+				DAOFactory.getFactory().getEstudianteDAO().eliminar(id);
+				break;
+			case "Docente":
+				DAOFactory.getFactory().getDocenteDAO().eliminar(id);
+				break;
+		}
+		String path = "/ListarUsuarioControlador";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
 	 * 
 	 * @param request
 	 * @param response
+	 * @throws IOException 
+	 * @throws ServletException 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response){
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		doGet(request, response);
 	}
 }//end EliminarUsuarioControlador

@@ -33,10 +33,10 @@
 							<td>${usuario.nombre}</td>
 							<td>${usuario.tipoDeUsuario}</td>
 							<td><button type="button" class="btn btn-danger"
-									onclick="modalEliminarUsuario()">
+									onclick="modalEliminarUsuario(${usuario.id} , '${usuario.tipoDeUsuario}')">
 									<i class="bi bi-trash-fill white"></i> Eliminar
 								</button>
-								<button type="button" class="btn btn-primary" onclick="location.href='ActualizarUsuarioControlador'">
+								<button type="button" class="btn btn-primary" onclick="location.href='ActualizarUsuarioControlador?txtId=${usuario.id}'">
 									<i class="bi bi-pencil-fill white"></i> Actualizar
 								</button></td>
 						</tr>
@@ -54,4 +54,32 @@
 
 </body>
 <%@ include file="/templates/footer.jsp"%>
+<script type="text/javascript">
+function modalEliminarUsuario(id , tipo) {
+	swal({
+		title: "¿Estás seguro que deseas eliminar este usuario?",
+		text: "",
+		icon: "warning",
+		buttons: ["Cancelar", "Continuar"],
+	})
+		.then((willDelete) => {
+			if (willDelete) {
+				
+				$.ajax({
+					url: "EliminarUsuarioControlador",
+					method: "GET",
+					data:{"txtId":id,"txtTipoUsuario":tipo},
+					success:function(){
+						swal("Usuario eliminado exitosamente", {
+							icon: "success",
+						});
+						setTimeout(() => {
+							location.href = "ListarUsuarioControlador";
+						}, 2000);
+					}
+				})
+			}
+		});
+}
+</script>
 </html>

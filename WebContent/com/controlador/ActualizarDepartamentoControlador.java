@@ -45,8 +45,8 @@ public class ActualizarDepartamentoControlador extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		Integer id = Integer.parseInt(request.getParameter("txtId"));
-		//Departamento departamento = DAOFactory.getFactory().getDepartamentoDAO().obtenerPorId(id).get(0);
-		//request.setAttribute("departamento", departamento);
+		Departamento departamento = DAOFactory.getFactory().getDepartamentoDAO().obtenerPorId(id);
+		request.setAttribute("departamento", departamento);
 		String path = "/jsp/actualizarDepartamento.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}

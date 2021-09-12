@@ -50,21 +50,28 @@ public class ActualizarUsuarioControlador extends HttpServlet {
 		String nombre = request.getParameter("txtNombre");
 		String apellido = request.getParameter("txtApellido");
 		String tipoDeUsuario = request.getParameter("txtTipoUsuario");
+		String clave = request.getParameter("txtClave");
+		int id=Integer.parseInt(request.getParameter("id"));
+		Persona usuario=DAOFactory.getFactory().getPersonaDAO().obtenerPorId(id);
+		usuario.setNombre(nombre);
+		usuario.setApellido(apellido);
+		usuario.setCedula(cedula);
+		usuario.setClave(clave);
 		
-		Persona usuario=null;
-		switch (tipoDeUsuario) {
-		case "administrador":
-			usuario=new Administrador(cedula,nombre,apellido,nombre);
+		
+		/*switch (tipoDeUsuario) {
+		case "Administrador":
+			usuario=DAOFactory.getFactory().getAdministradorDAO().obtenerPorId(request.getAttribute(clave));
 			break;
-		case "docente":
-			usuario=new Docente(cedula,nombre,apellido,nombre);
+		case "Docente":
+			usuario=new Docente(cedula,nombre,apellido,clave);
 			break;
-		case "estudiantes":
-			usuario=new Estudiante(cedula,nombre,apellido,nombre);
+		case "Estudiante":
+			usuario=new Estudiante(cedula,nombre,apellido,clave);
 			break;
 		default:
 			break;
-		}
+		}*/
 		PersonaDAO personaDao = DAOFactory.getFactory().getPersonaDAO();
 		personaDao.actualizar(usuario);
 		String path = "/jsp/listarUsuarios.jsp";

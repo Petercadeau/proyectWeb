@@ -62,17 +62,19 @@ public class CrearUsuarioControlador extends HttpServlet {
 		String nombre = request.getParameter("txtNombre");
 		String apellido = request.getParameter("txtApellido");
 		String tipoDeUsuario = request.getParameter("txtTipoUsuario");
+		System.out.println(tipoDeUsuario);
+		String clave = request.getParameter("txtClave");
 		
 		Persona usuario=null;
 		switch (tipoDeUsuario) {
 		case "administrador":
-			usuario=new Administrador(cedula,nombre,apellido,nombre+"2021");
+			usuario=new Administrador(cedula,nombre,apellido,clave);
 			break;
 		case "docente":
-			usuario=new Docente(cedula,nombre,apellido,nombre+"2021");
+			usuario=new Docente(cedula,nombre,apellido,clave);
 			break;
-		case "estudiantes":
-			usuario=new Estudiante(cedula,nombre,apellido,nombre+"2021");
+		case "estudiante":
+			usuario=new Estudiante(cedula,nombre,apellido,clave);
 			break;
 		default:
 			break;

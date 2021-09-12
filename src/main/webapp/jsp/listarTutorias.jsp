@@ -24,20 +24,13 @@
 							<th>Fecha</th>
 							<th>Hora</th>
 						</tr>
-					</thead>
+					</thead>					
+					<c:forEach var="tutoria" items="${tutorias}">
 						<tr class="align-middle">
-							<th>1723793870</th>
-							<th>Jeipi</th>
-							<th>2021-09-04</th>
-							<th>11:00 - 11:15</th>
-						</tr>
-
-					<c:forEach var="tutorias" items="${tutoria}">
-						<tr class="align-middle">
-							<td>${tutoria.cedula}</td>
-							<td>${tutoria.nombre}</td>
-							<td>${tutoria.fecha}</td>
-							<td>${tutoria.hora}</td>
+							<td>${tutoria.estudiante.cedula}</td>
+							<td>${tutoria.estudiante.nombre}</td>
+							<td>${tutoria.horario.dia}</td>
+							<td>${tutoria.horario.horaDeInicio}</td>
 						</tr>
 					</c:forEach>
 				</table>

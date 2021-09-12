@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.modelo.dao.DAOFactory;
 import com.modelo.dao.HorarioDAO;
 import com.modelo.entidad.Horario;
-import com.modelo.entidad.Persona;
 import com.modelo.entidad.Tutoria;
 
 /**
@@ -28,9 +27,7 @@ public class SeleccionarHorarioControlador extends HttpServlet {
 	 */
 	public SeleccionarHorarioControlador() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Integer txtId = Integer.parseInt(request.getParameter("txtId"));
@@ -52,15 +49,21 @@ public class SeleccionarHorarioControlador extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		Tutoria t = new Tutoria();
-		Integer id = Integer.parseInt((String) request.getAttribute("idDocente"));
-		//System.out.println("LLEgó: "+idDocente);
-		//t.setDocente(DAOFactory.getFactory().getDocenteDAO().getById(Integer.parseInt(idDocente)) );
-		System.out.println("Hola como estás, aquí está la webada que necesitas:  "+t.getDocente().getNombre());
-		//t.setEstudiante(DAOFactory.getFactory().getEstudianteDAO().obtenerPorId((Integer)request.getAttribute("idEstudiante")));
-		//t.setHorario(DAOFactory.getFactory().getHorarioDAO().obtenerPorId((Integer)request.getAttribute("idHorario")));
-		//DAOFactory.getFactory().getTutoriaDAO().crear(t);
+		Integer idDocente = Integer.parseInt((String) request.getParameter("idDocente"));
+		Integer idEstudiante = Integer.parseInt((String) request.getParameter("idEstudiante"));
+		Integer idHorario = Integer.parseInt((String) request.getParameter("idHorario"));
+
+		t.setDocente(DAOFactory.getFactory().getDocenteDAO().obtenerPorId(idDocente));
+		t.setEstudiante(DAOFactory.getFactory().getEstudianteDAO().obtenerPorId(idEstudiante));
+		t.setHorario(DAOFactory.getFactory().getHorarioDAO().obtenerPorId(idHorario));
+		
+		System.out.println("Hola como estás docente:  " + t.getDocente().getNombre());
+		System.out.println("Hola como estás estudiante:  " + t.getEstudiante().getNombre());
+		System.out.println("Hola como estás horario:  " + t.getHorario().getDia());
+		
+		DAOFactory.getFactory().getTutoriaDAO().crear(t);
 	}
 
 }

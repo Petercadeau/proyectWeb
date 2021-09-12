@@ -55,10 +55,16 @@ function modalRegistrarTutoria(id) {
 	console.log(id);
 	console.log("${idDocente}");
 	console.log("${sessionScope.usuarioLogueado.getId()}");
+	
+	let idEstudiante = ${sessionScope.usuarioLogueado.getId()};
+	let idDocente = ${idDocente};
+	
+	
 	$.ajax({
-		url: "SeleccionarHorarioControlador",
-		data: { "idHorario": id, "idDocente": ${idDocente}, "idEstudiante": ${sessionScope.usuarioLogueado.getId()}},
 		method: "POST",
+		url: "SeleccionarHorarioControlador",
+		data: { idHorario: id, idDocente: idDocente, idEstudiante: idEstudiante},
+		
 		success: function() {
 			swal("Tutoría registrada correctamente", {
 				icon: "success",

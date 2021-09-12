@@ -23,25 +23,14 @@ public class JPATutoriaDAO extends JPAGenericDAO<Tutoria, Integer> implements Tu
 		super(Tutoria.class);
 	}
 
-	
 	public List<Tutoria> obtenerListaPorId(Integer id) {
 		EntityManager em = emf.createEntityManager();
-		String sentenciaJPQL = "SELECT t FROM Tutoria t ";
+		String sentenciaJPQL = "SELECT t FROM Tutoria t WHERE t.docente.id = " + id;
 		Query query = em.createQuery(sentenciaJPQL);
-		
-		List<Tutoria> todas = (List<Tutoria>) query.getResultList();
-		List<Tutoria> tutorias = new ArrayList<>();
 
-		for(int i=0;i<todas.size();i++) {
-			if(todas.get(i).getDocente().getId()==id) {
-				tutorias.add(todas.get(i));
-				//System.out.println("Entro en el if"+i);
-			}	
-		}
-		
-		tutorias=(List<Tutoria>) tutorias;
-		
+		List<Tutoria> tutorias = (List<Tutoria>) query.getResultList();
+
 		return tutorias;
 	}
-	
+
 }// end JPATutoriaDAO

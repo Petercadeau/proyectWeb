@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.modelo.dao.DAOFactory;
 import com.modelo.dao.HorarioDAO;
 import com.modelo.dao.TutoriaDAO;
+import com.modelo.entidad.Docente;
 import com.modelo.entidad.Horario;
 import com.modelo.entidad.Persona;
 import com.modelo.entidad.Tutoria;
@@ -41,7 +42,7 @@ public class ListarTutoriaControlador extends HttpServlet {
 		
 		System.out.println("Get en LisTutos");
 		TutoriaDAO tutoriaDAO = DAOFactory.getFactory().getTutoriaDAO();
-		Persona d = (Persona) request.getSession().getAttribute("usuarioLogueado");
+		Docente d = (Docente) request.getSession().getAttribute("usuarioLogueado");
 
 		System.out.println("Persona"+ d.getId());
 		List<Tutoria> tutorias = (List<Tutoria>) tutoriaDAO.obtenerListaPorId(d.getId());

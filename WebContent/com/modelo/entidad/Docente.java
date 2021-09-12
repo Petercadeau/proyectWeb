@@ -37,6 +37,11 @@ public class Docente extends Persona implements Serializable {
 	@ManyToMany()
 	@JoinColumn(name = "horario")
 	private List<Horario> horario=new ArrayList<Horario>();
+	
+	@OneToMany
+	@JoinColumn(name = "tutoria")
+	private List<Tutoria> tutoria=new ArrayList<Tutoria>();
+
 
 	public Docente() {
 

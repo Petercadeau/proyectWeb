@@ -25,12 +25,11 @@ public class ListarHorarioControlador extends HttpServlet {
 
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println("Get en ListHorarios");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		System.out.println("GET en ListHorarios");
 		HorarioDAO horarioDAO = DAOFactory.getFactory().getHorarioDAO();
-		Persona d = (Persona) request.getSession().getAttribute("usuarioLogueado");
-		List<Horario> horarios = horarioDAO.obtenerPorId(d.getId());
+		Persona d = (Persona) request.getSession().getAttribute("usuarioLogueado");		
+		List<Horario> horarios = (List<Horario>) horarioDAO.obtenerPorId(d.getId());
 		request.setAttribute("horarios", horarios);
 		String path = "/jsp/configurarDisponibilidad.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);
@@ -38,7 +37,7 @@ public class ListarHorarioControlador extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		System.out.println("POST en ListHorarios");
 		doGet(request, response);
 	}
 

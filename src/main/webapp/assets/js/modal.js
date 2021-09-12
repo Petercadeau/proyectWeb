@@ -36,7 +36,7 @@ function modalActualizarUsuario() {
 }
 function modalActualizarDocente() {
 	$.ajax({
-		url: "ActualizarInformaciónDocenteControlador",
+		url: "ActualizarInformacionDocenteControlador",
 		data: {},
 		method: "POST",
 

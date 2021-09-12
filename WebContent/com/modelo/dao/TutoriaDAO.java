@@ -1,5 +1,7 @@
 package com.modelo.dao;
 
+import java.util.List;
+
 import com.modelo.entidad.Tutoria;
 
 /**
@@ -8,5 +10,14 @@ import com.modelo.entidad.Tutoria;
  * @created 01-sep.-2021 18:03:04
  */
 public interface TutoriaDAO extends GenericDAO<Tutoria, Integer> {
+
+	@Override
+	default List<Tutoria> obtenerPorId(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
 
 }

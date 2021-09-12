@@ -38,7 +38,7 @@ public class ActualizarUsuarioControlador extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		Integer id = Integer.parseInt(request.getParameter("txtId"));
-		Persona persona = DAOFactory.getFactory().getPersonaDAO().obtenerPorId(id).get(0);
+		Persona persona = DAOFactory.getFactory().getPersonaDAO().obtenerPorId(id);
 		request.setAttribute("persona", persona);
 		String path = "/jsp/actualizarUsuario.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);

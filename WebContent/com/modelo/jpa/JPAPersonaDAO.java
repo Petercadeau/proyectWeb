@@ -36,8 +36,8 @@ public class JPAPersonaDAO<T> extends JPAGenericDAO<T, Integer> implements Perso
 		return personaEncontrada;
 	}
 
-	@Override
-	public List<T> obtenerPorId(Integer id) {
+	/*@Override
+	public T obtenerPorId(Integer id) {
 		T t = em.find(persistentClass, id);
 		List<T> w = new ArrayList<T>();
 		w.add(t);
@@ -48,6 +48,6 @@ public class JPAPersonaDAO<T> extends JPAGenericDAO<T, Integer> implements Perso
 
 		return w;
 
-	}
+	}*/
 
 }// end JPAUsuarioDAO

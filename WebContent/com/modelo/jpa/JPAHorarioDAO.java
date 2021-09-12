@@ -19,8 +19,7 @@ public class JPAHorarioDAO extends JPAGenericDAO<Horario, Integer> implements Ho
 		super(Horario.class);
 	}
 
-	@Override
-	public List<Horario> obtenerPorId(Integer id) {
+	public List<Horario> obtenerListaPorId(Integer id) {
 		String consulta = "Select h.horario from Docente h WHERE h.id="+id;
 		Query query = em.createQuery(consulta);
 		List<Horario> list = (List<Horario>) query.getResultList();

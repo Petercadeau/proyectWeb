@@ -11,11 +11,8 @@ import com.modelo.entidad.Tutoria;
  */
 public interface TutoriaDAO extends GenericDAO<Tutoria, Integer> {
 
-	@Override
-	default List<Tutoria> obtenerPorId(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	public abstract List<Tutoria> obtenerListaPorId(Integer id);
 
 	
 

@@ -73,10 +73,10 @@ public class ActualizarInformacionDocenteControlador extends HttpServlet {
 		Integer id = personaAutorizada.getId();
 		String nombre = request.getParameter("txtNombre");
 		String apellido = request.getParameter("txtApellido");	
-		
+		System.out.println(id);
 		Integer idDepartamento = Integer.parseInt(request.getParameter("txtIdDepartamento"));
 		DepartamentoDAO departamentoDAO = DAOFactory.getFactory().getDepartamentoDAO();
-		Departamento departamento = departamentoDAO.obtenerPorId(idDepartamento).get(0);
+		Departamento departamento = departamentoDAO.obtenerPorId(idDepartamento);
 		Docente docente=(Docente) DAOFactory.getFactory().getDocenteDAO().obtenerPorId(id);
 		
 		docente.setNombre(nombre);

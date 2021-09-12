@@ -61,7 +61,7 @@ public class CambiarClaveControlador extends HttpServlet {
 		String claveNueva = request.getParameter("txtClaveNueva");
 
 		PersonaDAO personaDao = DAOFactory.getFactory().getPersonaDAO();
-		Estudiante estudiante = (Estudiante) personaDao.obtenerPorId(id).get(0);
+		Estudiante estudiante = (Estudiante) personaDao.obtenerPorId(id);
 		estudiante.setClave(claveNueva);
 		
 		personaDao.actualizar(estudiante);

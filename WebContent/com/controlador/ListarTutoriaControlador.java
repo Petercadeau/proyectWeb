@@ -44,7 +44,7 @@ public class ListarTutoriaControlador extends HttpServlet {
 		Persona d = (Persona) request.getSession().getAttribute("usuarioLogueado");
 
 		System.out.println("Persona"+ d.getId());
-		List<Tutoria> tutorias = (List<Tutoria>) tutoriaDAO.obtenerPorId(d.getId());
+		List<Tutoria> tutorias = (List<Tutoria>) tutoriaDAO.obtenerListaPorId(d.getId());
 		
 		for(int i=0;i<tutorias.size();i++) {
 			System.out.println("Tutorias "+tutorias.get(i).getDocente().getApellido());

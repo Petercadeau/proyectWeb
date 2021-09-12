@@ -1,6 +1,9 @@
 package com.modelo.dao;
 
+import java.util.List;
+
 import com.modelo.entidad.Horario;
+import com.modelo.entidad.Tutoria;
 
 /**
  * @author Peterca
@@ -9,4 +12,6 @@ import com.modelo.entidad.Horario;
  */
 public interface HorarioDAO extends GenericDAO<Horario, Integer> {
 
+	public abstract List<Horario> obtenerListaPorId(Integer id);
+	
 }

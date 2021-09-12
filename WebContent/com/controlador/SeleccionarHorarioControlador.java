@@ -36,7 +36,7 @@ public class SeleccionarHorarioControlador extends HttpServlet {
 		Integer txtId = Integer.parseInt(request.getParameter("txtId"));
 		String txtDia = request.getParameter("txtDia");
 		HorarioDAO horariodDao = DAOFactory.getFactory().getHorarioDAO();
-		List<Horario> horarios = horariodDao.obtenerPorId(txtId);
+		List<Horario> horarios = horariodDao.obtenerListaPorId(txtId);
 		List<Horario> horarioFinal = new ArrayList<Horario>();
 		for (Horario h : horarios) {
 			if (h.getDia().equals(txtDia)) {

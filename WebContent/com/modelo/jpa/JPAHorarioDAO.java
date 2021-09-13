@@ -27,6 +27,15 @@ public class JPAHorarioDAO extends JPAGenericDAO<Horario, Integer> implements Ho
 		System.out.println("Tamaño lista: "+list.size());
 		return list;
 	}
+	
+	public void insertarhordep(int docenteId,int horarioId){
+		em.getTransaction().begin();
+  		Query query = em.createNativeQuery("INSERT INTO docente_horario (Docente_idPersona, horario_idHorario) VALUES (?,?)");
+		query.setParameter(1, docenteId);
+		query.setParameter(2, horarioId);
+		query.executeUpdate();
+		em.getTransaction().commit();
+	}
 
 	
 

@@ -99,3 +99,19 @@ function modalRegistrarTutoria() {
 		icon: "success",
 	});
 }
+function modalRegistrarHorario() {
+	$.ajax({
+		url: "AgregarHorarioControlador",
+		data: {},
+		method: "POST",
+
+	}).done(function() {
+		$(this).addClass("done");
+	});
+	swal("Horario registrado correctamente", {
+		icon: "success",
+	});
+}
+
+
+

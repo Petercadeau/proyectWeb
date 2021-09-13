@@ -40,7 +40,10 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 
 	@Override
 	public void eliminar(ID id) {
-		// TODO Auto-generated method stub
+		T t=em.find(persistentClass, id);
+		em.getTransaction().begin();
+        em.remove(t);
+        em.getTransaction().commit();
 
 	}
 
@@ -57,4 +60,11 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 		
 		return null;
 	}
+	
+	
+		
+	
+	
+	
+	
 }// end JPAGenericDAO<T,ID>

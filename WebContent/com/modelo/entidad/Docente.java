@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,6 +24,11 @@ import javax.persistence.Table;
  */
 
 @Entity
+
+@NamedQueries(
+		@NamedQuery(name = "eliminarHorario", query = "Delete from docente_horario WHERE idDocente=:id")
+	)
+
 
 public class Docente extends Persona implements Serializable {
 
@@ -34,7 +41,7 @@ public class Docente extends Persona implements Serializable {
 	@JoinColumn(name = "departamento")
 	private Departamento departamento;
 
-	@ManyToMany()
+	
 	@JoinColumn(name = "horario")
 	private List<Horario> horario=new ArrayList<Horario>();
 	

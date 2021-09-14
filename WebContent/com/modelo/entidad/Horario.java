@@ -35,8 +35,6 @@ public class Horario implements Serializable {
 	public Horario() {
 
 	}
-	
-	
 
 	public Horario(String dia, String horaDeFin, String horaDeInicio) {
 		super();
@@ -45,21 +43,13 @@ public class Horario implements Serializable {
 		this.horaDeInicio = horaDeInicio;
 	}
 
-	
-	
-
-
 	public Integer getIdHorario() {
 		return idHorario;
 	}
 
-
-
 	public void setIdHorario(Integer idHorario) {
 		this.idHorario = idHorario;
 	}
-
-
 
 	public String getDia() {
 		return dia;
@@ -84,19 +74,6 @@ public class Horario implements Serializable {
 	public void setHoraDeInicio(String horaDeInicio) {
 		this.horaDeInicio = horaDeInicio;
 	}
-	
-
-	public Integer getIdHorario() {
-		return idHorario;
-	}
-
-
-
-	public void setIdHorario(Integer idHorario) {
-		this.idHorario = idHorario;
-	}
-
-
 
 	@Override
 	public int hashCode() {

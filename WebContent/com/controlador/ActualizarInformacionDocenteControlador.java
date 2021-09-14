@@ -50,8 +50,9 @@ public class ActualizarInformacionDocenteControlador extends HttpServlet {
 		System.out.println("He llegado al INICIO del GET docenteActualizar");
 		Persona personaAutorizada = (Persona) request.getSession().getAttribute("usuarioLogueado");
 		Integer id = personaAutorizada.getId(); 
-		//Persona persona = DAOFactory.getFactory().getPersonaDAO().obtenerPorId(id).get(0);
+		Persona persona = DAOFactory.getFactory().getPersonaDAO().obtenerPorId(id);
 		List<Departamento> departamentos = DAOFactory.getFactory().getDepartamentoDAO().obtener();
+		request.setAttribute("persona", persona);
 		request.setAttribute("departamentos", departamentos);
 		String path = "/jsp/actualizarInformacionDocente.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);
@@ -69,20 +70,15 @@ public class ActualizarInformacionDocenteControlador extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		System.out.println("He llegado al INICIO del POST docenteActualizar");
 		
-		Persona personaAutorizada = (Persona) request.getSession().getAttribute("usuarioLogueado");
-		Integer id = personaAutorizada.getId();
-		String nombre = "Juan";
-		String apellido = "Iñiguez";
-		System.out.println(id);
-		Integer idDepartamento = Integer.parseInt("2");
-		DepartamentoDAO departamentoDAO = DAOFactory.getFactory().getDepartamentoDAO();
-		Departamento departamento = departamentoDAO.obtenerPorId(idDepartamento);
-		Docente docente=(Docente) DAOFactory.getFactory().getDocenteDAO().obtenerPorId(id);
+		Integer id = Integer.parseInt(request.getParameter("txtIdDocente"));
+		Docente docente = DAOFactory.getFactory().getDocenteDAO().obtenerPorId(id);
+	
+		docente.setNombre(request.getParameter("txtNombre"));
+		docente.setApellido(request.getParameter("txtApellido"));
+		Departamento d = DAOFactory.getFactory().getDepartamentoDAO().obtenerPorId(Integer.parseInt(request.getParameter("txtDepartamento")));
 		
-		docente.setId(id);
-		docente.setApellido(apellido);
-		docente.setNombre(nombre);
-		docente.setDepartamento(departamento);
+		docente.setDepartamento(d);
+
 
 		DAOFactory.getFactory().getDocenteDAO().actualizar(docente);
 

@@ -21,15 +21,15 @@
 			<div class="row justify-content-md-center">
 				<div class="col-4" style="color: #AEAEAE">
 					<label class="form-label">Nombre:</label><br> 
-					<input type="text" class="form-control" id="txtNombre" name="txtNombre"><br> 
+					<input type="text" class="form-control" id="txtNombre" name="txtNombre" value="${persona.getNombre()}"><br> 
 					<label class="form-label">Apellido:</label><br> 
-					<input type="text" class="form-control" id="txtApellido" name="txtApellido"><br> 
+					<input type="text" class="form-control" id="txtApellido" name="txtApellido" value="${persona.getApellido()}"><br> 
 					<label class="form-label">Departamento:</label><br>
 					<select class="form-select align-center" id="txtDepartamento" name="txtDepartamento"
 						aria-label="Default select example">
-						<option selected></option>
-						<c:forEach var="departamentos" items="${departamento}">
-							<option value=${departameto.nombre}>${departameto.nombre}</option>
+						<option value="${persona.departamento.nombre}" hidden selected>${persona.departamento.nombre}</option>
+						<c:forEach  var="departamento" items="${departamentos}">
+							<option value=${departamento.idDepartamento}>${departamento.nombre}</option>
 						</c:forEach>
 					</select><br>
 				</div>
@@ -37,7 +37,7 @@
 		</form>
 		<div class="row justify-content-md-center text-center my-3">
 			<div class="col-4" style="color: #AEAEAE">
-				<button class="btn btn-danger mx-5">
+				<button class="btn btn-danger mx-5" onclick="location.href='MdoDocenteControlador'">
 					<i class="bi bi-x-circle black"></i> Cancelar
 				</button>
 				<button class="btn btn-primary mx-5"
@@ -48,4 +48,36 @@
 	</div>
 </body>
 <%@ include file="/templates/footer.jsp"%>
+
+<script type="text/javascript">
+
+
+function modalActualizarDocente() {
+	let idDocente = ${persona.id};
+	let nombre = $('#txtNombre').val();
+	let apellido = $('#txtApellido').val();
+	let departamento = $('#txtDepartamento').val();
+	
+	
+	$.ajax({
+		url: "ActualizarInformacionDocenteControlador",
+		data: {txtIdDocente: idDocente,txtNombre: nombre,txtApellido: apellido, txtDepartamento:departamento},
+		method: "POST",
+		success: function(){
+			swal("Docente actualizado correctamente", {
+				icon: "success",
+			});
+			setTimeout(() => {
+				location.href='MdoDocenteControlador';
+			}, 2000);
+		}
+
+	}).done(function() {
+		$(this).addClass("done");
+	});
+	
+}
+</script>
+
+
 </html>

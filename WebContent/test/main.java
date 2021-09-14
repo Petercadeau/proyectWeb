@@ -38,6 +38,7 @@ public class main {
 		EntityManager em = emf.createEntityManager();
 
 		Horario horario = new Horario("Martes", "7:00", "7:15");
+		Horario horario1 = new Horario("Miercoles", "7:00", "7:15");
 
 		HorarioDAO horariodao = DAOFactory.getFactory().getHorarioDAO();
 		horariodao.crear(horario);
@@ -59,7 +60,7 @@ public class main {
 		docente.setDepartamento(depa);
 		List<Horario> h = new ArrayList<Horario>();
 		h.add(horario);
-		docente.setHorario(h);
+		
 
 		DocenteDAO dc = DAOFactory.getFactory().getDocenteDAO();
 		dc.crear(docente);*/

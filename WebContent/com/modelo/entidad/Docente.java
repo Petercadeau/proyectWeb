@@ -78,28 +78,6 @@ public class Docente extends Persona implements Serializable {
 		this.horario = horario;
 	}
 
-	@Override
-	public String getCedula() {
-		// TODO Auto-generated method stub
-		return super.getCedula();
-	}
 
-	@Override
-	public void setCedula(String cedula) {
-		// TODO Auto-generated method stub
-		super.setCedula(cedula);
-	}
-
-	@Override
-	public String getNombre() {
-		// TODO Auto-generated method stub
-		return super.getNombre();
-	}
-
-	@Override
-	public void setNombre(String nombre) {
-		// TODO Auto-generated method stub
-		super.setNombre(nombre);
-	}
 
 }// end Docente

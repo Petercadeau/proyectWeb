@@ -29,14 +29,17 @@
 					</thead>
 				
 					<c:forEach var="horario" items="${horarios}">
-						<tr class="align-middle">
-							<td>${horario.dia}</td>
+						<tr class="align-middle" >
+							<td >${horario.dia}</td>
 							<td>${horario.horaDeInicio} - ${horario.horaDeFin}</td>
 							<td>
-								<button type="button" class="btn btn-danger" onclick="location.href='EliminarHorarioControlador'">
+								<button type="button" class="btn btn-danger"   onclick="location.href='EliminarHorarioControlador?idhorario=${horario.idHorario}'" >
 									<i class="bi bi-trash-fill white"></i> Retirar
 								</button>
 							</td>
+						
+							
+							
 						</tr>
 					</c:forEach>
 				</table>
@@ -45,7 +48,7 @@
 					<div class="card-body">
 						<form action="AgregarHorarioControlador" method="POST">
 						<label class="form-label">Seleccione un día:</label> <br> <select
-							class="form-select" aria-label="Default select example" id="txtDia">
+							class="form-select" aria-label="Default select example" id="txtDia" name="txtDia">
 							<option selected>Día</option>
 							<option value="1">Lunes</option>
 							<option value="2">Martes</option>
@@ -54,14 +57,14 @@
 							<option value="5">Viernes</option>
 						</select><br> <label class="form-label">Seleccione una franja
 							horaria:</label><br> <select class="form-select align-center"
-							aria-label="Default select example" id="txtFranjaHoraria">
+							aria-label="Default select example" id="txtFranjaHoraria" name="txtFranjaHoraria">
 							<option selected>Horario</option>
 							<option value="1">11:00 - 11:15</option>
 							<option value="2">12:00 - 12:15</option>
 							<option value="3">13:00 - 13:15</option>
 						</select><br>
 						<div class="text-end">
-							<button type=submit" class="btn btn-primary text-end">
+							<button type=submit" class="btn btn-primary text-end"  onclick="modalRegistrarHorario()">
 								<i class="bi bi-plus white"></i> Añadir
 							</button>
 						</div>

@@ -59,5 +59,4 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 	public T obtenerPorId(ID id) {
 		return  em.find(persistentClass, id);
 	}
-
 }// end JPAGenericDAO<T,ID>

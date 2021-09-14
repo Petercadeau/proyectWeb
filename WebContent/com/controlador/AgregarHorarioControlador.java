@@ -7,35 +7,77 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class AgregarHorarioControlador
- */
+import com.modelo.dao.DAOFactory;
+import com.modelo.dao.DocenteDAO;
+import com.modelo.dao.HorarioDAO;
+import com.modelo.entidad.Horario;
+import com.modelo.entidad.Persona;
+import com.modelo.jpa.JPAHorarioDAO;
+
 @WebServlet("/AgregarHorarioControlador")
 public class AgregarHorarioControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    
     public AgregarHorarioControlador() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	String dia1="";
+	String horainicio="";
+	String horafin="";
+	String dia=request.getParameter("txtDia");
+	System.out.println(dia);
+	if(dia.equals("1")) {
+    dia1="Lunes";
+    System.out.println(dia1);
+	}
+	else if(dia.equals("2")) {
+	dia1="Martes";
+	System.out.println(dia1);
+	}
+	else if(dia.equals("3")) {
+	dia1="Miercoles";
+	System.out.println(dia1);
+	}
+	else if(dia.equals("4")) {
+	dia1="Jueves";
+	System.out.println(dia1);
+	}
+	else if(dia.equals("5")) {
+		dia1="Viernes";
+		System.out.println(dia1);
+		}
+	
+	String FranjaHoraria=request.getParameter("txtFranjaHoraria");
+	if(FranjaHoraria.equals("1")) {
+		horainicio="11:00";
+		horafin="11:15";
+		}
+	else if(FranjaHoraria.equals("2")) {
+		horainicio="12:00";
+		horafin="12:15";
+		}
+	else if(FranjaHoraria.equals("3")) {
+		horainicio="13:00";
+		horafin="13:15";
+		}
+	Horario horario=new Horario(dia1, horafin, horainicio);
+	JPAHorarioDAO horariodao = (JPAHorarioDAO) DAOFactory.getFactory().getHorarioDAO();
+	Persona d = (Persona) request.getSession().getAttribute("usuarioLogueado");
+	horariodao.crear(horario);
+	horariodao.insertarhordep(d.getId(),horario.getIdHorario());
+	String path = "/ListarHorarioControlador";
+	getServletContext().getRequestDispatcher(path).forward(request, response);
+	
 	}
 
 }

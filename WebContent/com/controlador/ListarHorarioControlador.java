@@ -13,7 +13,6 @@ import com.modelo.dao.DAOFactory;
 import com.modelo.dao.DepartamentoDAO;
 import com.modelo.dao.HorarioDAO;
 import com.modelo.entidad.Departamento;
-import com.modelo.entidad.Docente;
 import com.modelo.entidad.Horario;
 import com.modelo.entidad.Persona;
 
@@ -26,12 +25,11 @@ public class ListarHorarioControlador extends HttpServlet {
 
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		System.out.println("GET en ListHorarios");
-		Docente d = (Docente) request.getSession().getAttribute("usuarioLogueado");
-
-		List<Horario> horarios = d.getHorario();
+		HorarioDAO horarioDAO = DAOFactory.getFactory().getHorarioDAO();
+		Persona d = (Persona) request.getSession().getAttribute("usuarioLogueado");		
+		List<Horario> horarios = (List<Horario>) horarioDAO.obtenerListaPorId(d.getId());
 		request.setAttribute("horarios", horarios);
 		String path = "/jsp/configurarDisponibilidad.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);

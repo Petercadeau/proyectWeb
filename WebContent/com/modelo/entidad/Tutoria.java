@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,9 +37,16 @@ public class Tutoria implements Serializable {
 	@Column(name = "idTutoria")
 	private Integer idTutoria;
 	
-
+	@ManyToOne
+	@JoinColumn(name = "docente")
 	private Docente docente;
+	
+	@ManyToOne
+	@JoinColumn(name = "estudiante")
 	private Estudiante estudiante;
+	
+	@ManyToOne
+	@JoinColumn(name = "horario")
 	private Horario horario;
 
 	public Tutoria(){

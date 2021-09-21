@@ -39,15 +39,15 @@ public class JPADocenteDAO extends JPAPersonaDAO<Docente> implements DocenteDAO 
 
 	@Override
 	public List<Docente> obtenerPorFecha(String fecha) {
-		List<Docente> lista = obtener();
+		List<Docente> lista = obtener();//todos los docente
 		List<Docente> listaRetorno = new ArrayList<Docente>();
 
 		TutoriaDAO tutoriaDAO = DAOFactory.getFactory().getTutoriaDAO();
-		List<Tutoria> tutorias = tutoriaDAO.obtener();
+		List<Tutoria> tutorias = tutoriaDAO.obtener();//todas las tutorias
 
 		for (Docente docente : lista) {
 			ArrayList<Horario> horarioDelDocente = new ArrayList<Horario>();
-			/*for (Horario horarioFraccion : docente.getHorario()) {
+			for (Horario horarioFraccion : docente.getHorario()) {
 				if (horarioFraccion.getDia().equals(fecha)) {
 					if (!buscarPorIdEnListaHorario(tutorias, horarioFraccion.getIdHorario())) {
 						horarioDelDocente.add(horarioFraccion);
@@ -57,7 +57,7 @@ public class JPADocenteDAO extends JPAPersonaDAO<Docente> implements DocenteDAO 
 			if (!horarioDelDocente.isEmpty()) {
 				docente.setHorario(horarioDelDocente);
 				listaRetorno.add(docente);
-			}*/
+			}
 		}
 
 		return listaRetorno;

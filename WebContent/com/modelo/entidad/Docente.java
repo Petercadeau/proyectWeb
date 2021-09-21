@@ -43,11 +43,12 @@ public class Docente extends Persona implements Serializable {
 	private Departamento departamento;
 
 
-	
+	/*
 	@OneToMany
 	@JoinColumn(name = "tutoria")
 	private List<Tutoria> tutoria=new ArrayList<Tutoria>();
-
+	 */
+	//Daba un error de un fk tutoria en la misma tabla tutoria Yaaaaaaa?!
 
 	public Docente() {
 

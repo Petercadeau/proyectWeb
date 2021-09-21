@@ -35,7 +35,7 @@ import com.modelo.entidad.Persona;
 
 public class main {
 	public static void main(String[] args) {
-
+		/*
 		Horario horario = new Horario("Martes", "7:00", "7:15");
 
 		Horario horario1 = new Horario("Miercoles", "7:00", "7:15");
@@ -70,7 +70,24 @@ public class main {
 		em.getTransaction().begin();
 		em.persist(dh);
 		em.getTransaction().commit();
-
+		*/
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
+		EntityManager em = emf.createEntityManager();
+		
+		/*String consulta="Select dh from DocenteHorario dh "
+				+ "where dh.horario.dia = 'Martes' AND "
+				+ "(Select dh.docente from DocenteHorario dh where dh.horario.dia = 'Martes') "
+				+ "NOT IN (Select t from Tutoria t)";*/
+		String consulta="Select dh from DocenteHorario dh "
+				+ "Where (dh.horario.dia='Martes') "
+				+ "and (dh.horario not in "
+				+ "(Select t.horario.idHorario from Tutoria t))";
+		em.getTransaction().begin();
+		Query cueri=em.createQuery(consulta);
+		List <DocenteHorario> docentes=cueri.getResultList();
+		em.getTransaction().commit();
+		System.out.println(docentes.get(0).getDocente().getApellido());
 	
 
 	}

@@ -27,7 +27,7 @@
 					<label class="form-label">Departamento:</label><br>
 					<select class="form-select align-center" id="txtDepartamento" name="txtDepartamento"
 						aria-label="Default select example">
-						<option value="${persona.departamento.nombre}" hidden selected>${persona.departamento.nombre}</option>
+						<option value="${persona.departamento.idDepartamento}" hidden selected>${persona.departamento.nombre}</option>
 						<c:forEach  var="departamento" items="${departamentos}">
 							<option value=${departamento.idDepartamento}>${departamento.nombre}</option>
 						</c:forEach>

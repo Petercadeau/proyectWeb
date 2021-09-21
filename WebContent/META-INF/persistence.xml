@@ -8,6 +8,7 @@
 		<class>com.modelo.entidad.Departamento</class>
 		<class>com.modelo.entidad.Horario</class>
 		<class>com.modelo.entidad.Tutoria</class>
+		<class>com.modelo.entidad.DocenteHorario</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/proyectoWeb?autoReconnect=true&amp;serverTimezone=UTC&amp;useSSL=False&amp;allowPublicKeyRetrieval=true"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>

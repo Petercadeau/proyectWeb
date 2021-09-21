@@ -4,6 +4,7 @@ import com.modelo.dao.AdministradorDAO;
 import com.modelo.dao.DAOFactory;
 import com.modelo.dao.DepartamentoDAO;
 import com.modelo.dao.DocenteDAO;
+import com.modelo.dao.DocenteHorarioDAO;
 import com.modelo.dao.EstudianteDAO;
 import com.modelo.dao.HorarioDAO;
 import com.modelo.dao.TutoriaDAO;
@@ -47,5 +48,9 @@ public class JPADAOFactory extends DAOFactory {
 
 	public PersonaDAO<Persona> getPersonaDAO() {
 		return new JPAPersonaDAO<Persona>(Persona.class);
+	}
+
+	public DocenteHorarioDAO getDocenteHorarioDAO() {
+		return new JPADocenteHorarioDAO();
 	}
 }// end JPADAOFactory

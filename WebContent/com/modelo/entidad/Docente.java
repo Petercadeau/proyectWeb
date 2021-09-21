@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,10 +25,10 @@ import javax.persistence.Table;
  */
 
 @Entity
-
-@NamedQueries(
+/*
+@NamedQueries({
 		@NamedQuery(name = "eliminarHorario", query = "Delete from docente_horario WHERE idDocente=:id")
-	)
+})*/
 
 
 public class Docente extends Persona implements Serializable {
@@ -41,9 +42,7 @@ public class Docente extends Persona implements Serializable {
 	@JoinColumn(name = "departamento")
 	private Departamento departamento;
 
-	
-	@JoinColumn(name = "horario")
-	private List<Horario> horario=new ArrayList<Horario>();
+
 	
 	@OneToMany
 	@JoinColumn(name = "tutoria")
@@ -61,7 +60,7 @@ public class Docente extends Persona implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Docente [departamento=" + departamento + ", horario=" + horario + "]";
+		return "Docente [departamento=" + departamento + ",]";
 	}
 
 	public Docente(String nombre, String apellido, Departamento departamento2) {
@@ -77,13 +76,7 @@ public class Docente extends Persona implements Serializable {
 		this.departamento = departamento;
 	}
 
-	public List<Horario> getHorario() {
-		return horario;
-	}
 
-	public void setHorario(List<Horario> horario) {
-		this.horario = horario;
-	}
 
 
 

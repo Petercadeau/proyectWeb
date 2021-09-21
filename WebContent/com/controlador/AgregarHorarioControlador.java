@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.modelo.dao.DAOFactory;
 import com.modelo.dao.DocenteDAO;
 import com.modelo.dao.HorarioDAO;
+import com.modelo.entidad.Docente;
+import com.modelo.entidad.DocenteHorario;
 import com.modelo.entidad.Horario;
 import com.modelo.entidad.Persona;
 import com.modelo.jpa.JPAHorarioDAO;
@@ -70,11 +72,19 @@ public class AgregarHorarioControlador extends HttpServlet {
 		horainicio="13:00";
 		horafin="13:15";
 		}
+	
+	DocenteHorario docenteHorario = new DocenteHorario();
+	
 	Horario horario=new Horario(dia1, horafin, horainicio);
+	docenteHorario.setHorario(horario);
+	
 	JPAHorarioDAO horariodao = (JPAHorarioDAO) DAOFactory.getFactory().getHorarioDAO();
-	Persona d = (Persona) request.getSession().getAttribute("usuarioLogueado");
+	Docente d = (Docente) request.getSession().getAttribute("usuarioLogueado");
+	docenteHorario.setDocente(d);
+	
 	horariodao.crear(horario);
-	horariodao.insertarhordep(d.getId(),horario.getIdHorario());
+	DAOFactory.getFactory().getDocenteHorarioDAO().crear(docenteHorario);
+	
 	String path = "/ListarHorarioControlador";
 	getServletContext().getRequestDispatcher(path).forward(request, response);
 	

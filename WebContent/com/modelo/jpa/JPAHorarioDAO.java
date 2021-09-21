@@ -20,7 +20,7 @@ public class JPAHorarioDAO extends JPAGenericDAO<Horario, Integer> implements Ho
 	}
 
 	public List<Horario> obtenerListaPorId(Integer id) {
-		String consulta = "Select h.horario from Docente h WHERE h.id="+id;
+		String consulta = "Select h.horario from DocenteHorario h WHERE h.docente.id ="+id;
 		Query query = em.createQuery(consulta);
 		List<Horario> list = (List<Horario>) query.getResultList();
 		System.out.println("Tamaño lista: "+list.size());

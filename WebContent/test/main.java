@@ -28,20 +28,17 @@ import com.modelo.dao.PersonaDAO;
 import com.modelo.entidad.Administrador;
 import com.modelo.entidad.Departamento;
 import com.modelo.entidad.Docente;
+import com.modelo.entidad.DocenteHorario;
 import com.modelo.entidad.Estudiante;
 import com.modelo.entidad.Horario;
 import com.modelo.entidad.Persona;
 
 public class main {
 	public static void main(String[] args) {
-		/*EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
-		EntityManager em = emf.createEntityManager();
 
 		Horario horario = new Horario("Martes", "7:00", "7:15");
-		Horario horario1 = new Horario("Miercoles", "7:00", "7:15");
 
-		HorarioDAO horariodao = DAOFactory.getFactory().getHorarioDAO();
-		horariodao.crear(horario);
+		Horario horario1 = new Horario("Miercoles", "7:00", "7:15");
 
 		Administrador d = new Administrador("1717171717", "J", "P", "123");
 
@@ -49,36 +46,32 @@ public class main {
 
 		Estudiante estudiante = new Estudiante("1919191919", "Davi", "M", "789");
 
-		ArrayList<Horario> t = new ArrayList<Horario>();
-		t.add(horario);
-	
-
 		Departamento depa = new Departamento("ccss", "101");
 		DepartamentoDAO depDao = DAOFactory.getFactory().getDepartamentoDAO();
 		depDao.crear(depa);
 
 		docente.setDepartamento(depa);
-		List<Horario> h = new ArrayList<Horario>();
-		h.add(horario);
+		
+		DAOFactory.getFactory().getHorarioDAO().crear(horario);
+		
+		DocenteHorario dh = new DocenteHorario();
+		dh.setDocente(docente);
+		dh.setHorario(horario);
+		
+		DAOFactory.getFactory().getDocenteDAO().crear(docente);
 		
 
-		DocenteDAO dc = DAOFactory.getFactory().getDocenteDAO();
-		dc.crear(docente);*/
+		//docente.setHorario(h);
+
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
 		EntityManager em = emf.createEntityManager();
-		String sentenciaJPQL = "SELECT t FROM Tutoria t";
-		Query query = em.createQuery(sentenciaJPQL);
-		
-		List<Tutoria> personaEncontrada = (List<Tutoria>) query.getResultList();
-		System.out.println(personaEncontrada.get(0).getDocente().getNombre());
-		System.out.println(personaEncontrada.get(0).getDocente().getApellido());
-		
-		System.out.println(personaEncontrada.get(0).getEstudiante().getNombre());
-		System.out.println(personaEncontrada.get(0).getEstudiante().getApellido());
-		
-		System.out.println(personaEncontrada.get(0).getHorario().getDia());
-		System.out.println(personaEncontrada.get(0).getHorario().getHoraDeInicio());
-		System.out.println(personaEncontrada.get(0).getHorario().getHoraDeFin());
+		//docente.getHorario().remove(horario);
+
+		em.getTransaction().begin();
+		em.persist(dh);
+		em.getTransaction().commit();
+
+	
 
 	}
 }

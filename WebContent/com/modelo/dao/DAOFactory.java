@@ -33,4 +33,6 @@ public abstract class DAOFactory {
 	public abstract TutoriaDAO getTutoriaDAO();
 
 	public abstract PersonaDAO<Persona> getPersonaDAO();
+	
+	public abstract DocenteHorarioDAO getDocenteHorarioDAO();
 }// end DAOFactory

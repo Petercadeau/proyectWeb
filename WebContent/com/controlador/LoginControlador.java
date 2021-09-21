@@ -68,6 +68,7 @@ public class LoginControlador extends HttpServlet {
 
 		HttpSession sesion = request.getSession();
 		Persona personaAutorizada = personaModelo.autorizar(cedula, password);
+		
 		if(personaAutorizada==null) {
 			System.out.println("No existe el usuario");
 			doGet(request, response);
@@ -102,6 +103,8 @@ public class LoginControlador extends HttpServlet {
 				response.addCookie(cookiePass);		
 				response.addCookie(cookieRecordarme);	
 			}
+			
+			System.out.println(personaAutorizada.toString());
 				
 			switch (personaAutorizada.getTipoDeUsuario()) {
 				case "Administrador": {

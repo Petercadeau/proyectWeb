@@ -3,10 +3,13 @@ package com.modelo.jpa;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import com.modelo.dao.DAOFactory;
 import com.modelo.dao.DocenteDAO;
 import com.modelo.dao.TutoriaDAO;
 import com.modelo.entidad.Docente;
+import com.modelo.entidad.DocenteHorario;
 import com.modelo.entidad.Horario;
 import com.modelo.entidad.Persona;
 import com.modelo.entidad.Tutoria;
@@ -39,33 +42,16 @@ public class JPADocenteDAO extends JPAPersonaDAO<Docente> implements DocenteDAO 
 
 	@Override
 	public List<Docente> obtenerPorFecha(String fecha) {
-		List<Docente> lista = obtener();//todos los docente
-		List<Docente> listaRetorno = new ArrayList<Docente>();
 
-		TutoriaDAO tutoriaDAO = DAOFactory.getFactory().getTutoriaDAO();
-		List<Tutoria> tutorias = tutoriaDAO.obtener();//todas las tutorias
-
-		for (Docente docente : lista) {
-			ArrayList<Horario> horarioDelDocente = new ArrayList<Horario>();
-			for (Horario horarioFraccion : docente.getHorario()) {
-				if (horarioFraccion.getDia().equals(fecha)) {
-					if (!buscarPorIdEnListaHorario(tutorias, horarioFraccion.getIdHorario())) {
-						horarioDelDocente.add(horarioFraccion);
-					}
-				}
-			}
-			if (!horarioDelDocente.isEmpty()) {
-				docente.setHorario(horarioDelDocente);
-				listaRetorno.add(docente);
-			}
-		}
-
-		return listaRetorno;
+		String consulta = "Select distinct dh.docente from DocenteHorario dh " + "Where (dh.horario.dia=:fecha) "
+				+ "and (dh.horario.idHorario not in "
+				+ "(Select t.horario.idHorario from Tutoria t WHERE t.docente = dh.docente))";
+		em.getTransaction().begin();
+		Query query = em.createQuery(consulta);
+		query.setParameter("fecha", fecha);
+		List<Docente> docentes = query.getResultList();
+		em.getTransaction().commit();
+		return docentes;
 	}
-
-
-	
-	
-	
 
 }// end JPADocenteDAO

@@ -72,23 +72,40 @@ public class main {
 		em.getTransaction().commit();
 		*/
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
-		EntityManager em = emf.createEntityManager();
+		/*EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
+		EntityManager em = emf.createEntityManager();*/
 		
-		/*String consulta="Select dh from DocenteHorario dh "
-				+ "where dh.horario.dia = 'Martes' AND "
-				+ "(Select dh.docente from DocenteHorario dh where dh.horario.dia = 'Martes') "
-				+ "NOT IN (Select t from Tutoria t)";*/
-		String consulta="Select dh from DocenteHorario dh "
+	
+		//Obtener los docentes disponible en un día 
+		/*String consulta="Select distinct dh.docente from DocenteHorario dh "
 				+ "Where (dh.horario.dia='Martes') "
-				+ "and (dh.horario not in "
-				+ "(Select t.horario.idHorario from Tutoria t))";
+				+ "and (dh.horario.idHorario not in "
+				+ "(Select t.horario.idHorario from Tutoria t WHERE t.docente = dh.docente))";
 		em.getTransaction().begin();
 		Query cueri=em.createQuery(consulta);
-		List <DocenteHorario> docentes=cueri.getResultList();
+		List <Docente> docentes=cueri.getResultList();
 		em.getTransaction().commit();
-		System.out.println(docentes.get(0).getDocente().getApellido());
+		System.out.println(docentes.get(0).getApellido());
+		System.out.println(docentes.size());
+		System.out.println(docentes.get(1).getApellido());*/
 	
+		
+		/*//Obtener los Horarios disponibles de un docente en un día
+		String consulta="Select dh.horario from DocenteHorario dh "
+				+ "Where (dh.docente.id = '2') AND (dh.horario.dia='Martes') "
+				+ "and (dh.horario.idHorario not in "
+				+ "(Select t.horario.idHorario from Tutoria t WHERE t.docente = dh.docente))";
+		em.getTransaction().begin();
+		Query cueri=em.createQuery(consulta);
+		List <Horario> docentes=cueri.getResultList();
+		em.getTransaction().commit();
+		System.out.println(docentes.get(0).getHoraDeFin());
+		System.out.println(docentes.size());
+		System.out.println(docentes.get(1).getHoraDeInicio());*/
+		
+		Administrador d = new Administrador("1717171717", "J", "P", "123");
+
+		DAOFactory.getFactory().getAdministradorDAO().crear(d);
 
 	}
 }

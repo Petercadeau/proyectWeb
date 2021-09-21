@@ -13,5 +13,7 @@ import com.modelo.entidad.Tutoria;
 public interface HorarioDAO extends GenericDAO<Horario, Integer> {
 
 	public abstract List<Horario> obtenerListaPorId(Integer id);
+
+	public abstract List<Horario> obtenerListaPorIdDia(Integer txtId, String txtDia);
 	
 }

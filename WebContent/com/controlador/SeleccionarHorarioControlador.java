@@ -28,18 +28,15 @@ public class SeleccionarHorarioControlador extends HttpServlet {
 	public SeleccionarHorarioControlador() {
 		super();
 	}
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Integer txtId = Integer.parseInt(request.getParameter("txtId"));
 		String txtDia = request.getParameter("txtDia");
+
 		HorarioDAO horariodDao = DAOFactory.getFactory().getHorarioDAO();
-		List<Horario> horarios = horariodDao.obtenerListaPorId(txtId);
-		List<Horario> horarioFinal = new ArrayList<Horario>();
-		for (Horario h : horarios) {
-			if (h.getDia().equals(txtDia)) {
-				horarioFinal.add(h);
-			}
-		}
+		List<Horario> horarioFinal = horariodDao.obtenerListaPorIdDia(txtId, txtDia);
+
 		request.setAttribute("horarios", horarioFinal);
 		request.setAttribute("idDocente", txtId);
 		request.setAttribute("txtDia", txtDia);
@@ -58,11 +55,11 @@ public class SeleccionarHorarioControlador extends HttpServlet {
 		t.setDocente(DAOFactory.getFactory().getDocenteDAO().obtenerPorId(idDocente));
 		t.setEstudiante(DAOFactory.getFactory().getEstudianteDAO().obtenerPorId(idEstudiante));
 		t.setHorario(DAOFactory.getFactory().getHorarioDAO().obtenerPorId(idHorario));
-		
+
 		System.out.println("Hola como estás docente:  " + t.getDocente().getNombre());
 		System.out.println("Hola como estás estudiante:  " + t.getEstudiante().getNombre());
 		System.out.println("Hola como estás horario:  " + t.getHorario().getDia());
-		
+
 		DAOFactory.getFactory().getTutoriaDAO().crear(t);
 	}
 

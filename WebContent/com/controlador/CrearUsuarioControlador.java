@@ -79,7 +79,7 @@ public class CrearUsuarioControlador extends HttpServlet {
 		default:
 			break;
 		}
-		PersonaDAO personaDao = DAOFactory.getFactory().getPersonaDAO();
+		PersonaDAO<Persona> personaDao = DAOFactory.getFactory().getPersonaDAO();
 		personaDao.crear(usuario);
 		String path = "/jsp/listarUsuarios.jsp";
 		getServletContext().getRequestDispatcher(path).forward(request, response);

@@ -16,7 +16,7 @@ import com.modelo.entidad.Tutoria;
  * @created 01-sep.-2021 18:03:57
  */
 public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("proyect1.0");	
 	protected EntityManager em = emf.createEntityManager();
 	protected Class<T> persistentClass;
 
@@ -30,12 +30,13 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
         em.merge(entity);
         em.getTransaction().commit();
 	}
-
+	
 	@Override
 	public void crear(T entity) {
 		em.getTransaction().begin();
         em.persist(entity);
         em.getTransaction().commit();
+
 
 	}
 
@@ -47,16 +48,15 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
         em.getTransaction().commit();
 	}
 
-	@Override
-	public List<T> obtener() {
-		String consulta = "Select e from " + this.persistentClass.getSimpleName() + " e";
-		Query query = em.createQuery(consulta, this.persistentClass);
-		List<T> list = (List<T>) query.getResultList();
-		return list;
-	}
+
 
 	@Override
 	public T obtenerPorId(ID id) {
 		return  em.find(persistentClass, id);
+	}
+
+	@Override
+	public List<T> obtener() {
+		return null;
 	}
 }// end JPAGenericDAO<T,ID>

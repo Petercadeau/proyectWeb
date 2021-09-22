@@ -50,5 +50,12 @@ public class JPAHorarioDAO extends JPAGenericDAO<Horario, Integer> implements Ho
 		query.executeUpdate();
 		em.getTransaction().commit();
 	}
+	
+	public Horario getHorarioByDiaHora(String dia, String horaInicial) {
+        String consulta = "Select h from Horario h WHERE h.dia = '" + dia+"' and h.horaDeInicio = '"+horaInicial+"'";
+        Query query = em.createQuery(consulta);
+        Horario horario = (Horario) query.getSingleResult();
+        return horario;
+    }
 
 }// end JPAHorarioDAO

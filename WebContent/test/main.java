@@ -7,6 +7,7 @@ import javax.persistence.Query;
 
 import com.modelo.dao.GenericDAO;
 import com.modelo.entidad.Tutoria;
+import com.modelo.jpa.JPAHorarioDAO;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -103,9 +104,19 @@ public class main {
 		System.out.println(docentes.size());
 		System.out.println(docentes.get(1).getHoraDeInicio());*/
 		
-		Administrador d = new Administrador("1717171717", "J", "P", "123");
+		/*Administrador d = new Administrador("1717171717", "J", "P", "123");
 
-		DAOFactory.getFactory().getAdministradorDAO().crear(d);
+		DAOFactory.getFactory().getAdministradorDAO().crear(d);*/
+		
+		String dia ="Viernes";
+		String FranjaHoraria = "10:00";
+		
+		DocenteHorario docenteHorario = new DocenteHorario();
+		
+		JPAHorarioDAO horariodao = (JPAHorarioDAO) DAOFactory.getFactory().getHorarioDAO();
+		Horario horario = 	horariodao.getHorarioByDiaHora(dia, FranjaHoraria);;
+		
+		System.out.println(horario.toString());
 
 	}
 }

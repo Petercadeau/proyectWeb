@@ -9,12 +9,14 @@
 		<class>com.modelo.entidad.Horario</class>
 		<class>com.modelo.entidad.Tutoria</class>
 		<class>com.modelo.entidad.DocenteHorario</class>
+		<shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/proyectoWeb?autoReconnect=true&amp;serverTimezone=UTC&amp;useSSL=False&amp;allowPublicKeyRetrieval=true"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value=""/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="eclipselink.ddl-generation" value="create-tables"/>
+			<property name="eclipselink.cache.type.default" value="NONE"/>
 			
 		</properties>
 	</persistence-unit>

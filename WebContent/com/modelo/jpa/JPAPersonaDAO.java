@@ -35,6 +35,14 @@ public class JPAPersonaDAO<T> extends JPAGenericDAO<T, Integer> implements Perso
 		Persona personaEncontrada = (Persona) w.get(0);
 		return personaEncontrada;
 	}
+	
+	@Override
+	public List<T> obtener() {
+		String consulta = "Select e from " + this.persistentClass.getSimpleName() + " e";
+		Query query = em.createQuery(consulta, this.persistentClass);
+		List<T> list = (List<T>) query.getResultList();
+		return list;
+	}
 
 	/*
 	 * @Override public T obtenerPorId(Integer id) { T t = em.find(persistentClass,

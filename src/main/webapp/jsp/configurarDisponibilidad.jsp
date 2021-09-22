@@ -50,18 +50,48 @@
 						<label class="form-label">Seleccione un día:</label> <br> <select
 							class="form-select" aria-label="Default select example" id="txtDia" name="txtDia">
 							<option selected>Día</option>
-							<option value="1">Lunes</option>
-							<option value="2">Martes</option>
-							<option value="3">Miércoles</option>
-							<option value="4">Jueves</option>
-							<option value="5">Viernes</option>
+							<option value="Lunes">Lunes</option>
+							<option value="Martes">Martes</option>
+							<option value="Miércoles">Miércoles</option>
+							<option value="Jueves">Jueves</option>
+							<option value="Viernes">Viernes</option>
 						</select><br> <label class="form-label">Seleccione una franja
 							horaria:</label><br> <select class="form-select align-center"
 							aria-label="Default select example" id="txtFranjaHoraria" name="txtFranjaHoraria">
 							<option selected>Horario</option>
-							<option value="1">11:00 - 11:15</option>
-							<option value="2">12:00 - 12:15</option>
-							<option value="3">13:00 - 13:15</option>
+							<option value="08:00">8:00</option>
+							<option value="08:15">8:15</option>
+							<option value="08:30">8:30</option>
+							<option value="08:45">8:45</option>
+							<option value="09:00">9:00</option>
+							<option value="09:15">9:15</option>
+							<option value="09:30">9:30</option>
+							<option value="09:45">9:45</option>
+							<option value="10:00">10:00</option>
+							<option value="10:15">10:15</option>
+							<option value="10:30">10:30</option>
+							<option value="10:45">10:45</option>
+							<option value="11:00">11:00</option>
+							<option value="11:15">11:15</option>
+							<option value="11:30">11:30</option>
+							<option value="11:45">11:45</option>
+							<option value="12:00">12:00</option>
+							<option value="12:15">12:15</option>
+							<option value="12:30">12:30</option>
+							<option value="12:45">12:45</option>
+							<option value="14:00">14:00</option>
+							<option value="14:15">14:15</option>
+							<option value="14:30">14:30</option>
+							<option value="14:45">14:45</option>
+							<option value="15:00">15:00</option>
+							<option value="15:15">15:15</option>
+							<option value="15:30">15:30</option>
+							<option value="15:45">15:45</option>
+							<option value="16:00">16:00</option>
+							<option value="16:15">16:15</option>
+							<option value="16:30">16:30</option>
+							<option value="16:45">16:45</option>
+				
 						</select><br>
 						<div class="text-end">
 							<button type=submit" class="btn btn-primary text-end"  onclick="modalRegistrarHorario()">

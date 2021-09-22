@@ -37,7 +37,7 @@ public class AgregarHorarioControlador extends HttpServlet {
 	String horainicio="";
 	String horafin="";
 	String dia=request.getParameter("txtDia");
-	System.out.println(dia);
+	/*System.out.println(dia);
 	if(dia.equals("1")) {
     dia1="Lunes";
     System.out.println(dia1);
@@ -57,10 +57,10 @@ public class AgregarHorarioControlador extends HttpServlet {
 	else if(dia.equals("5")) {
 		dia1="Viernes";
 		System.out.println(dia1);
-		}
+		}*/
 	
 	String FranjaHoraria=request.getParameter("txtFranjaHoraria");
-	if(FranjaHoraria.equals("1")) {
+	/*if(FranjaHoraria.equals("1")) {
 		horainicio="11:00";
 		horafin="11:15";
 		}
@@ -71,18 +71,21 @@ public class AgregarHorarioControlador extends HttpServlet {
 	else if(FranjaHoraria.equals("3")) {
 		horainicio="13:00";
 		horafin="13:15";
-		}
+		}*/
 	
 	DocenteHorario docenteHorario = new DocenteHorario();
 	
-	Horario horario=new Horario(dia1, horafin, horainicio);
-	docenteHorario.setHorario(horario);
-	
 	JPAHorarioDAO horariodao = (JPAHorarioDAO) DAOFactory.getFactory().getHorarioDAO();
+	Horario horario = 	horariodao.getHorarioByDiaHora(dia, FranjaHoraria);;
+	
+	System.out.println(horario.toString());
+	
 	Docente d = (Docente) request.getSession().getAttribute("usuarioLogueado");
 	docenteHorario.setDocente(d);
 	
-	horariodao.crear(horario);
+	//horariodao.crear(horario);
+	docenteHorario.setHorario(horario);
+	
 	DAOFactory.getFactory().getDocenteHorarioDAO().crear(docenteHorario);
 	
 	String path = "/ListarHorarioControlador";
